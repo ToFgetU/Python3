@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # Author: PanFei Liu
 
@@ -56,15 +56,15 @@ main_menu = menu_dict.keys()
 menu = menu_dict
 str = []
 while True:
-    for m in main_menu:
+    for m in main_menu: #菜单列表
         print(m)
     if menu.keys():
         name = input("Please select（up level: B/b）:")
-        if name not in "Bb" and name in main_menu:
+        if name not in "Bb" and name in main_menu: #判断输入是否为 菜单
             str.append(name)
             print(str)
             val = menu[name]
-        elif name in "Bb":
+        elif name in "Bb": #返回上一层判断
             if len(str):
                 up_level = str.pop()
                 print(str)
@@ -85,7 +85,7 @@ while True:
                 main_menu = menu_dict.keys()
                 menu = menu_dict
                 continue
-        elif name in "Qq":
+        elif name in "Qq": #退出程序
             print("-----END-----")
             break
         else:
@@ -94,7 +94,7 @@ while True:
     else:
         print("error")
 
-    if isinstance(val, dict):
+    if isinstance(val, dict): # 进入下一层菜单
         if name in menu.keys():
             main_menu = menu[name].keys()
             menu = menu[name]
@@ -106,7 +106,7 @@ while True:
         result = input("Back at the next higher level or quit?(quit: Q/q)")
         if result in "Qq":
             break
-        else:
+        else: #退回到首层菜单
             main_menu = menu_dict.keys()
             menu = menu_dict
 

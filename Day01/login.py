@@ -17,9 +17,11 @@ print("dict:", dict_user)
 while True:
     username = input("username: ")
     password = input("password: ")
-
     if username in dict_user.keys():
-        if dict_user[username] == password and dict_sign[username] < 2:
+        if dict_user[username] == password and username not in dict_sign:
+            print("Welcome: ", username)
+            break
+        elif dict_user[username] == password and dict_sign[username] < 2:
             print("Welcome: ", username)
             break
         elif username not in dict_sign.keys():
