@@ -54,19 +54,51 @@ menu_dict = {
 
 main_menu = menu_dict.keys()
 menu = menu_dict
+str = []
 while True:
     for m in main_menu:
         print(m)
     if menu.keys():
-        name = input("Please select:")
-        val = menu[name]
+        name = input("Please select（up level: B/b）:")
+        if name not in "Bb" and name in main_menu:
+            str.append(name)
+            print(str)
+            val = menu[name]
+        elif name in "Bb":
+            if len(str):
+                up_level = str.pop()
+                print(str)
+                if len(str) == 1:
+                    menu = menu_dict[str[0]]
+                    main_menu = menu_dict[str[0]].keys()
+                    continue
+                elif len(str) > 1:
+                    for i in range(len(str)-1):
+                        menu = menu_dict[str[i]]
+                    main_menu = menu[str[len(str)-1]].keys()
+                    continue
+                else:
+                    main_menu = menu_dict.keys()
+                    menu = menu_dict
+                    continue
+            else:
+                main_menu = menu_dict.keys()
+                menu = menu_dict
+                continue
+        elif name in "Qq":
+            print("-----END-----")
+            break
+        else:
+            print("The menu  what you choice does not exist")
+            continue
     else:
-        input("Back at the next higher level :")
+        print("error")
 
     if isinstance(val, dict):
         if name in menu.keys():
             main_menu = menu[name].keys()
             menu = menu[name]
+
         else:
             name = input("The menu $s what you choice does not exist, Please select again:"% name)
     else:
