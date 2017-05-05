@@ -19,7 +19,7 @@ while True:
     password = input("password: ")
 
     if username in dict_user.keys():
-        if dict_user[username] == password:
+        if dict_user[username] == password and dict_sign[username] < 2:
             print("Welcome: ", username)
             break
         elif username not in dict_sign.keys():
@@ -31,11 +31,11 @@ while True:
             print("The user or password is not correct!")
         else:
             print("the user %s is locked!"% username)
-            result = input("Do uou need to reset the login?(Y/N)")
+            result = input("Whether or not to continue?(Y/N)")
             while result not in ("YyNn"):
-                result = input("Do uou need to reset the login?(Y/N)")
+                result = input("Whether or not to continue?(Y/N)")
             if result in "Yy":
-                dict_sign[username] = 0
+                pass
             else:
                 print("-----END-----")
                 break
