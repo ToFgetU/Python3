@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # Author: Panfei Liu
 
@@ -31,7 +31,7 @@ while True:
         for u in user_sign.readlines():
             user_passwd = u.split(":")
             user_dict[user_passwd[0]] = user_passwd[1].rstrip()
-            print(user_dict)
+            # print(user_dict)
     #存储账户余额
     with open("data/salary.txt", "r", encoding='utf-8') as salary_sign:
         for s in salary_sign.readlines():
@@ -41,9 +41,9 @@ while True:
     with open("data/user_buy_log.txt", "r", encoding='utf-8') as user_buy_sign:
         for ub in user_buy_sign.readlines():
             user_buy = ub.split(":")
-            print(user_buy[0], user_buy[1])
+            # print(user_buy[0], user_buy[1])
             user_buy_dict[user_buy[0]] = user_buy[1].rstrip()
-            print("--->", user_buy_dict)
+            # print("--->", user_buy_dict)
 
     #判断用户是否已经存在，如果不存在添加到 user.txt 文件中
     if username not in user_dict:
@@ -57,18 +57,42 @@ while True:
 
 #账号登入
 if username in user_dict and password == user_dict[username]:
-    print("-----> Welcome :", username + '\n')
+    print("|----------> Welcome :", username + " <----------|" + "\n")
+
+    #判断用户曾经是否有购买过商品
+    if username in user_buy_dict:
+        # print(user_buy_dict[username])
+        temp = user_buy_dict[username].split("['")
+
+        for i in temp:
+            tmp = i.split("',")
+            t = tmp[0]
+            for index, item in enumerate(product):
+                if t in item:
+                    p_log = product[index].split(",")
+                    # print("p_log", p_log)
+                    cart.append(p_log)
+                else:
+                    pass
+
+        #显示已经购买的商品和余额
+        print("<--------What You Bought-------->")
+        for c in cart:
+            print("\t--> ", c)
+        print("\n\t--> \033[44;1mYour balance:\033[0m \033[32;1m%s\033[0m"% salary_dict[username] + "\n")
+
 
     while True:
-        print("----- product list -----")
+        print("\n----- product list -----\n")
         for index, item in enumerate(product):
             print("\t", index, item)
         #选择商品代码
-        user_choice = input("Please choose the items what you want (quit:q/Q)>>> ")
+        user_choice = input("\nPlease choose the items what you want (quit:q/Q)>>> ")
         if user_choice.isdigit():
             user_choice = int(user_choice)
             if user_choice < len(product) and user_choice >= 0:
                 p_item = product[user_choice].split(",")
+                # print("p_item", p_item)
                 p_name = p_item[0]
                 p_salary = int(p_item[1].strip())
                 if p_salary <= salary_dict[username]:
@@ -80,27 +104,38 @@ if username in user_dict and password == user_dict[username]:
                     print("Your balance [\033[31;1m%s\033[0m] is not enough to "
                           "buy the goods [\033[34;1m%s\033[0m] . . ."% (salary_dict[username], p_name))
             else:
-                print("No goods what you want...")
+                print("\n\033[42;1m\033[34;1mNo goods what you want...\033[0m\033[0m")
+        elif user_choice in "fF":
+            #查询历史购买记录
+            print("<--------HISTORY BUY-------->")
+            for c in cart:
+                print("\t--> ", c)
         elif user_choice in "qQ":
             #存储购买记录
             user_buy_dict[username] = cart
-            with open("data/user_buy_log.txt", "a", encoding='utf-8') as user_buy_log:
+            with open("data/user_buy_log.txt", "w", encoding='utf-8') as user_buy_log:
                 for key in user_buy_dict:
                     str_key = str(key)
                     str_value = str(user_buy_dict[key])
+                    # print(str_value)
+                    if str_value != "[]":
+                        user_buy_log.writelines(str_key + ":" + str_value + "\n")
+                    else:
+                        pass
+            #存储购买后余额
+            with open("data/salary.txt", "w", encoding='utf-8') as s_salary:
+                for s in salary_dict:
+                    s_salary.writelines(s + ":" + str(salary_dict[s]) + "\n")
 
-                    print(str_key, str_value)
-                    user_buy_log.writelines(str_key + ":" + str_value + "\n")
-
-            print("-----Your cart list-----")
+            print("\n-----Your cart list-----")
             # 退出时，显示购买的商品和余额
             for i in cart:
                 print(i)
-            print("Your balance: ", salary_dict[username])
-            print("-----END-----")
+            print("\033[46;1mYour balance:\033[0m \033[32;1m%s\033[0m" % salary_dict[username] + "\n")
+            print("\n\n-----END-----")
             break
         else:
-            print("Options you input is wrong, please input again")
+            print("\033[42;1m\033[34;1mOptions you input is wrong, please input again!\033[0m\033[0m")
 
 else:
     print("User or password is not correct...")
