@@ -7,13 +7,13 @@ def open_file(mode):
     h_file =  open("data/haproxy.cfg", mode, encoding="utf-8")
     return h_file
 
-def retrieve(str):
+def retrieve(string):
     """查询"""
     f = open_file('r')
-    str = "backend " + str
+    string = "backend " + string
     count = 0
     for line in f:
-        if str in line and line[0] == 'b':
+        if string in line and line[0] == 'b':
             count += 1
             print(line.rstrip())
         elif count == 1:
@@ -29,16 +29,18 @@ def create(string):
     dict_str = eval(string)
     print(dict_str)
     f = open_file('r+')
+
+    string = "backend " + dict_str["backend"]
     count = 0 #是否已经存在配置的标记
     for line in f:
-        if dict_str["bakend"] in line and count == 0:
+        if string in line and len(string) == len(line.rstrip()) and count == 0:
             #print(dict_file["bakend"] )
             print("Configuration has been... ")
             count = 1
 
 
     if count == 0:
-        str_bakend = "bakend " + dict_str["bakend"] + "\n"
+        str_bakend = "backend " + dict_str["backend"] + "\n"
         str_record = "\t\tserver " + dict_str["record"]["server"]\
                      + " weight " + str(dict_str["record"]["weight"])\
                      + " maxconn " + str(dict_str["record"]["maxconn"])
@@ -79,5 +81,5 @@ def haproxy_do():
 haproxy_do()
 
 """
-{'bakend': 'haproxy.org', 'record':{'server': '100.1.7.8', 'weight': 20, 'maxconn': 3000}}
+{'backend': 'www.oldboy.org', 'record':{'server': '100.1.7.8', 'weight': 20, 'maxconn': 3000}}
 """
