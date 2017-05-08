@@ -27,7 +27,7 @@ def retrieve(string):
 def create(string):
     """新增"""
     dict_str = eval(string)
-    print(dict_str)
+    # print(dict_str)
     f = open_file('r+')
 
     string = "backend " + dict_str["backend"]
@@ -37,7 +37,7 @@ def create(string):
             #print(dict_file["bakend"] )
             print("Configuration has been... ")
             count = 1
-
+            break
 
     if count == 0:
         str_bakend = "backend " + dict_str["backend"] + "\n"
@@ -52,6 +52,37 @@ def create(string):
         f.close()
         print("Add success ...")
 
+def delete(string):
+    """删除"""
+    dict_str = eval(string)
+    # print(dict_str)
+    f_r = open_file('r')
+
+
+    string = "backend " + dict_str["backend"]
+    temp_str = []
+    count = 0 #是否已经存在配置的标记
+    for line in f_r:
+        temp_str.append(line)
+        if string in line and len(string) == len(line.rstrip()) and count == 0:
+            count = 1
+    f_r.close()
+
+    f_w = open_file('w')
+    if count == 1:
+        sign = 0
+        for i in temp_str:
+            if string in i and len(string) == len(i.rstrip()):
+                sign = 1
+                continue
+            elif sign == 1:
+                continue
+            print(i)
+            f_w.writelines(i)
+
+    else:
+        print("what you want to delete the configuration does not exist.")
+    f_w.close()
 
 def haproxy_do():
     """增删查操作"""
@@ -64,13 +95,14 @@ def haproxy_do():
     if name.isdigit():
         name = int(name)
         if name == 1:
-            str = input("--> What do you retrieve. >>> ") #www.oldboy.org
-            retrieve(str)
+            string = input("--> What do you retrieve. >>> ") #www.oldboy.org
+            retrieve(string)
         elif name == 2:
-            str = input("--> Input your arg. >>> ")
-            create(str)
+            string = input("--> Input your arg. >>> ")
+            create(string)
         elif name ==3:
-            pass
+            string = input("--> What do you delete the configuration. >>>")
+            delete(string)
         else:
             print("Input is wrong...")
     else:
@@ -81,5 +113,5 @@ def haproxy_do():
 haproxy_do()
 
 """
-{'backend': 'www.oldboy.org', 'record':{'server': '100.1.7.8', 'weight': 20, 'maxconn': 3000}}
+{'backend': 'www.oldboy', 'record':{'server': '100.1.7.8', 'weight': 20, 'maxconn': 3000}}
 """
