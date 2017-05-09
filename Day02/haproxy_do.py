@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
-
+import os
 def open_file(mode):
     """打开文件"""
-    h_file =  open("data/haproxy.cfg", mode, encoding="utf-8")
+    BASE_DIR = os.path.dirname(__file__)
+    h_file = open(os.path.join(BASE_DIR, "data/haproxy.cfg"), mode, encoding="utf-8")
     return h_file
+
+def bak_file():
+    """修改前备份"""
+    f = open_file("r")
+    with open("data/haproxy.cfg.bak","w", encoding="utf-8") as f_bak:
+        for line in f:
+            f_bak.writelines(line)
+    f.close()
 
 def retrieve(string):
     """查询"""
@@ -17,10 +26,12 @@ def retrieve(string):
             count += 1
             print(line.rstrip())
         elif count == 1:
+            count = 2
             print(line)
-            count = 0
         else:
             pass
+    if count == 0:
+        print("What you find the configuration does not exist.")
     f.close()
 
 
@@ -28,6 +39,7 @@ def create(string):
     """新增"""
     dict_str = eval(string)
     # print(dict_str)
+    bak_file()
     f = open_file('r+')
 
     string = "backend " + dict_str["backend"]
@@ -56,6 +68,7 @@ def delete(string):
     """删除"""
     dict_str = eval(string)
     # print(dict_str)
+    bak_file()
     f_r = open_file('r')
 
 
@@ -70,17 +83,22 @@ def delete(string):
 
     f_w = open_file('w')
     if count == 1:
+        # print(temp_str)
         sign = 0
         for i in temp_str:
             if string in i and len(string) == len(i.rstrip()):
                 sign = 1
                 continue
             elif sign == 1:
+                sign = 0
                 continue
-            print(i)
+            # print(i)
             f_w.writelines(i)
+        print("Configuration deleted successfully.")
 
     else:
+        for i in temp_str:
+            f_w.writelines(i)
         print("what you want to delete the configuration does not exist.")
     f_w.close()
 
@@ -100,7 +118,7 @@ def haproxy_do():
         elif name == 2:
             string = input("--> Input your arg. >>> ")
             create(string)
-        elif name ==3:
+        elif name == 3:
             string = input("--> What do you delete the configuration. >>>")
             delete(string)
         else:
