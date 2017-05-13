@@ -41,10 +41,9 @@ dict1 = {
     "name":"alex",
     "age":22
 }
-fd = open("text.txt", "w")
+fd = open("text.txt", "a")
 
 fd.write(json.dumps(dict1))
-
 fd.close()
 
 fl = open("text.txt", "r")
@@ -53,3 +52,47 @@ print(type(data))
 print(data)
 
 print(''.join("shelve").center(60, "-"))
+
+
+print(''.join("插入").center(60, '-'))
+import json
+
+
+dict1 = {
+    "1": {
+        'name':'Alex Li',
+        'age':22,
+        'phone':'13651054608',
+        'dept':'IT',
+        'enroll_date':'2013-04-01'
+    },
+    "2": {
+        'name':'Jack Wang',
+        'age':30,
+        'phone':'13304320533',
+        'dept':'HR',
+        'enroll_date':'2015-05-03'
+    },
+    "3": {
+        'name':'Raln Liu',
+        'age':25,
+        'phone':'1383235322',
+        'dept':'Sales',
+        'enroll_date':'2016-04-22'
+    },
+    "4": {
+        'name':'Mack Cao',
+        'age':40,
+        'phone':'1356145343',
+        'dept':'HR',
+        'enroll_date':'2009-03-01'
+    }
+}
+
+
+
+f = open("work/data/staff.json", "w", encoding='utf-8')
+
+f.write(json.dumps(dict1, indent=4, separators=(',', ':')))
+# print(json.dumps(dict1, indent=4, separators=(',', ':')))
+f.close()

@@ -35,3 +35,10 @@ while count <= 100:
         count += 1
 
 print(sum)
+
+def test1(*args):
+    glo
+    print(args)
+
+test1("lilei", 18, "CN")
+test1(*["lilei", 18, "CN"])

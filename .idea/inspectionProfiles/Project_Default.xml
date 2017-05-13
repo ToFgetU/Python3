@@ -1,0 +1,13 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="staff_do" />
+          <option value="Day05.work.bin.demo.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
