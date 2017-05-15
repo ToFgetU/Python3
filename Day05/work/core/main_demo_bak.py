@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # Author: Panfei Liu
 
-from core import staff_do
+import staff_do_bak
 
 def run():
     """运行程序主入口"""
@@ -87,7 +87,7 @@ def run():
                 delete_str = input("请输入要删除的staff_id 或 name:")
                 staff_do.staff_delete(delete_str)
             elif num == 0:
-                staff = staff_do.staff_read()
+                staff = staff_do_bak.staff_read()
                 for k, v in staff.items():
                     print(k, v)
             else:
@@ -98,7 +98,7 @@ def run():
             print("选择错误。。。")
 
 
-# run()
+run()
 
 
 
