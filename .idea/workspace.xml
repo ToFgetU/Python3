@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df843004-c319-4b93-8684-84f800dd4323" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Day05/work/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Day05/work/core/main_demo_bak.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Day05/work/core/staff_do_bak.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Python3.iml" afterPath="$PROJECT_DIR$/.idea/Python3.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Day05/work/core/main_demo.py" afterPath="$PROJECT_DIR$/Day05/work/core/main_demo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Day05/work/core/staff_do.py" afterPath="$PROJECT_DIR$/Day05/work/core/staff_do.py" />
@@ -20,30 +19,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Python3$shoppingCart.coverage" NAME="shoppingCart Coverage Results" MODIFIED="1493972991695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$hash_do.coverage" NAME="hash_do Coverage Results" MODIFIED="1494645055799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$lv3menu.coverage" NAME="lv3menu Coverage Results" MODIFIED="1493963204765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1493967581996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
-    <SUITE FILE_PATH="coverage/Python3$staff_do__1_.coverage" NAME="staff_do (1) Coverage Results" MODIFIED="1494689854522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
-    <SUITE FILE_PATH="coverage/Python3$main_demo__1_.coverage" NAME="main_demo (1) Coverage Results" MODIFIED="1494774512123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
+    <SUITE FILE_PATH="coverage/Python3$haproxy_do.coverage" NAME="haproxy_do Coverage Results" MODIFIED="1494296655498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$config_read.coverage" NAME="config_read Coverage Results" MODIFIED="1494643053179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$config_create.coverage" NAME="config_create Coverage Results" MODIFIED="1494642411005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$func_1.coverage" NAME="func_1 Coverage Results" MODIFIED="1494382254854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
     <SUITE FILE_PATH="coverage/Python3$sys_mode.coverage" NAME="sys_mode Coverage Results" MODIFIED="1493712495834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$simple_shell_sed.coverage" NAME="simple_shell_sed Coverage Results" MODIFIED="1494209897163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
-    <SUITE FILE_PATH="coverage/Python3$config_read.coverage" NAME="config_read Coverage Results" MODIFIED="1494643053179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$module.coverage" NAME="module Coverage Results" MODIFIED="1494667036255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$haproxy_do.coverage" NAME="haproxy_do Coverage Results" MODIFIED="1494296655498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
-    <SUITE FILE_PATH="coverage/Python3$func_1.coverage" NAME="func_1 Coverage Results" MODIFIED="1494382254854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
     <SUITE FILE_PATH="coverage/Python3$staff_do.coverage" NAME="staff_do Coverage Results" MODIFIED="1494675202905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work" />
-    <SUITE FILE_PATH="coverage/Python3$decorator1.coverage" NAME="decorator1 Coverage Results" MODIFIED="1494404711009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
-    <SUITE FILE_PATH="coverage/Python3$sys.coverage" NAME="sys Coverage Results" MODIFIED="1493700955644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$configparser.coverage" NAME="configparser Coverage Results" MODIFIED="1494642249074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$test.coverage" NAME="test Coverage Results" MODIFIED="1494682060742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
-    <SUITE FILE_PATH="coverage/Python3$helloworld.coverage" NAME="helloworld Coverage Results" MODIFIED="1494293570412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
-    <SUITE FILE_PATH="coverage/Python3$config_create.coverage" NAME="config_create Coverage Results" MODIFIED="1494642411005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$hash_do.coverage" NAME="hash_do Coverage Results" MODIFIED="1494645055799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$shopping.coverage" NAME="shopping Coverage Results" MODIFIED="1494206098711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$sys.coverage" NAME="sys Coverage Results" MODIFIED="1493700955644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$demo.coverage" NAME="demo Coverage Results" MODIFIED="1494767391722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/bin" />
-    <SUITE FILE_PATH="coverage/Python3$lv3menu.coverage" NAME="lv3menu Coverage Results" MODIFIED="1493963204765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
+    <SUITE FILE_PATH="coverage/Python3$test.coverage" NAME="test Coverage Results" MODIFIED="1494682060742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
+    <SUITE FILE_PATH="coverage/Python3$main_demo__1_.coverage" NAME="main_demo (1) Coverage Results" MODIFIED="1494828207086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
     <SUITE FILE_PATH="coverage/Python3$login.coverage" NAME="login Coverage Results" MODIFIED="1493968651092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$decorator.coverage" NAME="decorator Coverage Results" MODIFIED="1494404174295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
     <SUITE FILE_PATH="coverage/Python3$main_demo.coverage" NAME="main_demo Coverage Results" MODIFIED="1494690275678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
+    <SUITE FILE_PATH="coverage/Python3$shoppingCart.coverage" NAME="shoppingCart Coverage Results" MODIFIED="1493972991695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$module.coverage" NAME="module Coverage Results" MODIFIED="1494667036255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$decorator1.coverage" NAME="decorator1 Coverage Results" MODIFIED="1494404711009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
+    <SUITE FILE_PATH="coverage/Python3$staff_do__1_.coverage" NAME="staff_do (1) Coverage Results" MODIFIED="1494689854522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
+    <SUITE FILE_PATH="coverage/Python3$shopping.coverage" NAME="shopping Coverage Results" MODIFIED="1494206098711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$helloworld.coverage" NAME="helloworld Coverage Results" MODIFIED="1494293570412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -54,98 +53,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="staff_do_bak.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day05/work/core/staff_do_bak.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="17" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-              <folding>
-                <element signature="e#68#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_demo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="staff_do.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Day05/work/core/staff_do.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2274">
-              <caret line="136" column="40" selection-start-line="136" selection-start-column="40" selection-end-line="136" selection-end-column="40" />
-              <folding>
-                <element signature="e#136#145#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day05/work/bin/demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="e#73#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_demo_bak.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo_bak.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day05/work/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="haproxy_do.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day02/haproxy_do.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shopping.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Day02/shopping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1800">
-              <caret line="90" column="30" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="staff.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Day05/work/data/staff.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="175">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staff_do.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Day05/work/core/staff_do.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="934">
+              <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_demo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+              <folding>
+                <element signature="e#69#78#0" expanded="true" />
+                <marker date="1494828207002" expanded="true" signature="451:649" ph="select * fro... staff_table" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,14 +133,15 @@
         <option value="$PROJECT_DIR$/Day05/work/data/test.json" />
         <option value="$PROJECT_DIR$/Day05/module.py" />
         <option value="$PROJECT_DIR$/Day05/work/staff_do.py" />
-        <option value="$PROJECT_DIR$/Day05/work/core/test.py" />
         <option value="$PROJECT_DIR$/Day05/work/bin/main.py" />
         <option value="$PROJECT_DIR$/Day05/work/core/main.py" />
-        <option value="$PROJECT_DIR$/Day05/work/data/staff.json" />
         <option value="$PROJECT_DIR$/Day05/work/bin/demo.py" />
         <option value="$PROJECT_DIR$/Day05/work/README.md" />
-        <option value="$PROJECT_DIR$/Day05/work/core/main_demo.py" />
+        <option value="$PROJECT_DIR$/Day05/work/core/test.py" />
+        <option value="$PROJECT_DIR$/Day05/work/core/main_demo_bak.py" />
         <option value="$PROJECT_DIR$/Day05/work/core/staff_do.py" />
+        <option value="$PROJECT_DIR$/Day05/work/core/main_demo.py" />
+        <option value="$PROJECT_DIR$/Day05/work/data/staff.json" />
       </list>
     </option>
   </component>
@@ -396,8 +333,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,7 +366,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Day05/work/core/test.py" />
+      <option name="SCRIPT_NAME" value="E:\WorkSpace\python\Python3\Day05\work\core\main_demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -749,15 +686,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1988273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20095949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30463576" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37790054" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37790054" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -970,20 +907,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Develop/Python/Python36/Lib/_collections_abc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="387" column="6" selection-start-line="387" selection-start-column="6" selection-end-line="387" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/Develop/Python/Python36/Lib/configparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="1176" column="0" selection-start-line="1176" selection-start-column="0" selection-end-line="1176" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/_collections_abc.py" />
+    <entry file="file://F:/Develop/Python/Python36/Lib/configparser.py" />
     <entry file="file://$PROJECT_DIR$/Day05/config_create.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1013,13 +938,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Day05/work/data/test.json" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="319" column="0" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/codecs.py" />
     <entry file="file://$PROJECT_DIR$/Day04/decorator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1048,10 +967,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Day05/work/core/test.py" />
     <entry file="file://$PROJECT_DIR$/Day02/haproxy_do.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="450">
           <caret line="18" column="12" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="12" />
           <folding />
         </state>
@@ -1059,7 +977,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Day02/shopping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
+        <state relative-caret-position="2250">
           <caret line="90" column="30" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="30" />
           <folding />
         </state>
@@ -1068,62 +986,71 @@
     <entry file="file://$PROJECT_DIR$/Day05/work/core/staff_do_bak.py" />
     <entry file="file://$PROJECT_DIR$/Day05/work/bin/demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
+        <state relative-caret-position="350">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#73#82#0" expanded="true" />
+            <element signature="e#73#82#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Day05/work/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="375">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day05/work/data/staff.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo_bak.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Day05/work/core/staff_do_bak.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
+        <state relative-caret-position="400">
           <caret line="17" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding>
-            <element signature="e#68#77#0" expanded="true" />
+            <element signature="e#68#77#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="37" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo_bak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day05/work/data/staff.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Day05/work/core/staff_do.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2274">
-          <caret line="136" column="40" selection-start-line="136" selection-start-column="40" selection-end-line="136" selection-end-column="40" />
+        <state relative-caret-position="934">
+          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day05/work/core/main_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
-            <element signature="e#136#145#0" expanded="true" />
+            <element signature="e#69#78#0" expanded="true" />
+            <marker date="1494828207002" expanded="true" signature="451:649" ph="select * fro... staff_table" />
           </folding>
         </state>
       </provider>

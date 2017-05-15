@@ -11,7 +11,7 @@ import json
 
 def staff_read():
     """获取员工信息表"""
-    print("---")
+    # print("---")
     BASE_DIR = os.path.dirname(__file__)
     # print(BASE_DIR)
     staff_file = open(os.path.join(BASE_DIR, "../data/staff.json"), "r", encoding="utf-8")
@@ -26,6 +26,7 @@ def staff_retrieve(*args):
     staff = staff_read()
     count = 0
     r_staff = []
+    temp = []
     for key, value in staff.items():
         # print(key, value)
         if args[0] in value.keys():
@@ -33,22 +34,27 @@ def staff_retrieve(*args):
                 if args[1] == ">":
                     if value[args[0]] > args[2]:
                         count += 1
+                        temp.append(key)
                         r_staff.append(staff[key])
                 elif args[1] == ">=":
                     if value[args[0]] >= args[2]:
                         count += 1
+                        temp.append(key)
                         r_staff.append(staff[key])
                 elif args[1] == "<":
                     if value[args[0]] < args[2]:
                         count += 1
+                        temp.append(key)
                         r_staff.append(staff[key])
                 elif args[1] == "<=":
                     if value[args[0]] <= args[2]:
                         count += 1
+                        temp.append(key)
                         r_staff.append(staff[key])
                 elif args[1] == "=":
                     if value[args[0]] == args[2]:
                         count += 1
+                        temp.append(key)
                         r_staff.append(staff[key])
                 else:
                     print("\033[41;1m输入的格式有误。。。\033[0m")
@@ -57,17 +63,19 @@ def staff_retrieve(*args):
                 if args[1] == "=":
                     if value[args[0]] == args[2]:
                         count += 1
+                        temp.append(key)
                         r_staff.append(staff[key])
                 elif args[1] == "like": #模糊查询
                     if args[2] in value[args[0]]:
                         count += 1
+                        temp.append(key)
                         r_staff.append((staff[key]))
                 else:
                     print("\033[41;1m输入的格式有误。。。\033[0m")
         else:
             print("\033[41;1m输入的格式有误。。。\033[0m")
     # print("--> ", count, r_staff)
-    return count, r_staff
+    return dict(zip(temp, r_staff))
 
 
 def staff_create(**kwargs):
