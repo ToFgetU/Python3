@@ -22,3 +22,27 @@ work #主程目录
 └── data  #用户数据存储的地方
     └── staff.json
 
+
+语法限定：
+查询：
+	#全表查询
+	select * from staff_table
+	#根据年龄大小
+    select name,age from staff_table where age > 22
+	#根据部门，姓名
+　　select * from staff_table where dept = "IT"
+	#模糊查询
+    select * from staff_table where enroll_date like "2013"
+
+新增：
+	insert into staff_table values ("Alice Li", 27, "13545677654", "IT", "2017-05-15")
+
+更新：
+	update staff_table set dept = "Market" where dept = "IT"
+	update staff_table set dept = "IT" where name = "Alex Li"
+
+删除：
+	#根据名字删除
+	delete from table where name = 'Alice Li'
+	#根据员工ID删除
+    delete from table where staff_id = 5

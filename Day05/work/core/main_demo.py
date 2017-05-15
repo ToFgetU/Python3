@@ -3,7 +3,7 @@
 # Author: PanFei Liu
 
 import re
-import staff_do
+from core import staff_do
 
 def run():
     """运行程序主入口"""
@@ -132,5 +132,3 @@ def run():
             break
         else:
             pass
-
-run()
