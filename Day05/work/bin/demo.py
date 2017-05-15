@@ -13,3 +13,7 @@ from core import main_demo
 
 if __name__ == '__main__':
     main_demo.run()
+
+
+['alex', 'eric', 'rain']
+

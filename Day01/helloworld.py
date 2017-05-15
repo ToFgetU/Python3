@@ -42,3 +42,4 @@ def test1(*args):
 
 test1("lilei", 18, "CN")
 test1(*["lilei", 18, "CN"])
+
