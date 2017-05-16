@@ -21,7 +21,7 @@ def processing(s):
         if r:
             s = re.sub(r'\([^()]+\)', i, s, 1)
             operation_pieces[i] = r
-            print(s)
+            print("\t运算步骤:", s)
         else:
             # print("---")
             break
