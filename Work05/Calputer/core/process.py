@@ -3,65 +3,124 @@
 # Author: PanFei Liu
 
 import re
+import string
+from core import arithmetic
+
 def processing(s):
     """运算处理模块，对输入的字符串进行格式化处理"""
-    cal_string = re.search(r'\([^()]+\)', s).group()
-    cal_string = cal_string[1:-1].rstrip()
-    cal_string = list(cal_string)
-    print(cal_string)
-    cal_dict = {} # 获取数字并对其格式化
-    cal_str = [] # 保存数字
-    cal_ope = [] # 保存算术符号
-    ss = '' # 作用拼接字符串
+    operation_pieces = {}
 
-    for index, value in enumerate(cal_string):
-        # print(index, value)
-        if value.isdigit():
-            cal_dict[index] = value
+    for i in string.ascii_lowercase:
+        if re.search(r'\([^()]+\)', s):
+            r = re.search(r'\([^()]+\)', s).group()
         else:
-            if value in "+-*/":
-                cal_ope.append(value)
-    count = 0
+            operation_pieces[i] = s
+            # print("======")
+            break
 
-
-    for num in range(max(cal_dict)+1):
-        # print(num)
-        if num in cal_dict.keys():
-            ss = ss + cal_dict[num]
-            count = 0
-            if num == max(cal_dict):
-                cal_str.append(int(ss))
+        if r:
+            s = re.sub(r'\([^()]+\)', i, s, 1)
+            operation_pieces[i] = r
+            print(s)
         else:
-            if count == 0:
-                count += 1
-                if num == 0:
-                    continue
-                cal_str.append(int(ss))
-                ss = ''
+            # print("---")
+            break
+    # print(operation_pieces)
+    print("计算ING========")
+    #对碎片进行分步计算
+    result_pieces = {}
+    for key, values in operation_pieces.items():
+        cal_dict = {}  # 获取字符串并对字符串相连数字进行重组
+        cal_str = []  # 保存数字
+        cal_ope = []  # 保存算术符号
+        ss = ''  # 作用拼接字符串
+        # print(key, values)
+        if '(' in values:
+            values = values[1:-1].strip()
+        values = list(values)
+        for index, v in enumerate(values):
+            if v.replace('.', '', 1).isdigit() or v in string.ascii_letters:
+                cal_dict[index] = v
             else:
-                continue
+                if v in "+-*/":
+                    cal_ope.append(v)
+        # print(cal_dict)
+        if cal_dict:
+            count = 0
+            for num in range(max(cal_dict)+1):
+                # print(num)
+                if num in cal_dict.keys():
+                    if cal_dict[num].replace('.', '', 1).isdigit(): #判断整数及小数
+                        ss = ss + cal_dict[num]
+                        count = 0
+                        if num == max(cal_dict):
+                            cal_str.append(int(ss))
+                    else:
+                        cal_str.append(result_pieces[cal_dict[num]])
+                        count += 1
+                else:
+                    if count == 0:
+                        count += 1
+                        if num == 0:
+                            continue
+                        cal_str.append(int(ss))
+                        ss = ''
+                    else:
+                        continue
+            if values[0].replace('.', '', 1).isdigit():
+                pass
+            else:
+                if values[0] == '-':
+                    x = cal_ope[0] + str(cal_str[0])
+                    cal_str[0] = int(x)
+                    del cal_ope[0]
+                    # print(x)
+        else:
+            pass
 
-    if cal_string[0].isdigit():
-        pass
-    else:
-        x = cal_ope[0] + str(cal_str[0])
-        cal_str[0] = int(x)
-        del cal_ope[0]
-        print(x)
+        # print(cal_str)
+        # print(cal_ope)
 
-    if '*' in cal_ope and  "/" in cal_ope:
-        pass
-    elif '*' in cal_ope:
-        pass
-    elif "/" in cal_ope:
-        cal_ope
+        def calculate(t):
+            """判断优先级，然后进行运算"""
+            index = cal_ope.index(t)
+            if t == '*':
+                result = arithmetic.mul(cal_str[index], cal_str[index + 1])
+            elif t == '/':
+                result = arithmetic.div(cal_str[index], cal_str[index + 1])
+            elif t == '+':
+                result = arithmetic.add(cal_str[index], cal_str[index + 1])
+            else:
+                result = arithmetic.sub(cal_str[index], cal_str[index + 1])
+            del cal_ope[index]
+            del cal_str[index + 1]
+            cal_str[index] = result
+
+        while cal_ope:
+            if '*' in cal_ope and '/' in cal_ope:
+                if cal_ope.index('*') < cal_ope.index('/'): #index 越小优先级越高
+                    calculate('*')
+                else:
+                    calculate('/')
+            elif '*' in cal_ope:
+                calculate('*')
+            elif '/' in cal_ope:
+                calculate('/')
+            elif '*' not in cal_ope and '/' not in cal_ope and ('+' in cal_ope or '-' in cal_ope):
+                for i in cal_ope:
+                    calculate(i)
+            else:
+                break
+
+        result_pieces[key] = cal_str[0]
+        # print("result_pieces: ", result_pieces)
+        # print(max(result_pieces.keys()))
+        # print(cal_dict)
+    final_result = result_pieces[max(result_pieces.keys())]
+    return final_result
 
 
-    print(cal_str)
-    print(cal_ope)
-
-
-
-
-s = '1 - 2 * ( (60-30 + (-40/5) * (9-2*5/3 + 7 /3*99/4*2998 +10 * 568/14 )) - (-4*3)/ (16-3*2) )'
-processing(s)
+# s = '1 - 2 *(3 - 2)'
+# print(eval(s))
+# tp = processing(s)
+# print(tp)

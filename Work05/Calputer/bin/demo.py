@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# # -*- coding:utf-8 -*-
-# # Author: Panfei Liu
-#
+# -*- coding: utf-8 -*-
+# Author: PanFei Liu
+
 import os
 import sys
 
@@ -12,5 +12,7 @@ sys.path.append(base_dir)
 from core import main_demo
 
 if __name__ == '__main__':
-    main_demo.run()
-
+    try:
+        main_demo.run()
+    except KeyError:
+        print("输入格式有误。。。")
