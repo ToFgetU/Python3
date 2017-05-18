@@ -1,0 +1,18 @@
+{
+    "admin":{
+        "password":"abc123",
+        "is_admin":1
+    },
+    "test":{
+        "password":"123",
+        "credit":15000,
+        "acc_frozen":0,
+        "is_admin":0
+    },
+    "alice":{
+        "password":"abc",
+        "credit":15000,
+        "acc_frozen":0,
+        "is_admin":0
+    }
+}
