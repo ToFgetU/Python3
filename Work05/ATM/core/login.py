@@ -34,25 +34,34 @@ def login_auth(mode):
         return  wrapper
     return out_wrapper
 
-
+LOGIN_SIGN = {}
 def login_required(func):
-    """验证用户是否登录,如果用户密码错误超过三次提示错误信息并退出程序"""
+    """验证用户是否登录"""
     def wrapper(*args, **kwargs):
-        if args[1] == '123':
+        if LOGIN_SIGN[args[0]]:
             return func(*args, **kwargs)
         else:
             exit("User is not authenticated.")
     return wrapper
 
-@login_required
-@login_auth(mode=mode)
+# @login_required
+# @login_auth(mode=mode)
 def user_login(name, password, mode):
     account = user_data(mode)
     if name in account:
         if password == account[name]['password']:
             print("%s 登入成功"% name, password, mode)
+            LOGIN_SIGN[name] = 1
+            return name
+        else:
+            print("User or password is not correct")
     else:
         print("User or password is not correct")
+
+@login_required
+# @login_auth(mode=mode)
+def manager(name):
+    print("我是管理员窗口", name)
 
 # t = 'admin'
 # mode(t)

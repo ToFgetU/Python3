@@ -8,13 +8,24 @@ def run():
     """
     This function will be called right a way when the program started, here handles the user interaction stuff
     """
-
+    logined_sign = {}
     def change_to(t):
         """该函数的主要功能是选择目的地"""
-        login.mode(t)
-        username = input("请输入用户名: ")
-        password = input("请输入密码:")
-        login.user_login(username, password, login.mode(t))
+        while True:
+            username = input("请输入用户名: ").strip()
+            password = input("请输入密码:").strip()
+            if username in logined_sign:
+                logined_sign[username] += 1
+            else:
+                logined_sign[username] = 1
+            if logined_sign[username] >= 3:
+                exit("The account %s is locked."% username)
+                break
+            else:
+                name = login.user_login(username, password, login.mode(t))
+                login.manager(name)
+                break
+
 
     print("""
     你打算去哪？
