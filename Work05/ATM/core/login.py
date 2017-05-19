@@ -13,31 +13,23 @@ def user_data(t):
             account = json.loads(f.read())
             return account
 
-def mode(t):
-    if t == 'admin':
-        return 'admin'
-    elif t == 'atm':
-        return 'atm'
-    else:
-        return 'shopping'
-
-def login_auth(mode):
-    """用户登入选择"""
-    def out_wrapper(func):
-        def wrapper(*args, **kwargs):
-            if mode == 'admin':
-                return func(*args, **kwargs)
-            elif mode == 'atm':
-                return func(*args, **kwargs)
-            else:
-                return func(*args, **kwargs)
-        return  wrapper
-    return out_wrapper
+# def login_auth(func):
+#     """用户登入选择"""
+#     def wrapper(*args, **kwargs):
+#         print(args)
+#         if args[1] == 'admin':
+#             return func(*args, **kwargs)
+#         elif args[1] =='atm':
+#             return func(*args, **kwargs)
+#         else:
+#             return func(*args, **kwargs)
+#     return wrapper
 
 LOGIN_SIGN = {}
 def login_required(func):
     """验证用户是否登录"""
     def wrapper(*args, **kwargs):
+        # print(args)
         if LOGIN_SIGN[args[0]]:
             return func(*args, **kwargs)
         else:
@@ -52,16 +44,15 @@ def user_login(name, password, mode):
         if password == account[name]['password']:
             print("%s 登入成功"% name, password, mode)
             LOGIN_SIGN[name] = 1
+            # print(LOGIN_SIGN)
             return name
         else:
             print("User or password is not correct")
     else:
         print("User or password is not correct")
 
-@login_required
-# @login_auth(mode=mode)
-def manager(name):
-    print("我是管理员窗口", name)
+
+
 
 # t = 'admin'
 # mode(t)

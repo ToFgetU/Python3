@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
 
-import login
+from core import login
+from core import manager_windows as m
+from core import general_windows as g
 
 def run():
     """
@@ -22,15 +24,20 @@ def run():
                 exit("The account %s is locked."% username)
                 break
             else:
-                name = login.user_login(username, password, login.mode(t))
-                login.manager(name)
+                name = login.user_login(username, password, t)
+                if t == 'admin':
+                    m.manager(name, t)
+                elif t == 'atm':
+                    g.gen_user(name, t)
+                else:
+                    pass
                 break
 
 
     print("""
     你打算去哪？
     -->1. 去银行
-    -->2. 去超市
+    -->2. 去购物
     """)
 
     change = input("您的选择是: ")
@@ -49,6 +56,3 @@ def run():
     else:
         print("您选择了其他地方，再见。。。")
 
-
-
-run()

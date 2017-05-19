@@ -30,13 +30,15 @@ atm_user = {
     },
     'test': {
         'password': '123',
-        'credit': 15000,
+        'quota': 15000,
+        'balance': 15000,
         'acc_frozen': 0,
         'is_admin': 0
     },
     'alice': {
         'password': 'abc',
-        'credit': 15000,
+        'quota': 15000,
+        'balance': 15000,
         'acc_frozen': 0,
         'is_admin': 0
     }
