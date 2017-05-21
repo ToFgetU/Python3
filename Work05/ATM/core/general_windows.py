@@ -23,8 +23,8 @@ def withdrawal(*args):
     balance = account[args[0]]['balance']
     while True:
         wd = input("请输入取现金额: ").strip()
-        if wd.isdigit():
-            wd = int(wd)
+        if wd.replace('.', '', 1).isdigit():
+            wd = eval(wd)
             break
         else:
             print("输入有误")
@@ -41,37 +41,55 @@ def withdrawal(*args):
         input("\n回车返回主菜单")
 
 
-def transfer(*args, quota = 15000):
-    """调整账户信用额度"""
+def transfer(*args):
+    """转账"""
+    account = login.user_data(args[1])
+    balance = account[args[0]]['balance']
+    while True:
+        tran = input("请输入转账金额: ").strip()
+        if tran.replace('.', '', 1).isdigit():
+            tran = eval(tran)
+            break
+        else:
+            print("输入有误")
 
-
-def repay(t):
-    """冻结账户"""
-    account = login.user_data(t)
-    username = input("输入要冻结的账户名:").strip()
-    if username not in account:
-        print("要冻结的账户 %s 不存在" % username)
-    elif account[username]['is_admin']:
-        print("%s 是管理员用户，不允许操作" % username)
+    username = input("请输入转账用户: ").strip()
+    if username == args[0]:
+        print("您输入了自己的帐号，转账失败")
+    elif username in account:
+        if tran > balance:
+            print("余额不足，转账失败")
+        else:
+            account[args[0]]['balance'] = balance - tran
+            account[username]['balance'] += tran
     else:
-        account[username]['acc_frozen'] = 1
-        with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
-            f.write(json.dumps(account, indent=4, separators=(',', ':')))
-            print("用户 %s 已冻结" % username)
+        print("输入的账户不存在，请谨慎操作")
 
-def pay_check(t):
-    """解冻账户"""
-    account = login.user_data(t)
-    username = input("输入要解冻的账户名:").strip()
-    if username not in account:
-        print("要解冻的账户 %s 不存在" % username)
-    elif account[username]['is_admin']:
-        print("%s 是管理员用户，不允许操作" % username)
-    else:
-        account[username]['acc_frozen'] = 0
-        with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
-            f.write(json.dumps(account, indent=4, separators=(',', ':')))
-            print("用户 %s 已解冻" % username)
+
+
+def repay(*args):
+    """还款"""
+    account = login.user_data(args[1])
+    quota = account[args[0]]['quota']
+    balance = account[args[0]]['balance']
+    need_repay = quota - balance
+    while True:
+        actual_repay = input("您的还款:")
+        if actual_repay.replace('.', '', 1).isdigit():
+            actual_repay = eval(actual_repay)
+            if actual_repay >= need_repay:
+                print("本月你已还款")
+                input("\n回车返回主菜单")
+                break
+            else:
+                print("本月你已还款 %d,还需要还款%s" %(actual_repay, need_repay - actual_repay))
+                input("\n回车返回主菜单")
+                break
+
+
+def pay_check(*args):
+    """账单查询"""
+    pass
 
 
 @login_required

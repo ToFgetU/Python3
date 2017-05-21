@@ -62,8 +62,8 @@ def user_quota(*args, quota = 15000):
         else:
             while True:
                 quota = input("输入调整后信用额度: ")
-                if quota.isdigit():
-                    quota = int(quota)
+                if quota.replace('.', '', 1).isdigit():
+                    quota = eval(quota)
                     break
                 else:
                     print("输入的金额有误，请重新输入")

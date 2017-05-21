@@ -20,7 +20,7 @@
     "hello":{
         "password":"123",
         "quota":30000,
-        "balance":4750.0,
+        "balance":3700.0,
         "acc_frozen":0,
         "is_admin":0
     }
