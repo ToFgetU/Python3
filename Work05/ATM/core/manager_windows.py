@@ -17,7 +17,17 @@ def add_account(t):
         password = input("输入账户密码:").strip()
         again_p = input("再次输入账户密码:").strip()
         if password == again_p:
-            quota = user_quota()
+            while True:
+                quo = input("请输入信用额度(默认请回车):")
+                if quo.replace('.', '', 1).isdigit():
+                    quo = eval(quo)
+                    quota = user_quota(quota=quo)
+                    break
+                elif quo.strip():
+                    print("输入格式有误")
+                else:
+                    quota = user_quota()
+                    break
             account[username] = {
                 'password': password,
                 'quota': quota,
@@ -29,10 +39,11 @@ def add_account(t):
             with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
                 f.write(json.dumps(account, indent=4, separators=(',', ':')))
                 print("账户 %s 添加成功"% username)
-                input("\n回车返回主菜单")
                 break
+            input("\n回车返回主菜单")
         else:
             print("两次密码不同，请重新输入")
+
 
 def del_account(t):
     """删除账户"""
@@ -50,7 +61,7 @@ def del_account(t):
             input("\n回车返回主菜单")
 
 
-def user_quota(*args, quota = 15000):
+def user_quota(*args, quota=15000):
     """调整账户信用额度"""
     if args:
         account = login.user_data(args[0])
@@ -91,7 +102,7 @@ def frozen_account(t):
         with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
             f.write(json.dumps(account, indent=4, separators=(',', ':')))
             print("用户 %s 已冻结" % username)
-            input("\n回车返回主菜单")
+        input("\n回车返回主菜单")
 
 def thaw_account(t):
     """解冻账户"""
@@ -106,7 +117,7 @@ def thaw_account(t):
         with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
             f.write(json.dumps(account, indent=4, separators=(',', ':')))
             print("用户 %s 已解冻" % username)
-            input("\n回车返回主菜单")
+        input("\n回车返回主菜单")
 
 
 @login_required
@@ -144,8 +155,10 @@ def manager(*args):
             menu_dic[num](args[1])
         elif num == '5':
             menu_dic[num](args[1])
+        elif num == '6':
+            exit("退出程序")
         else:
-            break
+            print("输入有误，请重新输入")
 
 
 

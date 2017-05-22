@@ -2,16 +2,26 @@
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
 import json
+import os
+
 def user_data(t):
     """读取数据信息"""
+    base_dir = os.path.dirname(__file__)
     if t == 'shopping':
-        with open("../data/shopping_user.json", "r", encoding='utf-8') as f:
+        with open(os.path.join(base_dir, "../data/shopping_user.json"), "r", encoding='utf-8') as f:
             account = json.loads(f.read())
             return account
     else:
-        with open("../data/atm_user.json", "r", encoding='utf-8') as f:
+        with open(os.path.join(base_dir, "../data/atm_user.json"), "r", encoding='utf-8') as f:
             account = json.loads(f.read())
             return account
+
+def billing_data():
+    """读取账单数据信息"""
+    base_dir = os.path.dirname(__file__)
+    with open(os.path.join(base_dir, "../data/billing_info.json"), "r", encoding='utf-8') as f:
+        info = json.loads(f.read())
+        return info
 
 # def login_auth(func):
 #     """用户登入选择"""

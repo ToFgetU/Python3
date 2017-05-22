@@ -5,6 +5,7 @@
 from core import login
 from core import manager_windows as m
 from core import general_windows as g
+from core import shopping as s
 
 def run():
     """
