@@ -4,8 +4,9 @@
 
 import os
 import json
+from core import general_windows
 from core.login import login_required
-from core import login
+
 
 def shopping_data():
     """读取账单数据信息"""
@@ -31,10 +32,10 @@ def shopping_tmp():
 def goods_list(*args):
     "商品信息列表"
     goods = shopping_data()
-    print(goods)
+    # print(goods)
     old_cart = shopping_info()
-    print(old_cart)
-    print(type(old_cart))
+    # print(old_cart)
+    # print(type(old_cart))
     new_cart = {}
 
     while True:
@@ -42,7 +43,7 @@ def goods_list(*args):
             print(key, values)
         change_goods = input("请输入要购买的商品(退出: exit):").strip()
         if change_goods in goods:
-            print(type(old_cart))
+            # print(type(old_cart))
             if args[0] in old_cart:
                 if change_goods in old_cart[args[0]]:
                     old_cart[args[0]][change_goods]['num'] += 1
@@ -70,27 +71,37 @@ def goods_list(*args):
 
 
 def cart_list(*args):
+    """只现实了购物车显示功能，还需要清空购物车和删除某个商品"""
     new_cart = shopping_tmp()
     old_cart = shopping_info()
 
-    for key, values in new_cart:
-        print(key, values)
+    print("购物车中的商品:")
+    for key, values in new_cart.items():
+        print("\t", key, values)
 
 def checkout(*args):
+    """结账操作"""
     new_cart = shopping_tmp()
     old_cart = shopping_info()
 
     do_it = input("是否前往结账（Y/N）: ")
     if do_it.lower() == 'y':
-        username = input("请登入支付账户: ")
-        password = input("请输入支付密码: ")
+        username = input("请登入支付账户: ").strip()
+        password = input("请输入支付密码: ").strip()
 
         sum = 0
-        for i in new_cart.values():
-            sum += i
-        login.topay(username, password, sum)
+        for i in new_cart:
+            print(new_cart[i]['price'])
+            sum += new_cart[i]['price']
+        buy_sucess = general_windows.topay(username, password, sum)
+        if buy_sucess:
+            new_cart = {}
+            with open("../data/shopping_tmp.json", 'w', encoding='utf-8') as tmp_f:
+                tmp_f.write(json.dumps(new_cart, indent=4, separators=(',', ':')))
+        else:
+            print("购物失败，请确认账户信息是否正确或有足够的余额。")
 
-# @login_required
+@login_required
 def shopping_cart(*args):
     """商店入口"""
     menu = u'''
@@ -121,5 +132,3 @@ def shopping_cart(*args):
             logger_conf.logger.debug("%s 退出程序" % args[0])
         else:
             print("输入有误，请重新输入")
-
-goods_list('test', 'shopping')

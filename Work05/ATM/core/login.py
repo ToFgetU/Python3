@@ -39,9 +39,16 @@ LOGIN_SIGN = {}
 def login_required(func):
     """验证用户是否登录"""
     def wrapper(*args, **kwargs):
+        account = user_data(args[1])
         # print(args)
-        if LOGIN_SIGN[args[0]]:
-            return func(*args, **kwargs)
+        if args[0] in LOGIN_SIGN:
+            if args[1] != 'admin':
+                if account[args[0]]['is_admin']:
+                    exit("User is not authenticated.")
+                else:
+                    return func(*args, **kwargs)
+            else:
+                return func(*args, **kwargs)
         else:
             exit("User is not authenticated.")
     return wrapper
@@ -52,7 +59,7 @@ def user_login(name, password, mode):
     account = user_data(mode)
     if name in account:
         if password == account[name]['password']:
-            print("%s 登入成功"% name, password, mode)
+            print("%s 登入成功"% name, mode)
             LOGIN_SIGN[name] = 1
             # print(LOGIN_SIGN)
             return name

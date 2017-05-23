@@ -58,7 +58,7 @@ def del_account(t):
         with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
             f.write(json.dumps(account, indent=4, separators=(',', ':')))
             print("用户 %s 已删除"% username)
-            input("\n回车返回主菜单")
+        input("\n回车返回主菜单")
 
 
 def user_quota(*args, quota=15000):
@@ -84,7 +84,7 @@ def user_quota(*args, quota=15000):
             with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
                 f.write(json.dumps(account, indent=4, separators=(',', ':')))
                 print("账户 %s 信用额度调整为: %d" % (username, quota))
-                input("\n回车返回主菜单")
+            input("\n回车返回主菜单")
                 # return
     else:
         return quota
@@ -123,7 +123,6 @@ def thaw_account(t):
 @login_required
 def manager(*args):
     """管理员入口"""
-    print("我是管理员窗口", args[0])
     menu = u'''
         -------  Bank Manager -------
         \033[32;1m\t菜单信息

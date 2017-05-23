@@ -122,7 +122,7 @@ def repay(*args):
                     fi.write(json.dumps(billing, indent=4, separators=(',', ':')))
             if actual_repay >= need_repay:
                 # print("本月你已还款")
-                logger_conf.logger.debug("本月你已还款")
+                logger_conf.logger.debug("本月 %s 已还款" % args[0])
                 with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
                     f.write(json.dumps(account, indent=4, separators=(',', ':')))
                     print("账户 %s 应还款%d，本次还款 %d"
@@ -162,37 +162,44 @@ def pay_check(*args):
             input("\n回车返回主菜单")
     else:
         print("该用户还没生成账单")
-        logger_conf.logger.debug("该用户还没生成账单")
+        logger_conf.logger.debug("该用户 %s 还没生成账单" % args[0])
 
 def topay(username, password, pay):
     billing = login.billing_data()
     now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     account = login.user_data('atm')
     balance = account[username]['balance']
-    if args[0] in account:
+    if username in account:
         if account[username]['acc_frozen']:
             print("账户已被冻结")
-        elif account[username] == password:
+        elif account[username]['password'] == password:
             if balance >= pay:
-                account[args[0]]['balance'] = balance - pay
+                account[username]['balance'] = balance - pay
                 with open("../data/billing_info.json", 'w', encoding='utf-8') as fi:
                     if username in billing:
                         billing[username][now_time] = ('购物支付 %d' % pay)
                         fi.write(json.dumps(billing, indent=4, separators=(',', ':')))
+                        print("支付成功")
                     else:
                         billing[username] = {now_time: ('购物支付 %d' % pay)}
                         fi.write(json.dumps(billing, indent=4, separators=(',', ':')))
+                        print("支付成功")
+                return True
+            else:
+                print("账户余额不足")
+                return False
         else:
             print("帐号或密码错误")
+            return False
 
     else:
         print("输入的账户不存在")
+        return False
 
 
 @login_required
 def gen_user(*args):
     """普通账户入口"""
-    print("我是普通用户窗口", args[0])
     menu = u'''
         -------  Bank Windows -------
         \033[32;1m\t菜单信息
