@@ -60,7 +60,9 @@ def run():
                     account[username] = {'password': password}
                     with open("../data/shopping_user.json", 'w', encoding='utf-8') as f:
                         f.write(json.dumps(account, indent=4, separators=(',', ':')))
-                    break
+                else:
+                    exit("退出程序")
+                continue
             else:
                 if username in logined_sign:
                     logined_sign[username] += 1
