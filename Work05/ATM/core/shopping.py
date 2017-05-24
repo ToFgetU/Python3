@@ -86,20 +86,23 @@ def checkout(*args):
 
     do_it = input("是否前往结账（Y/N）: ")
     if do_it.lower() == 'y':
-        username = input("请登入支付账户: ").strip()
-        password = input("请输入支付密码: ").strip()
+        if new_cart:
+            username = input("请登入支付账户: ").strip()
+            password = input("请输入支付密码: ").strip()
 
-        sum = 0
-        for i in new_cart:
-            print(new_cart[i]['price'])
-            sum += new_cart[i]['price']
-        buy_sucess = general_windows.topay(username, password, sum)
-        if buy_sucess:
-            new_cart = {}
-            with open("../data/shopping_tmp.json", 'w', encoding='utf-8') as tmp_f:
-                tmp_f.write(json.dumps(new_cart, indent=4, separators=(',', ':')))
+            sum = 0
+            for i in new_cart:
+                print(new_cart[i]['price'])
+                sum += new_cart[i]['price']
+            buy_sucess = general_windows.topay(username, password, sum)
+            if buy_sucess:
+                new_cart = {}
+                with open("../data/shopping_tmp.json", 'w', encoding='utf-8') as tmp_f:
+                    tmp_f.write(json.dumps(new_cart, indent=4, separators=(',', ':')))
+            else:
+                print("购物失败，请确认账户信息是否正确或有足够的余额。")
         else:
-            print("购物失败，请确认账户信息是否正确或有足够的余额。")
+            print("购物车里没有商品，请先选择商品吧")
 
 @login_required
 def shopping_cart(*args):

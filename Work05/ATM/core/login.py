@@ -43,12 +43,18 @@ def login_required(func):
         # print(args)
         if args[0] in LOGIN_SIGN:
             if args[1] != 'admin':
-                if account[args[0]]['is_admin']:
-                    exit("User is not authenticated.")
+                if args[1] == 'atm':
+                    if account[args[0]]['is_admin']:
+                        exit("User is not authenticated.")
+                    else:
+                        return func(*args, **kwargs)
                 else:
                     return func(*args, **kwargs)
             else:
-                return func(*args, **kwargs)
+                if account[args[0]]['is_admin']:
+                    return func(*args, **kwargs)
+                else:
+                    exit("User is not authenticated.")
         else:
             exit("User is not authenticated.")
     return wrapper
@@ -59,7 +65,7 @@ def user_login(name, password, mode):
     account = user_data(mode)
     if name in account:
         if password == account[name]['password']:
-            print("%s 登入成功"% name, mode)
+            # print("%s 登入成功"% name, mode)
             LOGIN_SIGN[name] = 1
             # print(LOGIN_SIGN)
             return name

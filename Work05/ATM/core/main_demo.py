@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
 
+import json
+
 from core import login
 from core import manager_windows as m
 from core import general_windows as g
@@ -51,6 +53,14 @@ def run():
                             g.gen_user(name, t)
                         else:
                             s.shopping_cart(name, t)
+            elif username not in account and t == 'shopping':
+                what_do = input("该用户不存在，是否注册(Y/N)").strip()
+                if what_do.lower() == 'y':
+                    password = input("请设置密码:").strip()
+                    account[username] = {'password': password}
+                    with open("../data/shopping_user.json", 'w', encoding='utf-8') as f:
+                        f.write(json.dumps(account, indent=4, separators=(',', ':')))
+                    break
             else:
                 if username in logined_sign:
                     logined_sign[username] += 1
