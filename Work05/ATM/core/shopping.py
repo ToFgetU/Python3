@@ -71,7 +71,7 @@ def goods_list(*args):
 
 
 def cart_list(*args):
-    """只现实了购物车显示功能，还需要清空购物车和删除某个商品"""
+    """实现了购物车显示功能，清空购物车和删除某个商品"""
     menu = u'''
                 -------  cart Windows -------
                 \033[32;1m\t菜单信息
@@ -123,6 +123,7 @@ def cart_list(*args):
             else:
                 old_cart[args[0]][key]['num'] -= new_cart[key]['num']
         new_cart = {}
+        print("购物车已清空")
     else:
         print("你选择的序号不存在")
 
