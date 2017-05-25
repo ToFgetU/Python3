@@ -175,6 +175,8 @@ def topay(username, password, pay):
         elif account[username]['password'] == password:
             if balance >= pay:
                 account[username]['balance'] = balance - pay
+                with open("../data/atm_user.json", 'w', encoding='utf-8') as f_pay:
+                    f_pay.write(json.dumps(account, indent=4, separators=(',', ':')))
                 with open("../data/billing_info.json", 'w', encoding='utf-8') as fi:
                     if username in billing:
                         billing[username][now_time] = ('购物支付 %d' % pay)

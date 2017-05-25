@@ -4,5 +4,8 @@
     },
     "alice":{
         "password":"abc"
+    },
+    "abcd":{
+        "password":"123"
     }
 }

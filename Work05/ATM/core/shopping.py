@@ -147,7 +147,7 @@ def checkout(*args):
             sum = 0
             for i in new_cart:
                 print(new_cart[i]['price'])
-                sum += new_cart[i]['price']
+                sum += new_cart[i]['price'] * new_cart[i]['num']
             buy_sucess = general_windows.topay(username, password, sum)
             if buy_sucess:
                 new_cart = {}
