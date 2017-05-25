@@ -12,7 +12,7 @@ def processing(s):
 
     for i in string.ascii_lowercase:
         if re.search(r'\([^()]+\)', s):
-            r = re.search(r'\([^()]+\)', s).group()
+            r = re.search(r'\([^()]+\)', s).group() #对匹配到的字符串进行分组 正则表达式中，group（）用来提出分组截获的字符串，（）用来分组
         else:
             operation_pieces[i] = s
             # print("======")
@@ -29,7 +29,9 @@ def processing(s):
     print("计算ING========")
     #对碎片进行分步计算
     result_pieces = {}
-    for key, values in operation_pieces.items():
+    for key in string.ascii_lowercase:
+        # print(key)
+        values = operation_pieces[key]
         cal_dict = {}  # 获取字符串并对字符串相连数字进行重组
         cal_str = []  # 保存数字
         cal_ope = []  # 保存算术符号
@@ -39,6 +41,7 @@ def processing(s):
             values = values[1:-1].strip()
         values = list(values)
         for index, v in enumerate(values):
+            # print("---------> ", index, v)
             if v.replace('.', '', 1).isdigit() or v in string.ascii_letters:
                 cal_dict[index] = v
             else:
@@ -56,6 +59,9 @@ def processing(s):
                         if num == max(cal_dict):
                             cal_str.append(int(ss))
                     else:
+                        # print(cal_dict)
+                        # print(result_pieces)
+                        # print(cal_str)
                         cal_str.append(result_pieces[cal_dict[num]])
                         count += 1
                 else:
@@ -112,10 +118,12 @@ def processing(s):
             else:
                 break
 
-        result_pieces[key] = cal_str[0]
-        # print("result_pieces: ", result_pieces)
-        # print(max(result_pieces.keys()))
-        # print(cal_dict)
+            result_pieces[key] = cal_str[0]
+        if key == max(operation_pieces):
+            break
+            # print("result_pieces: ", result_pieces)
+            # print(max(result_pieces.keys()))
+            # print(cal_dict)
     final_result = result_pieces[max(result_pieces.keys())]
     return final_result
 
