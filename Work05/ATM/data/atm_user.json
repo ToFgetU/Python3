@@ -23,5 +23,12 @@
         "balance":12950.0,
         "acc_frozen":0,
         "is_admin":0
+    },
+    "abcd":{
+        "password":"123",
+        "quota":15000,
+        "balance":15000,
+        "acc_frozen":0,
+        "is_admin":0
     }
 }

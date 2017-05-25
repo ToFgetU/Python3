@@ -72,12 +72,66 @@ def goods_list(*args):
 
 def cart_list(*args):
     """只现实了购物车显示功能，还需要清空购物车和删除某个商品"""
+    menu = u'''
+                -------  cart Windows -------
+                \033[32;1m\t菜单信息
+                \t1.  查看购物车商品
+                \t2.  删除购物车商品
+                \t3.  清空购物车商品
+                \033[0m'''
     new_cart = shopping_tmp()
     old_cart = shopping_info()
+    print(menu)
+    change_do = input("请选择操作序号 >>> ")
 
-    print("购物车中的商品:")
-    for key, values in new_cart.items():
-        print("\t", key, values)
+    if change_do == '1':
+        print("购物车中的商品:")
+        for key, values in new_cart.items():
+            print("\t", key, values)
+    elif change_do == '2':
+        goods_name = input("请输入要删除的商品名称 >>> ")
+        if goods_name in new_cart:
+            if new_cart[goods_name]['num'] > 1:
+                goods_num = input("请输入要删除的数目 >>> ")
+                if goods_num.isdigit() and int(goods_num) >= 0:
+                    goods_num = int(goods_num)
+                    if goods_num >= new_cart[goods_name]['num']:
+                        del new_cart[goods_name]
+                        if old_cart[args[0]][goods_name]['num'] == goods_num:
+                            del old_cart[args[0]][goods_name]
+                        else:
+                            old_cart[args[0]][goods_name]['num'] -= goods_num
+                        print("你输入的数目超过或等于购物车中该商品的数目，默认已自动清空了该商品")
+                    else:
+                        new_cart[goods_name]['num'] -= goods_num
+                        old_cart[args[0]][goods_name]['num'] -= goods_num
+                else:
+                    print("输入数目有误")
+            else:
+                if old_cart[args[0]][goods_name]['num'] == new_cart[goods_name]['num']:
+                    del old_cart[args[0]][goods_name]
+                else:
+                    old_cart[args[0]][goods_name]['num'] -= new_cart[goods_name]['num']
+                del new_cart[goods_name]
+                print("输入的商品数只有一件，清空该商品")
+        else:
+            print("输入的商品不存在")
+    elif change_do == '3':
+        for key, values in new_cart.items():
+            if old_cart[args[0]][key]['num'] == new_cart[key]['num']:
+                del old_cart[args[0]][key]
+            else:
+                old_cart[args[0]][key]['num'] -= new_cart[key]['num']
+        new_cart = {}
+    else:
+        print("你选择的序号不存在")
+
+    with open("../data/shopping_info.json", 'w', encoding='utf-8') as f:
+        f.write(json.dumps(old_cart, indent=4, separators=(',', ':')))
+    with open("../data/shopping_tmp.json", 'w', encoding='utf-8') as tmp_f:
+        tmp_f.write(json.dumps(new_cart, indent=4, separators=(',', ':')))
+    input("\n回车返回主菜单")
+
 
 def checkout(*args):
     """结账操作"""
@@ -100,7 +154,7 @@ def checkout(*args):
                 with open("../data/shopping_tmp.json", 'w', encoding='utf-8') as tmp_f:
                     tmp_f.write(json.dumps(new_cart, indent=4, separators=(',', ':')))
             else:
-                print("购物失败，请确认账户信息是否正确或有足够的余额。")
+                print("购物失败，请确认账户信息是否正确或有足够的余额购买你所需的商品。")
         else:
             print("购物车里没有商品，请先选择商品吧")
 
@@ -111,7 +165,7 @@ def shopping_cart(*args):
             -------  Shopping Windows -------
             \033[32;1m\t菜单信息
             \t1.  商品列表
-            \t2.  查看购物车
+            \t2.  购物车
             \t3.  结账
             \t4.  退出
             \033[0m'''
