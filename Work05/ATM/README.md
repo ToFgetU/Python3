@@ -54,8 +54,10 @@
 	　　　└── shopping_user.json #商城用户  
 
 #### 测试案例：
-	
+	ATM管理口测试：
 
+![图片](https://github.com/ToFgetU/Python3/blob/master/Work05/ATM/jpg/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C.jpg)
+![图片](https://github.com/ToFgetU/Python3/blob/master/Work05/ATM/jpg/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.jpg)
 
 
 
