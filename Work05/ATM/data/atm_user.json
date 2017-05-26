@@ -6,7 +6,7 @@
     "test":{
         "password":"123",
         "quota":15000,
-        "balance":15000,
+        "balance":13950.0,
         "acc_frozen":0,
         "is_admin":0
     },

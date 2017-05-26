@@ -113,15 +113,15 @@ def processing(s):
             elif '/' in cal_ope:
                 calculate('/')
             elif '*' not in cal_ope and '/' not in cal_ope and ('+' in cal_ope or '-' in cal_ope):
-                for i in cal_ope:
-                    calculate(i)
+                while cal_ope:
+                    calculate(cal_ope[0])
             else:
                 break
 
             result_pieces[key] = cal_str[0]
         if key == max(operation_pieces):
             break
-            # print("result_pieces: ", result_pieces)
+        # print("result_pieces: ", result_pieces)
             # print(max(result_pieces.keys()))
             # print(cal_dict)
     final_result = result_pieces[max(result_pieces.keys())]

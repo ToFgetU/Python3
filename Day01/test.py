@@ -43,10 +43,16 @@
 # print(n)
 
 # list1 = [1,2,3,4,1,3,2]
-# print(list1.index(1))
+# # print(list1.index(1))
+#
+# import re
+# s = 'abcdcdffdfsda'
+#
+# s = re.sub(r'ff', 22, s)
+# print(s)
 
-import re
-s = 'abcdcdffdfsda'
 
-s = re.sub(r'ff', 22, s)
-print(s)
+list1 = ['1:-', '2:-', '3:-', '4:+', '5:-', '6:+']
+for i in list1:
+    print(i)
+    print(list1.index(i))
