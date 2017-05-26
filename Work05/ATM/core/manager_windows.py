@@ -98,10 +98,13 @@ def frozen_account(t):
     elif account[username]['is_admin']:
         print("%s 是管理员用户，不允许操作" % username)
     else:
-        account[username]['acc_frozen'] = 1
-        with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
-            f.write(json.dumps(account, indent=4, separators=(',', ':')))
-            print("用户 %s 已冻结" % username)
+        if account[username]['acc_frozen'] == 1:
+            print("该账户已冻结")
+        else:
+            account[username]['acc_frozen'] = 1
+            with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
+                f.write(json.dumps(account, indent=4, separators=(',', ':')))
+                print("用户 %s 已冻结" % username)
         input("\n回车返回主菜单")
 
 def thaw_account(t):
@@ -113,10 +116,13 @@ def thaw_account(t):
     elif account[username]['is_admin']:
         print("%s 是管理员用户，不允许操作" % username)
     else:
-        account[username]['acc_frozen'] = 0
-        with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
-            f.write(json.dumps(account, indent=4, separators=(',', ':')))
-            print("用户 %s 已解冻" % username)
+        if account[username]['acc_frozen'] == 0:
+            print("该账户并为被冻结")
+        else:
+            account[username]['acc_frozen'] = 0
+            with open("../data/atm_user.json", 'w', encoding='utf-8') as f:
+                f.write(json.dumps(account, indent=4, separators=(',', ':')))
+                print("用户 %s 已解冻" % username)
         input("\n回车返回主菜单")
 
 

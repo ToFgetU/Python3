@@ -155,6 +155,7 @@ def pay_check(*args):
                     logger_conf.logger.debug(key + ' ' + values)
                 else:
                     pass
+            input("\n回车返回主菜单")
         else:
             for key, values in billing[args[0]].items():
                 print(key, values)

@@ -55,9 +55,29 @@
 
 #### 测试案例：
 	ATM管理口测试：
+		添加账户：添加成功后会在 atm_user.json 中多出一条新增记录。
+		调整账户额度：调整成功后 在 atm_user.json 中相应的账户下 quota 和 balance 的值会改变
+					其中，quota 变为调整的值， balance 会根据 new quota 和 old quota 的差值改变。 
+		冻结账户：冻结成功后，相应的账户中的 acc_frozen 值会变为 1
+		解冻账户：解冻成功后，相应被冻结的账户中 acc_frozen 值变为 0
+		删除账户：删除相应的用户，atm_user.json 中会相应的少一条对应数据。
 
-![图片](https://github.com/ToFgetU/Python3/blob/master/Work05/ATM/jpg/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C.jpg)
-![图片](https://github.com/ToFgetU/Python3/blob/master/Work05/ATM/jpg/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.jpg)
-
+	ATM普通窗口：
+		查看账户信息：查看相应用户信息
+		提现：提取金额最多为信用额度的一半，需要扣除5%的手续费，(提取金额*1.05) 超过余额时无法提现。
+		转账：账户之间转账，变动的值为 balance
+		还款：还款成功后，balance 值变动
+		账单查询：查询账单明细，可根据月份查询
+	
+	购物窗口：
+		查看商品列表购物：选择商品并加选择的商品添加到购物车
+		购物车功能：
+			查看购物车商品：查看添加到购物车中的商品
+			删除购物车商品：可选择你不想买的商品并删除
+			清空购物车商品：购物车全部清空
+		结账：调用支付接口结账，登入账户密码，并结账，其中结账成功后 atm_user.json 中对应用户的 balance 会减少。
+		
+#######	注意：管理员用户不会被做任何操作，无法增加和删除  	
+		
 
 
