@@ -1,7 +1,54 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # Author: Panfei Liu
+
+
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# Author: Panfei Liu
+
+# 装饰器
+# def auth(func):
+#     def wapper(*args, **kwargs):
+#         return func(*args, **kwargs)
+#     return wapper
 #
+#
+#
+# @auth
+# def login():
+#     print("这是登入页面")
+#
+#
+# login()
+#
+#
+# import time
+#
+# def auth1(mode):
+#     def outwapper(func):
+#         def wapper(*args, **kwargs):
+#             start_time = time.time()
+#             if mode == 'local':
+#                 rec = func(*args, **kwargs)
+#                 return rec
+#
+#             else:
+#                 pass
+#             stop_time = time.time()
+#             print("共花费时间：", (stop_time-start_time))
+#         return wapper
+#     return outwapper
+#
+#
+# @auth1(mode='local')
+# def login(name):
+#     time.sleep(3)
+#     print("这是登入页面", name)
+#
+# login('test')
+
+
 # #生成器 带 yield 关键字
 # def fab(max):
 #     n, a, b = 0, 0, 1
