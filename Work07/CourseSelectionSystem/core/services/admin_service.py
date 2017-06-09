@@ -15,6 +15,8 @@ def create_school():
         print('创建学校'.center(60, '='))
         name = input("请输入学校名字: ").strip()
         addr = input("请输入学校地址: ").strip()
+        if name == '' or addr == '':
+            raise Exception("输入不能为空")
         school_name_list = [(obj.name, obj.addr) for obj in School.get_all_obj_list()]
         if (name, addr) in school_name_list:
             raise Exception('\033[43;1m[%s] [%s]校区 已经存在,不可重复创建\033[0m' % (name, addr))
@@ -39,6 +41,8 @@ def create_teacher():
         print('创建老师'.center(60, '='))
         name = input("请输入老师姓名: ").strip()
         level = input("请输入老师级别").strip()
+        if name == '' or level == '':
+            raise Exception("输入不能为空")
 
         teacher_name_list = [obj.name for obj in Teacher.get_all_obj_list()]
         if name in teacher_name_list:
@@ -76,11 +80,15 @@ def create_course():
         school_obj = school_list[sid]
         name = input("请输入课程名称: ").strip()
         price = input("请输入课程费用: ").strip()
+        if name == '' or price == '':
+            raise Exception("输入不能为空")
         if price.replace('.', '', 1).isdigit():
             pass
         else:
             raise Exception("课程费用应该是数字")
         period = input("请输入课程周期: ").strip()
+        if period == '':
+            raise Exception("输入不能为空")
 
         course_name_list = [(obj.name, obj.school_nid.nid) for obj in Course.get_all_obj_list()]
         if (name, school_obj.nid.nid) in course_name_list:
@@ -123,7 +131,7 @@ def create_course_to_teacher():
         c_sid = input("\n请选择关联课程: ")
         if c_sid.isdigit():
             c_sid = int(c_sid)
-            if c_sid >= len(teacher_list):
+            if c_sid >= len(course_list):
                 raise Exception("没有该课程")
         else:
             raise Exception("没有该课程")
@@ -149,7 +157,7 @@ def create_classes():
         print('创建班级'.center(60, '='))
         school_list = School.get_all_obj_list()
         for k, obj in enumerate(school_list):
-            print(k, obj.name)
+            print(k, obj.name, obj.addr)
         sid = input("请选择学校:")
         if sid.isdigit():
             sid = int(sid)
@@ -162,8 +170,8 @@ def create_classes():
         course_to_teacher_list = Course_to_teacher.get_all_obj_list()
         for k, obj in enumerate(course_to_teacher_list):
             if school_obj.nid.nid == course_to_teacher_list[k].school_nid.nid:
-                print(k, obj.course_nid.get_obj_by_nid().name, obj.teacher_nid.get_obj_by_nid().name,
-                      obj.school_nid.get_obj_by_nid().name, obj.school_nid.get_obj_by_nid().addr)
+                print(k, '课程[%s] 讲师[%s] [%s] [%s]校区' % (obj.course_nid.get_obj_by_nid().name, obj.teacher_nid.get_obj_by_nid().name,
+                      obj.school_nid.get_obj_by_nid().name, obj.school_nid.get_obj_by_nid().addr))
 
         choice = input("请选择关联课程:")
         if choice.isdigit():
@@ -193,6 +201,8 @@ def create_student():
         print('创建学生'.center(60, '='))
         name = input("请输入姓名: ").strip()
         age = input("请输入年龄: ").strip()
+        if name == '' or age == '':
+            raise Exception("输入不能为空")
         if age.isdigit():
             age = int(age)
         else:
@@ -203,7 +213,7 @@ def create_student():
 
         school_list = School.get_all_obj_list()
         for k, obj in enumerate(school_list):
-            print(k, obj.name)
+            print(k, '[%s] [%s]校区' % (obj.name, obj.addr))
         s_sid = input("请选择学校:")
         if s_sid.isdigit():
             s_sid = int(s_sid)
@@ -214,11 +224,11 @@ def create_student():
 
         classes_list = Classes.get_all_obj_list()
         for k, obj in enumerate(classes_list):
-            print(k, obj.name)
+            print(k, obj.name, '[%s]校区' % (obj.school_nid.get_obj_by_nid().addr))
         sid = input("请选择班级:")
         if sid.isdigit():
             sid = int(sid)
-            if sid >= len(school_list):
+            if sid >= len(classes_list):
                 raise Exception("输入的班级不存在")
         else:
             raise Exception("输入的班级不存在")
@@ -248,7 +258,6 @@ def show_student():
 
 def show():
     msg = '''
-    ----------
     0:选项
     1:创建学校
     2:查看学校

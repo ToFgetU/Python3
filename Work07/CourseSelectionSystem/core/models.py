@@ -12,7 +12,10 @@ class BaseModel(object):
     '''基类，所有的公共方法都在这里实现'''
     def save(self):
         file_path = os.path.join(self.db_path, str(self.nid))
-        pickle.dump(self, open(file_path, 'wb'))
+        with open(file_path, 'wb') as fp:
+            pickle.dump(self, fp)
+        # pickle.dump(self, open(file_path, 'wb'))
+
 
     @classmethod
     def get_all_obj_list(cls):
@@ -20,7 +23,9 @@ class BaseModel(object):
         ret = []
         for filename in os.listdir(cls.db_path):
             file_path = os.path.join(cls.db_path, filename)
-            ret.append(pickle.load(open(file_path, 'rb')))
+            with open(file_path, 'rb') as fp:
+                ret.append(pickle.load(fp))
+            # ret.append(pickle.load(open(file_path, 'rb')))
         return ret
 
 class Admin(BaseModel):

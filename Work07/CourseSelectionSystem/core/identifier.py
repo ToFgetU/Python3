@@ -24,7 +24,10 @@ class Nid(object):
         '''获取对象标识符'''
         for filename in os.listdir(self.db_path):
             if filename == self.nid:
-                return pickle.load(open(os.path.join(self.db_path, filename), 'rb'))
+                with open(os.path.join(self.db_path, filename), 'rb') as fp:
+                    tmp = pickle.load(fp)
+                return tmp
+                # return pickle.load(open(os.path.join(self.db_path, filename), 'rb'))
         return None
 
 class AdminNid(Nid):

@@ -38,8 +38,7 @@ def choice_classes(user):
                 raise Exception("班级选择错误")
         else:
             raise Exception("班级选择错误")
-
-        obj = Teaching(obj.course_to_teacher_list_nid.get_obj_by_nid().teacher_nid, choice_list[choice].nid)
+        obj = Teaching(classes_list[choice].course_to_teacher_list_nid.get_obj_by_nid().teacher_nid, choice_list[choice].nid)
         obj.save()
         status = True
         error = ''
@@ -112,9 +111,11 @@ def change_score(user):
             if change in tmp:
                 num = input("请输入该学生的成绩:")
                 file_path = os.path.join(settings.STUDENT_DB, student_list[change].nid.nid)
-                student_list[change].score.set(obj.classes_nid.get_obj_by_nid().course_to_teacher_list_nid.nid, num)
+                student_list[change].score.set(student_list[change].classes_nid.get_obj_by_nid().course_to_teacher_list_nid.nid, num)
                 obj = student_list[change]
-                pickle.dump(obj, open(file_path, 'wb'))
+                # pickle.dump(obj, open(file_path, 'wb'))
+                with open(file_path, 'wb') as fp:
+                    pickle.dump(obj, fp)
                 print(obj.score.get(obj.classes_nid.get_obj_by_nid().course_to_teacher_list_nid.nid))
                 status = True
                 error = ''
@@ -126,12 +127,12 @@ def change_score(user):
     return {'status': status, 'error': error, 'data': data}
 
 def show_teaching(user):
-    for obj in  Teaching.get_all_obj_list():
+    for obj in Teaching.get_all_obj_list():
         if user == obj.teacher_nid.get_obj_by_nid().name:
             print('\033[33;1m老师[%s]在[%s]给[%s]班级上了一堂课\033[0m' % (obj.teacher_nid.get_obj_by_nid().name,
                         obj.create_time, obj.classes_nid.get_obj_by_nid().name))
 
-def show():
+def show(*args):
     msg = '''
     0:选项
     1:查看管理班级

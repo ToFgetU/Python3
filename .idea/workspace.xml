@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df843004-c319-4b93-8684-84f800dd4323" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/admin/6799ea0c-4b5a-11e7-86e1-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/classes/21cf5d52-4bf1-11e7-84a4-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/course/ebe43676-4bec-11e7-91fb-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/course_to_teacher/6297b2d8-4bed-11e7-93be-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/givelessons/7b674b92-4c19-11e7-b46e-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/givelessons/ee8a4528-4c18-11e7-b179-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/school/235f51f6-4b5c-11e7-8c70-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/student/3ba1125e-4bfd-11e7-b247-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/student/6de8b482-4c2c-11e7-8532-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/student/8ba8aee2-4c28-11e7-93b7-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/student/c137efb6-4c28-11e7-a7de-e09467f5f42d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/db/teacher/4c2d6076-4b5e-11e7-9f00-e09467f5f42d" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/题目" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/题目" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/conf/settings.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/conf/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/models.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/admin_service.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/admin_service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/teacher_service.py" afterPath="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/teacher_service.py" />
     </list>
     <ignored path="Python3.iws" />
@@ -35,6 +47,7 @@
     <SUITE FILE_PATH="coverage/Python3$configparser.coverage" NAME="configparser Coverage Results" MODIFIED="1494642249074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
     <SUITE FILE_PATH="coverage/Python3$sys.coverage" NAME="sys Coverage Results" MODIFIED="1493700955644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$login.coverage" NAME="login Coverage Results" MODIFIED="1495519237781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
+    <SUITE FILE_PATH="coverage/Python3$teacher_service.coverage" NAME="teacher_service Coverage Results" MODIFIED="1496978194621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services" />
     <SUITE FILE_PATH="coverage/Python3$decorator.coverage" NAME="decorator Coverage Results" MODIFIED="1494404174295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
     <SUITE FILE_PATH="coverage/Python3$settings.coverage" NAME="settings Coverage Results" MODIFIED="1496814966950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/conf" />
     <SUITE FILE_PATH="coverage/Python3$school.coverage" NAME="school Coverage Results" MODIFIED="1496720617258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core" />
@@ -49,7 +62,7 @@
     <SUITE FILE_PATH="coverage/Python3$simple_shell_sed.coverage" NAME="simple_shell_sed Coverage Results" MODIFIED="1494209897163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
     <SUITE FILE_PATH="coverage/Python3$staff_do.coverage" NAME="staff_do Coverage Results" MODIFIED="1494675202905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work" />
     <SUITE FILE_PATH="coverage/Python3$process.coverage" NAME="process Coverage Results" MODIFIED="1495785488942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/core" />
-    <SUITE FILE_PATH="coverage/Python3$demo.coverage" NAME="demo Coverage Results" MODIFIED="1496914293628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin" />
+    <SUITE FILE_PATH="coverage/Python3$demo.coverage" NAME="demo Coverage Results" MODIFIED="1496992247488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin" />
     <SUITE FILE_PATH="coverage/Python3$main_demo__1_.coverage" NAME="main_demo (1) Coverage Results" MODIFIED="1495414982156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/core" />
     <SUITE FILE_PATH="coverage/Python3$test.coverage" NAME="test Coverage Results" MODIFIED="1495788182865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$main_demo.coverage" NAME="main_demo Coverage Results" MODIFIED="1495159768207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
@@ -72,8 +85,8 @@
       <file leaf-file-name="demo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="28" column="34" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="34" />
+            <state relative-caret-position="295">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding>
                 <element signature="e#69#78#0" expanded="true" />
               </folding>
@@ -84,18 +97,20 @@
       <file leaf-file-name="initialize_service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="-400">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding>
+                <element signature="e#69#78#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_service.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="student_service.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="-455">
+              <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
               <folding>
                 <element signature="e#69#82#0" expanded="true" />
               </folding>
@@ -103,11 +118,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work05/ATM/readme.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="teacher_service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/teacher_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
+            <state relative-caret-position="-935">
+              <caret line="74" column="50" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="50" />
               <folding>
                 <element signature="e#69#82#0" expanded="true" />
               </folding>
@@ -118,8 +143,8 @@
       <file leaf-file-name="identifier.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="26" column="75" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="75" />
+            <state relative-caret-position="600">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
               <folding>
                 <element signature="e#69#78#0" expanded="true" />
               </folding>
@@ -130,18 +155,18 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/conf/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="10" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="10" />
+            <state relative-caret-position="350">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-118">
-              <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+            <state relative-caret-position="325">
+              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
               <folding>
                 <element signature="e#70#83#0" expanded="true" />
               </folding>
@@ -152,8 +177,8 @@
       <file leaf-file-name="admin_service.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/admin_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-250">
-              <caret line="227" column="118" selection-start-line="227" selection-start-column="118" selection-end-line="227" selection-end-column="118" />
+            <state relative-caret-position="-1830">
+              <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
               <folding>
                 <element signature="e#69#98#0" expanded="true" />
               </folding>
@@ -165,7 +190,7 @@
         <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/题目">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -233,15 +258,15 @@
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/school.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/main_demo.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/lib/commons.py" />
-        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/demo.py" />
-        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/conf/settings.py" />
+        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py" />
+        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py" />
+        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py" />
+        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/models.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/teacher_service.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/admin_service.py" />
         <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/题目" />
-        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py" />
-        <option value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/models.py" />
       </list>
     </option>
   </component>
@@ -301,8 +326,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -361,28 +384,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Work07" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CourseSelectionSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -405,59 +406,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Work07" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CourseSelectionSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Python3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Work07" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CourseSelectionSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -514,9 +463,25 @@
               <option name="myItemId" value="Python3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work05" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -527,16 +492,16 @@
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\WorkSpace\python\Python3\Work05\ATM" />
+      <recent name="F:\WorkSpace\Python\Python3\Day05\work\core" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\WorkSpace\python\Python3\Work05\ATM" />
       <recent name="E:\WorkSpace\python\Python3\Work05\ATM\jpg" />
       <recent name="E:\WorkSpace\python\Python3\Work05\ATM\core" />
       <recent name="E:\WorkSpace\python\Python3\Work05\ATM\bin" />
       <recent name="F:\WorkSpace\Python\Python3\Day05\work" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\WorkSpace\python\Python3\Work05\ATM" />
-      <recent name="F:\WorkSpace\Python\Python3\Day05\work\core" />
     </key>
   </component>
   <component name="RunManager" selected="Python.demo">
@@ -554,24 +519,6 @@
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/demo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ChoseLessonSystem" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="D:/Shortcut/Desktop/homework_day6/bin" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Python3" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:/Shortcut/Desktop/homework_day6/bin/ChoseLessonSystem.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -626,6 +573,24 @@
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="teacher_service" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Python3" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/teacher_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -840,18 +805,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.demo" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ChoseLessonSystem" />
-      <item index="2" class="java.lang.String" itemvalue="Python.commons" />
-      <item index="3" class="java.lang.String" itemvalue="Python.settings" />
-      <item index="4" class="java.lang.String" itemvalue="Python.identifier" />
+      <item index="1" class="java.lang.String" itemvalue="Python.commons" />
+      <item index="2" class="java.lang.String" itemvalue="Python.settings" />
+      <item index="3" class="java.lang.String" itemvalue="Python.identifier" />
+      <item index="4" class="java.lang.String" itemvalue="Python.teacher_service" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.demo" />
-        <item index="1" class="java.lang.String" itemvalue="Python.identifier" />
-        <item index="2" class="java.lang.String" itemvalue="Python.settings" />
-        <item index="3" class="java.lang.String" itemvalue="Python.commons" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ChoseLessonSystem" />
+        <item index="1" class="java.lang.String" itemvalue="Python.teacher_service" />
+        <item index="2" class="java.lang.String" itemvalue="Python.identifier" />
+        <item index="3" class="java.lang.String" itemvalue="Python.settings" />
+        <item index="4" class="java.lang.String" itemvalue="Python.commons" />
       </list>
     </recent_temporary>
   </component>
@@ -881,16 +846,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25479743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3038674" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4077348" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5038674" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -920,18 +885,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="63" />
+      <option name="time" value="65" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/Develop/Python/Python36/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/Develop/Python/Python36/Lib/json/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -992,13 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1850">
           <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work05/ATM/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2075">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1189,36 +1140,25 @@
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/menulist.py" />
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/person_model.py" />
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/school.py" />
-    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/lib/commons.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py">
+    <entry file="file://E:/Develop/Python/Python36/Lib/ntpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="26" column="75" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="75" />
-          <folding>
-            <element signature="e#69#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="246">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="34" />
+        <state relative-caret-position="295">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
           <folding>
             <element signature="e#69#78#0" expanded="true" />
           </folding>
@@ -1227,44 +1167,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/conf/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/题目">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="350">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/teacher_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
+        <state relative-caret-position="-935">
+          <caret line="74" column="50" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="50" />
           <folding>
             <element signature="e#69#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py">
+    <entry file="file://$PROJECT_DIR$/Work05/ATM/readme.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="275">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/identifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding>
-            <element signature="e#69#82#0" expanded="true" />
+            <element signature="e#69#78#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/bin/题目">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/admin_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="227" column="118" selection-start-line="227" selection-start-column="118" selection-end-line="227" selection-end-column="118" />
+        <state relative-caret-position="-1830">
+          <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
           <folding>
             <element signature="e#69#98#0" expanded="true" />
           </folding>
@@ -1273,10 +1221,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-118">
-          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+        <state relative-caret-position="325">
+          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
           <folding>
             <element signature="e#70#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/initialize_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-400">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="e#69#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services/student_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-455">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding>
+            <element signature="e#69#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
