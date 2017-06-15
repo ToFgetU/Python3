@@ -5,6 +5,7 @@
 import socketserver
 import optparse
 from conf import settings
+from core.ftp_server import FTPHandler
 
 class ArvgHandler(object):
     '''FTP服务端入口'''

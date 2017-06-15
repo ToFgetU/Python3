@@ -10,3 +10,6 @@ class FTPHandler(socketserver.BaseRequestHandler):
         while True:
             self.data = self.request.recv(1024).strip()
             print(self.client_address[0])
+
+            data = json.loads(self.data.encode())
+            self.request.sendall(self.data.upper())
