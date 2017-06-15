@@ -12,5 +12,5 @@ LOG_LEVEL = 'DEBUG'
 
 ACCOUNT_DIR = '%s/db' % BASE_DIR
 
-HOST = '0.0.0.0'
+HOST = 'localhost'
 PORT = 10021

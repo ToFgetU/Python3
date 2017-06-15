@@ -10,10 +10,20 @@ from core.ftp_server import FTPHandler
 
 class ArvgHandler(object):
     def __init__(self):
-        self.start()
         parse = optparse.OptionParser()
         (self.options, self.args) = parse.parse_args()
-        print(self.options, self.args)
+        # print(self.options, self.args)
+
+        self.verify_args(self.options, self.args)
+
+    def verify_args(self, options, args):
+        try:
+            if hasattr(self, args[0]):
+                func = getattr(self, args[0])
+                func()
+        except Exception as e:
+            print("没有输入启动参数 start")
+
 
     def start(self):
         '''启动FTP服务'''
