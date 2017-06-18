@@ -12,7 +12,8 @@ STATUS_CODE = {
     200: 'Success',
     201: 'Invalid cmd',
     202: "Invalid cmd format. e.g: {'action':'get','filename':'test.py','size':344}",
-    203: 'User or password is not correct'
+    203: 'User or password is not correct',
+    204: 'Invalid filename'
 
 }
 
@@ -49,7 +50,7 @@ class FTPHandler(socketserver.BaseRequestHandler):
 
     def _auth(self, *args, **kwargs):
         '''验证用户并创建用户家目录'''
-        print(*args, **kwargs)
+        print('__', *args, **kwargs)
         data = args[0]
         if data.get('username') is None or data.get('password') is None:
             self.send_response(203)
@@ -72,17 +73,51 @@ class FTPHandler(socketserver.BaseRequestHandler):
     def _put(self, *args, **kwargs):
         '''上传到服务器'''
         data = args[0]
+        print('data ', data)
         user_home = "%s/%s" % (settings.USER_HOME, self.user)
         if data['filename'] is not None:
             file_obj = open('%s/%s' % (user_home, data['filename']), 'wb')
             while True:
                 received_size = 0
-                while received_size < args:
+                while received_size < data['size']:
                     recv_data = self.request.recv(4096)
                     file_obj.write(recv_data)
                     received_size += len(recv_data)
+                    print(data['size'], received_size)
                 else:
                     file_obj.close()
                     self.send_response(200)
+
+    def _get(self, *args, **kwargs):
+        data = args[0]
+        print('data', data)
+        user_home = "%s/%s" % (settings.USER_HOME, self.user)
+        filename = '%s/%s' % (user_home, data['filename'])
+        if os.path.exists(filename):
+            file_obj = open(filename, 'rb')
+            data_hander = {
+                'filename': data['filename'],
+                'size': os.path.getsize('%s/%s' % (user_home, data['filename']))
+            }
+            self.send_response(200, data=data_hander)
+            self.request.recv(1) # 等待客户端确认
+
+            for line in file_obj:
+                self.request.send(line)
+            file_obj.close()
+            self.send_response(200)
+        else:
+            self.send_response(204)
+
+    def _ls(self, *args, **kwargs):
+        '''显示列表'''
+        data = args[0]
+        print('data', data)
+        user_home = "%s/%s" % (settings.USER_HOME, self.user)
+        file_list = os.listdir(user_home)
+        data_hander = {
+            'file_list': file_list
+        }
+        self.send_response(200, data=data_hander)
 
 
