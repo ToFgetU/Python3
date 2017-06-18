@@ -3,3 +3,4 @@
 # Author: PanFei Liu
 
 print('test')
+print('hello')
