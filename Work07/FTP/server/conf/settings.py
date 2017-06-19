@@ -6,11 +6,13 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# 用户家目录
 USER_HOME = '%s/home' % BASE_DIR
-LOG_DIR = '%s/log' % BASE_DIR
-LOG_LEVEL = 'DEBUG'
 
-ACCOUNT_FILE = '%s/conf' % BASE_DIR
+# 帐号文件路径
+ACCOUNT_FILE = '%s/conf/account.cfg' % BASE_DIR
 
-HOST = '0.0.0.0'
+# 服务器IP 端口号
+HOST = "0.0.0.0"
 PORT = 10021
+
