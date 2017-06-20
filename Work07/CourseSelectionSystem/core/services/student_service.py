@@ -42,7 +42,7 @@ def main(user):
         '2': show_students,
         '3': exit
     }
-    show()
+    show(user)
     while True:
         choice = input("请输入选项 : ").strip()
         if choice not in choice_dict:
