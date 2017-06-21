@@ -13,7 +13,8 @@ class Person(object):
 
 class BlackPerson(Person):
     def __init__(self, name, age, sex, strength):
-        Person.__init__(self, name, age, sex)
+        # Person.__init__(self, name, age, sex)
+        super(BlackPerson, self).__init__(name, age, sex) # 新式类继承
         self.strength = strength
         print(self.NAME, self.AGE, self.SEX)
 
