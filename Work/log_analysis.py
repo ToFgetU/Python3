@@ -7,7 +7,7 @@ file_list = []
 info_list = []
 
 
-with open('tmp.log','r') as f:
+with open('tmp2.log','r') as f:
     for k, line in enumerate(f):
         if k == 0:
             pass
@@ -16,10 +16,17 @@ file_list.pop()
 
 for key, line in enumerate(file_list):
     tmp = line.split()
+    # print(tmp)
+    # if key == 10:
+    #     break
     app = tmp[8].split('/')
-    h_app = app[0].split('_')
-    temp = tmp[17].split('"')
-    info_list.append(('%s_%s' % (h_app[0], app[1]), tmp[10], temp[1]))
+    # h_app = app[0].split('_')
+    try:
+        temp = tmp[17].split('"')
+    except Exception as e:
+        continue
+    # print(tmp[8],tmp[10], tmp[17])
+    info_list.append(('%s_%s' % (app[0], app[1]), tmp[10], temp[1]))
 
 app_dir = {}
 
