@@ -56,7 +56,6 @@ class FTPClient(object):
         data = json.loads(data.decode())
         return data
 
-
     def authenticate(self):
         '''验证用户参数'''
         if self.conn:

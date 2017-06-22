@@ -68,6 +68,8 @@ class FTPHandler(socketserver.BaseRequestHandler):
                     pass
                 else:
                     os.makedirs("%s/%s" % (settings.USER_HOME, self.user))
+                self.path_name = "%s/%s" % (settings.USER_HOME, self.user)
+                self.change_path = ''
                 return self.send_response(200)
             else:
                 return self.send_response(203)
@@ -133,8 +135,8 @@ class FTPHandler(socketserver.BaseRequestHandler):
         '''显示列表'''
         data = args[0]
         print('data', data)
-        user_home = "%s/%s" % (settings.USER_HOME, self.user)
-        if self.path_name is not None:
+        # user_home = "%s/%s" % (settings.USER_HOME, self.user)
+        if os.path.exists(self.path_name):
             file_list = os.listdir(self.path_name)
         else:
             file_list = os.listdir(user_home)
@@ -148,9 +150,17 @@ class FTPHandler(socketserver.BaseRequestHandler):
         '''目录选择'''
         data = args[0]
         print(data)
-        user_home = "%s/%s" % (settings.USER_HOME, self.user)
+        user_home = "%s" % (settings.USER_HOME)
         if data['path'] is not None:
-            path_name = '%s/%s' % (user_home, data['path'])
+            if data['path'] == '~':
+                path_name = "%s/%s" % (settings.USER_HOME, self.user)
+            elif data['path'] == '..':
+                path_name = os.path.dirname(self.path_name)
+            else:
+                path_name = '%s/%s' % (self.path_name, data['path'])
+            if user_home not in self.path_name or user_home == path_name:
+                self.send_response(205)
+                return
             if os.path.exists(path_name):
                 data_hander = {
                     'path': path_name

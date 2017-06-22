@@ -18,8 +18,9 @@ class ArvgHandler(object):
 
     def verify_args(self, options, args):
         try:
-            if hasattr(self, args[0]):
-                func = getattr(self, args[0])
+            a = args[0].strip()
+            if hasattr(self, a):
+                func = getattr(self, a)
                 func()
         except Exception as e:
             print("没有输入启动参数 start")
