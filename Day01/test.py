@@ -51,4 +51,13 @@
 # s = re.sub(r'ff', 22, s)
 # print(s)
 
+a = 'lhjyd/ServerResource/card/Input_2.6.0.1686.exe'
+list1 = a.split('/', 1)
 
+print(list1)
+
+f = open('test1.txt', 'ab')
+
+username =b'112'
+f.write(username)
+f.close()

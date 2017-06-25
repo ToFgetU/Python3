@@ -131,16 +131,20 @@ class FTPClient(object):
             'size': os.path.getsize(cmd_list[1])
         }
         self.client.send(json.dumps(data_hander).encode())
-        self.client.recv(1)  # 等待服务端确认
-        for line in file_obj:
-            self.client.send(line)
-        file_obj.close()
-        self.client.recv(1)  # 确认接收完毕
-        response = self.get_response()
-        if response['status_code'] == 200:
-            print("文件上传成功")
+        s_response = self.get_response()
+        if s_response['status_code'] == 200:
+            self.client.recv(1)  # 等待服务端确认
+            for line in file_obj:
+                self.client.send(line)
+            file_obj.close()
+            self.client.recv(1)  # 确认接收完毕
+            response = self.get_response()
+            if response['status_code'] == 200:
+                print("文件上传成功")
+            else:
+                print(response['status_msg'])
         else:
-            print(response['status_msg'])
+            print(s_response['status_msg'])
 
     def _get(self, cmd_list):
         '''服务端下载文件'''
@@ -148,24 +152,30 @@ class FTPClient(object):
             print("no filename follows...")
             return
         filename = cmd_list[1]
+        down_size = 0
+        if os.path.exists(os.path.abspath(filename)):
+            down_size = os.path.getsize(os.path.abspath(filename))
 
         data_hander = {
             'action': cmd_list[0],
-            'filename': filename
+            'filename': filename,
+            'down_size': down_size
         }
         if self.__md5(cmd_list):
             data_hander = {
                 'action': cmd_list[0],
                 'filename': filename,
-                'md5': 'md5'
+                'md5': 'md5',
+                'down_size': down_size
             }
+
         self.client.send(json.dumps(data_hander).encode())
         response = self.get_response()
         # print(response)
         if response['status_code'] == 200:
             self.client.send(b'1') #客户端确认可接收数据
-            file_obj = open(response['filename'], 'wb')
-            received_size = 0
+            file_obj = open(response['filename'], 'ab')
+            received_size = down_size
             if self.__md5(cmd_list):
                 md5_obj = hashlib.md5()
                 progress = self.show_progress(response['size'])
@@ -197,7 +207,7 @@ class FTPClient(object):
             else:
                 progress = self.show_progress(response['size'])
                 progress.__next__()
-                received_size = 0
+                received_size = down_size
                 while received_size < response['size']:
                     recv_data = self.client.recv(4096)
                     received_size += len(recv_data)

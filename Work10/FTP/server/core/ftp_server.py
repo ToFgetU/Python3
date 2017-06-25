@@ -15,8 +15,9 @@ STATUS_CODE = {
     202: "Invalid cmd format. e.g: {'action':'get','filename':'test.py','size':344}",
     203: 'User or password is not correct',
     204: 'Invalid filename',
-    205: 'Invalid path'
-
+    205: 'Invalid path',
+    206: 'Insufficient disk space',
+    207: 'The File has been downloaded'
 }
 
 class FTPHandler(socketserver.BaseRequestHandler):
@@ -80,19 +81,33 @@ class FTPHandler(socketserver.BaseRequestHandler):
         print('data ', data)
         user_home = "%s/%s" % (settings.USER_HOME, self.user)
         if data['filename'] is not None:
-            self.request.send(b'1')  # 服务端端确认可接收数据
-            file_obj = open('%s/%s' % (user_home, data['filename']), 'wb')
-            received_size = 0
-            while received_size < data['size']:
-                recv_data = self.request.recv(4096)
-                file_obj.write(recv_data)
-                received_size += len(recv_data)
-                # print(data['size'], received_size)
+            # 转换成字节数
+            config = configparser.ConfigParser()
+            config.read(settings.ACCOUNT_FILE)
+            if config.has_section(self.user):
+                config_size = float(config[self.user]['Quotation']) * 1024 * 1024
+                used_size = float(config[self.user]['Used']) * 1024 * 1024
+                total_size = used_size + data['size']
+                if total_size > config_size:
+                    self.send_response(206)
+                else:
+                    self.request.send(b'1')  # 服务端端确认可接收数据
+                    file_obj = open('%s/%s' % (user_home, data['filename']), 'wb')
+                    received_size = 0
+                    while received_size < data['size']:
+                        recv_data = self.request.recv(4096)
+                        file_obj.write(recv_data)
+                        received_size += len(recv_data)
+                        # print(data['size'], received_size)
+                    else:
+                        file_obj.close()
+                        config.set(self.user, 'Used', str(total_size/1024/1024))
+                        config.write(open(settings.ACCOUNT_FILE, 'w'))
+                        self.request.send(b'1')  # 告诉服务端接收完毕
+                        self.send_response(200)
+                        print("文件接收完毕")
             else:
-                file_obj.close()
-                self.request.send(b'1')  # 告诉服务端接收完毕
-                self.send_response(200)
-                print("文件接收完毕")
+                self.send_response(201)
 
 
     def _get(self, *args, **kwargs):
@@ -100,36 +115,41 @@ class FTPHandler(socketserver.BaseRequestHandler):
         print('data', data)
         user_home = "%s/%s" % (settings.USER_HOME, self.user)
         filename = '%s/%s' % (user_home, data['filename'])
-        if os.path.exists(filename):
-            file_obj = open(filename, 'rb')
-            data_hander = {
-                'filename': data['filename'],
-                'size': os.path.getsize('%s/%s' % (user_home, data['filename']))
-            }
-            self.send_response(200, data=data_hander)
-            self.request.recv(1) # 等待客户端确认
 
-            if data.get('md5'):
-                md5_obj = hashlib.md5()
-                for line in file_obj:
-                    self.request.send(line)
-                    md5_obj.update(line)
-                file_obj.close()
-                md5_val = md5_obj.hexdigest()
-
-                self.request.recv(1) # 确认接收完毕
-                self.send_response(200, {'md5': md5_val})
-                print("文件传输成功")
-            else:
-                for line in file_obj:
-                    self.request.send(line)
-                file_obj.close()
-
-                self.request.recv(1)  # 确认接收完毕
-                self.send_response(200)
-                print("文件传输成功")
+        if os.path.getsize('%s/%s' % (user_home, data['filename'])) == data['down_size']:
+            self.send_response(207)
         else:
-            self.send_response(204)
+            if os.path.exists(filename):
+                file_obj = open(filename, 'rb')
+                file_obj.seek(data['down_size'], 0)
+                data_hander = {
+                    'filename': data['filename'],
+                    'size': os.path.getsize('%s/%s' % (user_home, data['filename']))
+                }
+                self.send_response(200, data=data_hander)
+                self.request.recv(1) # 等待客户端确认
+
+                if data.get('md5'):
+                    md5_obj = hashlib.md5()
+                    for line in file_obj:
+                        self.request.send(line)
+                        md5_obj.update(line)
+                    file_obj.close()
+                    md5_val = md5_obj.hexdigest()
+
+                    self.request.recv(1) # 确认接收完毕
+                    self.send_response(200, {'md5': md5_val})
+                    print("文件传输成功")
+                else:
+                    for line in file_obj:
+                        self.request.send(line)
+                    file_obj.close()
+
+                    self.request.recv(1)  # 确认接收完毕
+                    self.send_response(200)
+                    print("文件传输成功")
+            else:
+                self.send_response(204)
 
     def _ls(self, *args, **kwargs):
         '''显示列表'''
