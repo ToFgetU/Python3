@@ -23,6 +23,7 @@ class ArvgHandler(object):
                 func = getattr(self, a)
                 func()
         except Exception as e:
+            print(e)
             print("没有输入启动参数 start")
 
 

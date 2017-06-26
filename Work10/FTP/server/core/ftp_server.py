@@ -91,6 +91,7 @@ class FTPHandler(socketserver.BaseRequestHandler):
                 if total_size > config_size:
                     self.send_response(206)
                 else:
+                    self.send_response(200)
                     self.request.send(b'1')  # 服务端端确认可接收数据
                     file_obj = open('%s/%s' % (user_home, data['filename']), 'wb')
                     received_size = 0
@@ -98,7 +99,7 @@ class FTPHandler(socketserver.BaseRequestHandler):
                         recv_data = self.request.recv(4096)
                         file_obj.write(recv_data)
                         received_size += len(recv_data)
-                        # print(data['size'], received_size)
+                        print(data['size'], received_size)
                     else:
                         file_obj.close()
                         config.set(self.user, 'Used', str(total_size/1024/1024))
