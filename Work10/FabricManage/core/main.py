@@ -84,7 +84,7 @@ class Handler(object):
             *     ifconfig                                     *
             *     put filename dest                            *
             *       ex: put F:/hello.txt /tmp/hello.txt        *
-            *     get filename                                 *
+            *     get filename dest                            *
             *       ex: get /tmp/hello.txt helloworld.txt      *
             ****************************************************""")
         cmd = input("\n>>> 请操作: ").strip()
