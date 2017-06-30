@@ -17,7 +17,7 @@ class SSHClients(object):
         # 允许连接不在know_hosts文件中的主机
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         # 连接服务器
-        return self.ssh.connect(hostname=self.hostname, port=self.port, username=self.username, password=self.password)
+        self.ssh.connect(hostname=self.hostname, port=self.port, username=self.username, password=self.password)
 
     def exec(self, cmd):
         # 执行命令
@@ -27,18 +27,30 @@ class SSHClients(object):
         result = (res if res else err).decode()
         return result
 
-    def close(self):
+    def to_close(self):
         self.ssh.close()
 
     def sftp_conn(self):
         # 创建SFTP对象
         transport = paramiko.Transport((self.hostname, self.port))
         transport.connect(username=self.username, password=self.password)
-        sftp = paramiko.SFTPClient()
-        return sftp
+        self.sftp = paramiko.SFTPClient.from_transport(transport)
 
     def change(self, cmd):
-        sftp.put('test.txt', '/tmp/test.txt')
-        sftp.get('/etc/passwd', 'passwd.txt')
+        if len(cmd) < 3:
+            return 'Invalid cmd'
+        if cmd[0] == 'put':
+            try:
+                self.sftp.put(cmd[1], cmd[2])
+                return '上传成功'
+            except FileNotFoundError as e:
+                return e
+        else:
+            try:
+                self.sftp.get(cmd[1], cmd[2])
+                return '下载成功'
+            except FileNotFoundError as e:
+                return e
 
-        transport.close()
+    def sftp_close(self):
+        self.transport.close()

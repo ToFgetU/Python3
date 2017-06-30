@@ -13,7 +13,7 @@
 # USER_PASSWORD_FILE = '%s/conf/user_passwd.cfg' % BASE_DIR
 
 hosts_dict = {
-    'test': [('192.168.128.133', 22), ('192.168.128.133', 22)],
+    'test': [('192.168.128.133', 22), ('192.168.128.131', 22)],
     'test1': [('10.20.2.88', 22)]
 }
 
@@ -22,7 +22,7 @@ user_dict = {
         'username': 'root',
         'password': '123456'
     },
-    '10.20.2.99': {
+    '192.168.128.131': {
         'username': 'root',
         'password': '123456'
     }
