@@ -39,7 +39,7 @@ class SelectFtpServer(object):
     def accept(self, mask):
         '''服务器连接'''
         self.conn, self.addr = self.sock.accept()
-        print(self.conn, self.addr)
+        # print(self.conn, self.addr)
         self.conn.setblocking(False)
         SelectFtpServer.sel.register(self.conn, selectors.EVENT_READ, self.read)
 

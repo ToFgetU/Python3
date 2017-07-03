@@ -9,31 +9,34 @@ import os
 
 class FTPClient(object):
     def __init__(self):
-        self.parse = optparse.OptionParser()
-        self.parse.add_option("-s", "--server", dest="server", help="ftp server ip addr")
-        self.parse.add_option("-P", "--Port", type='int', dest="port", help="ftp server port")
-        self.parse.add_option("-u", "--username", dest="username", help="ftp server user")
-        self.parse.add_option("-p", "--password", dest="password", help="ftp server password")
-        (self.opstions, self.args) = self.parse.parse_args()
+        # self.parse = optparse.OptionParser()
+        # self.parse.add_option("-s", "--server", dest="server", help="ftp server ip addr")
+        # self.parse.add_option("-P", "--Port", type='int', dest="port", help="ftp server port")
+        # self.parse.add_option("-u", "--username", dest="username", help="ftp server user")
+        # self.parse.add_option("-p", "--password", dest="password", help="ftp server password")
+        # (self.opstions, self.args) = self.parse.parse_args()
 
         self.conn = self.make_connection()
 
 
     def make_connection(self):
         '''连接FTP服务端'''
-        if self.opstions.server is None or self.opstions.port is None:
-            self.parse.print_help()
-            return False
-        else:
-            # print(self.opstions, self.args)
-            self.client = socket.socket()
-            self.client.connect((self.opstions.server, int(self.opstions.port)))
-            return True
+        # if self.opstions.server is None or self.opstions.port is None:
+        #     self.parse.print_help()
+        #     return False
+        # else:
+        #     # print(self.opstions, self.args)
+        #     self.client = socket.socket()
+        #     self.client.connect((self.opstions.server, int(self.opstions.port)))
+        #     return True
+        self.client = socket.socket()
+        self.client.connect(('localhost', 10021))
+        return True
 
     def get_response(self):
         '''获取服务端返回数据'''
         data = self.client.recv(1024).strip()
-        # print('recv data: ', data)
+        print('recv data: ', data)
         data = json.loads(data.decode())
         return data
 
@@ -60,26 +63,27 @@ class FTPClient(object):
             pass
         else:
             exit()
-        if self.opstions.username is None and self.opstions.password is not None:
-            exit("Err: 没有输入用户")
-        elif self.opstions.username is not None and self.opstions.password is None:
-            password = input("password: ").strip()
-            return self.get_auth_resulet(self.opstions.username, password)
-        elif self.opstions.username is None and self.opstions.password is None:
-            retry_count = 0
-            while retry_count < 3:
-                username = input("username: ").strip()
-                password = input("password: ").strip()
-                if self.get_auth_resulet(username, password):
-                    print("Passed authentication!")
-                    return self.get_auth_resulet(username, password)
-                else:
-                    retry_count += 1
-            else:
-                exit("输入超过三次")
-
-        else:
-            return self.get_auth_resulet(self.opstions.username, self.opstions.password)
+        # if self.opstions.username is None and self.opstions.password is not None:
+        #     exit("Err: 没有输入用户")
+        # elif self.opstions.username is not None and self.opstions.password is None:
+        #     password = input("password: ").strip()
+        #     return self.get_auth_resulet(self.opstions.username, password)
+        # elif self.opstions.username is None and self.opstions.password is None:
+        #     retry_count = 0
+        #     while retry_count < 3:
+        #         username = input("username: ").strip()
+        #         password = input("password: ").strip()
+        #         if self.get_auth_resulet(username, password):
+        #             print("Passed authentication!")
+        #             return self.get_auth_resulet(username, password)
+        #         else:
+        #             retry_count += 1
+        #     else:
+        #         exit("输入超过三次")
+        #
+        # else:
+        #     return self.get_auth_resulet(self.opstions.username, self.opstions.password)
+        return self.get_auth_resulet('alex', '123')
 
     def interactive(self):
         '''FTP交互'''
@@ -115,12 +119,14 @@ class FTPClient(object):
             'size': os.path.getsize(cmd_list[1])
         }
         self.client.send(json.dumps(data_hander).encode())
-        response = self.get_response()
-        print(response)
-        self.client.recv(1)  # 等待服务端确认
+        # response = self.get_response()
+        # print(response)
+        t = self.client.recv(1)  # 等待服务端确认
+        print('t1', t)
         self.client.send(file_obj.read())
         file_obj.close()
-        self.client.recv(1)  # 确认接收完毕
+        t = self.client.recv(1)  # 确认接收完毕
+        print('t2', t)
         response = self.get_response()
         if response['status_code'] == 200:
             print("文件上传成功")
