@@ -13,7 +13,7 @@ messages = [ b'This is the message. ',
              b'It will be sent ',
              b'in parts.',
              ]
-server_address = ('localhost', 10000)
+server_address = ('localhost', 9999)
 
 # Create a TCP/IP socket
 socks = [ socket.socket(socket.AF_INET, socket.SOCK_STREAM),
@@ -31,6 +31,7 @@ for message in messages:
     for s in socks:
         print('%s: sending "%s"' % (s.getsockname(), message) )
         s.send(message)
+        # s.send(message)
 
     # Read responses on both sockets
     for s in socks:
