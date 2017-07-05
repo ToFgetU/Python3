@@ -10,4 +10,4 @@ sys.path.append(BASE_DIR)
 
 from core import main
 if __name__ == '__main__':
-    main.authentication()
+    main.start()

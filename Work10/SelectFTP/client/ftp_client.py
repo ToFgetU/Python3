@@ -9,29 +9,31 @@ import os
 
 class FTPClient(object):
     def __init__(self):
-        # self.parse = optparse.OptionParser()
-        # self.parse.add_option("-s", "--server", dest="server", help="ftp server ip addr")
-        # self.parse.add_option("-P", "--Port", type='int', dest="port", help="ftp server port")
-        # self.parse.add_option("-u", "--username", dest="username", help="ftp server user")
-        # self.parse.add_option("-p", "--password", dest="password", help="ftp server password")
-        # (self.opstions, self.args) = self.parse.parse_args()
+        self.parse = optparse.OptionParser()
+        self.parse.add_option("-s", "--server", dest="server", help="ftp server ip addr")
+        self.parse.add_option("-P", "--Port", type='int', dest="port", help="ftp server port")
+        self.parse.add_option("-u", "--username", dest="username", help="ftp server user")
+        self.parse.add_option("-p", "--password", dest="password", help="ftp server password")
+        (self.opstions, self.args) = self.parse.parse_args()
 
         self.conn = self.make_connection()
 
 
     def make_connection(self):
         '''连接FTP服务端'''
-        # if self.opstions.server is None or self.opstions.port is None:
-        #     self.parse.print_help()
-        #     return False
-        # else:
-        #     # print(self.opstions, self.args)
-        #     self.client = socket.socket()
-        #     self.client.connect((self.opstions.server, int(self.opstions.port)))
-        #     return True
-        self.client = socket.socket()
-        self.client.connect(('localhost', 10021))
-        return True
+        if self.opstions.server is None or self.opstions.port is None:
+            self.parse.print_help()
+            return False
+        else:
+            # print(self.opstions, self.args)
+            self.client = socket.socket()
+            self.client.connect((self.opstions.server, int(self.opstions.port)))
+            return True
+
+        # 调试段代码
+        # self.client = socket.socket()
+        # self.client.connect(('localhost', 10021))
+        # return True
 
     def get_response(self):
         '''获取服务端返回数据'''
@@ -48,6 +50,7 @@ class FTPClient(object):
             'password': password
         }
         # print(data_hander)
+        self.user = username
         self.client.send(json.dumps(data_hander).encode())
 
         response = self.get_response()
@@ -63,27 +66,27 @@ class FTPClient(object):
             pass
         else:
             exit()
-        # if self.opstions.username is None and self.opstions.password is not None:
-        #     exit("Err: 没有输入用户")
-        # elif self.opstions.username is not None and self.opstions.password is None:
-        #     password = input("password: ").strip()
-        #     return self.get_auth_resulet(self.opstions.username, password)
-        # elif self.opstions.username is None and self.opstions.password is None:
-        #     retry_count = 0
-        #     while retry_count < 3:
-        #         username = input("username: ").strip()
-        #         password = input("password: ").strip()
-        #         if self.get_auth_resulet(username, password):
-        #             print("Passed authentication!")
-        #             return self.get_auth_resulet(username, password)
-        #         else:
-        #             retry_count += 1
-        #     else:
-        #         exit("输入超过三次")
-        #
-        # else:
-        #     return self.get_auth_resulet(self.opstions.username, self.opstions.password)
-        return self.get_auth_resulet('alex', '123')
+        if self.opstions.username is None and self.opstions.password is not None:
+            exit("Err: 没有输入用户")
+        elif self.opstions.username is not None and self.opstions.password is None:
+            password = input("password: ").strip()
+            return self.get_auth_resulet(self.opstions.username, password)
+        elif self.opstions.username is None and self.opstions.password is None:
+            retry_count = 0
+            while retry_count < 3:
+                username = input("username: ").strip()
+                password = input("password: ").strip()
+                if self.get_auth_resulet(username, password):
+                    print("Passed authentication!")
+                    return self.get_auth_resulet(username, password)
+                else:
+                    retry_count += 1
+            else:
+                exit("输入超过三次")
+
+        else:
+            return self.get_auth_resulet(self.opstions.username, self.opstions.password)
+        # return self.get_auth_resulet('alex', '123')
 
     def interactive(self):
         '''FTP交互'''
@@ -91,6 +94,8 @@ class FTPClient(object):
             print("开始交互")
             while True:
                 choice = input('[%s] >>> ' % self.user).strip()
+                if not choice:
+                    break
                 if len(choice) == 0:
                     continue
                 cmd_list = choice.split()
@@ -115,6 +120,7 @@ class FTPClient(object):
             return
         data_hander = {
             'action': cmd_list[0],
+            'username': self.user,
             'filename': filename,
             'size': os.path.getsize(cmd_list[1])
         }
@@ -123,7 +129,9 @@ class FTPClient(object):
         # print(response)
         t = self.client.recv(1)  # 等待服务端确认
         print('t1', t)
-        self.client.send(file_obj.read())
+        # self.client.send(file_obj.read())
+        for line in file_obj:
+            self.client.send(line)
         file_obj.close()
         t = self.client.recv(1)  # 确认接收完毕
         print('t2', t)
@@ -142,71 +150,29 @@ class FTPClient(object):
 
         data_hander = {
             'action': cmd_list[0],
+            'username': self.user,
             'filename': filename
         }
-        if self.__md5(cmd_list):
-            data_hander = {
-                'action': cmd_list[0],
-                'filename': filename,
-                'md5': 'md5'
-            }
         self.client.send(json.dumps(data_hander).encode())
         response = self.get_response()
         # print(response)
         if response['status_code'] == 200:
-            # self.client.send(b'1')  # 客户端确认可接收数据
+            self.client.send(b'1')  # 客户端确认可接收数据
             file_obj = open(response['filename'], 'wb')
             received_size = 0
-            if self.__md5(cmd_list):
-                md5_obj = hashlib.md5()
-                progress = self.show_progress(response['size'])
-                progress.__next__()
-                while received_size < response['size']:
-                    recv_data = self.client.recv(4096)
-                    received_size += len(recv_data)
-                    try:
-                        progress.send(len(recv_data))
-                    except Exception as e:
-                        print('100%')
-                    file_obj.write(recv_data)
-                    md5_obj.update(recv_data)
-                    # print(response['size'], received_size)
-                else:
-                    file_obj.close()
-                    # self.client.send(b'1')  # 告诉服务端接收完毕
-                    md5_val = md5_obj.hexdigest()
-                    # print('md5_val', md5_val)
-                    md5_response = self.get_response()
-                    # print(md5_response)
-                    if md5_response['status_code'] == 200:
-                        if md5_val == md5_response['md5']:
-                            print("文件校验一致，下载成功")
-                        else:
-                            print('文件下载异常，校验不一致')
-                    else:
-                        print(md5_response['status_msg'])
+            while received_size < response['size']:
+                recv_data = self.client.recv(4096)
+                received_size += len(recv_data)
+                file_obj.write(recv_data)
+                # print(response['size'], received_size)
             else:
-                progress = self.show_progress(response['size'])
-                progress.__next__()
-                received_size = 0
-                while received_size < response['size']:
-                    recv_data = self.client.recv(4096)
-                    received_size += len(recv_data)
-                    try:
-                        progress.send(len(recv_data))
-                    except Exception as e:
-                        print('100%')
-                    file_obj.write(recv_data)
-                    # print(response['size'], received_size)
+                file_obj.close()
+                self.client.send(b'1')  # 告诉服务端接收完毕
+                response = self.get_response()
+                if response['status_code'] == 200:
+                    print("文件下载成功")
                 else:
-                    file_obj.close()
-                    # self.client.send(b'1')  # 告诉服务端接收完毕
-                    response = self.get_response()
-                    # print(md5_response)
-                    if response['status_code'] == 200:
-                        print("文件下载成功")
-                    else:
-                        print(response['status_msg'])
+                    print(response['status_msg'])
         else:
             print(response['status_msg'])
 

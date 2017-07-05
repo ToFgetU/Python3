@@ -19,46 +19,10 @@ STATUS_CODE = {
 
 class SelectFtpServer(object):
     '''select FTP server 服务器'''
-    sel = selectors.DefaultSelector()
 
-    def start(self):
-        '''启动程序入口'''
-        self.sock = socket.socket()
-        self.sock.bind(settings.host_port)
-        self.sock.listen(10)
-        self.sock.setblocking(False)
-        SelectFtpServer.sel.register(self.sock, selectors.EVENT_READ, self.accept)
 
-        while True:
-            events = SelectFtpServer.sel.select()
-            for key, mask in events:
-                print(key, mask)
-                callback = key.data
-                callback(mask)
-
-    def accept(self, mask):
-        '''服务器连接'''
-        self.conn, self.addr = self.sock.accept()
-        # print(self.conn, self.addr)
-        self.conn.setblocking(False)
-        SelectFtpServer.sel.register(self.conn, selectors.EVENT_READ, self.read)
-
-    def read(self, mask):
-        '''程序执行'''
-        self.data = self.conn.recv(1024)
-        data = json.loads(self.data.decode())
-        if data:
-            if hasattr(self, '_%s' % data.get('action')):
-                func = getattr(self, '_%s' % data.get('action'))
-                func(data)
-            else:
-                exit('Invalid cmd')
-        else:
-            print('closing', self.conn)
-            SelectFtpServer.sel.unregister(self.conn)
-            self.conn.close()
-
-    def send_response(self, status_code, data=None):
+    @staticmethod
+    def send_response(status_code, conn, data=None):
         '''向客户端返回数据信息'''
         response = {
             'status_code': status_code,
@@ -67,7 +31,7 @@ class SelectFtpServer(object):
         if data:
             response.update(data)
         print('------->', response)
-        self.conn.send(json.dumps(response).encode())
+        conn.send(json.dumps(response).encode())
 
     def _auth(self, *args, **kwargs):
         print('args', args)
@@ -79,38 +43,47 @@ class SelectFtpServer(object):
                     pass
                 else:
                     os.makedirs("%s/%s" % (settings.USER_HOME, self.user))
-                return self.send_response(200)
+                SelectFtpServer.send_response(200, args[1])
         else:
-            return self.send_response(203)
+            SelectFtpServer.send_response(203, args[1])
 
-    def _put(self, *args, **kwargs):
+    @staticmethod
+    def _put(*args, **kwargs):
         '''上传到服务器'''
-        data = args[0]
+        data = args[1]
         print('data', data)
+        print(args)
+        user = data['username']
+        print('user:', user)
         # data_hander = {
         #     'data': data
         # }
         # self.send_response(200, data=data_hander)
-        user_home = "%s/%s" % (settings.USER_HOME, self.user)
+        user_home = "%s/%s" % (settings.USER_HOME, user)
         if data['filename'] is not None:
-            self.conn.send(b'1')  # 服务端端确认可接收数据
+            args[2].send(b'1')  # 服务端端确认可接收数据
             file_obj = open('%s/%s' % (user_home, data['filename']), 'wb')
             received_size = 0
             while received_size < data['size']:
-                recv_data = self.conn.recv(4096)
-                file_obj.write(recv_data)
-                received_size += len(recv_data)
-                print(data['size'], received_size)
+                # 由于是非阻塞性模式，所以当recv没接到数据时会出现异常，所以对其进行捕获并处理
+                try:
+                    recv_data = args[2].recv(4096)
+                    file_obj.write(recv_data)
+                    received_size += len(recv_data)
+                    print(data['size'], received_size)
+                except:
+                    continue
             else:
                 file_obj.close()
-                self.conn.send(b'1')  # 告诉服务端接收完毕
-                self.send_response(200)
+                args[2].send(b'1')  # 告诉服务端接收完毕
+                SelectFtpServer.send_response(200, args[2])
                 print("文件接收完毕")
 
-    def _get(self):
-        data = args[0]
+    @staticmethod
+    def _get(*args, **kwargs):
+        data = args[1]
         print('data', data)
-        user_home = "%s/%s" % (settings.USER_HOME, self.user)
+        user_home = "%s/%s" % (settings.USER_HOME, data['username'])
         filename = '%s/%s' % (user_home, data['filename'])
         if os.path.exists(filename):
             file_obj = open(filename, 'rb')
@@ -118,17 +91,30 @@ class SelectFtpServer(object):
                 'filename': data['filename'],
                 'size': os.path.getsize('%s/%s' % (user_home, data['filename']))
             }
-            self.send_response(200, data=data_hander)
-            # self.conn.recv(1)  # 等待客户端确认
-
-            for line in file_obj:
-                self.conn.send(line)
+            SelectFtpServer.send_response(200, args[2], data=data_hander)
+            while True:
+                try:
+                    t = args[2].recv(1)  # 等待客户端确认
+                    print('t', t)
+                    break
+                except:
+                    continue
+            # for line in file_obj:
+            #     args[2].send(line)
+            f = file_obj.read()
+            args[2].sendall(f)
             file_obj.close()
 
-            # self.conn.recv(1)  # 确认接收完毕
-            self.send_response(200)
+            while True:
+                try:
+                    t = args[2].recv(1)  # 确认接收完毕
+                    print('t', t)
+                    break
+                except:
+                    continue
+            SelectFtpServer.send_response(200, args[2])
             print("文件传输成功")
         else:
-            self.send_response(204)
+            self.send_response(204, args[2])
 
 

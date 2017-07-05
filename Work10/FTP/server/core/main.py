@@ -29,7 +29,7 @@ class ArvgHandler(object):
 
     def start(self):
         '''启动FTP服务'''
-        print("----- going to start server -----")
+        print("----- going to start server port:10021 -----")
         server = socketserver.ThreadingTCPServer((settings.HOST, settings.PORT), FTPHandler)
         server.serve_forever()
 
