@@ -18,9 +18,10 @@ class Handler(object):
         print(msg)
         self.semaphore.release()
 
-    def _cmd(self, host, _cmd, callback):
+    # @staticmethod
+    def _cmd(self, host, ssh, _cmd, callback):
         '''命令行,利用回调函数显示结果'''
-        result = self.s.exec(_cmd)
+        result = ssh.exec(_cmd)#self.s.exec(_cmd)
         print(host.center(60, '='))
         callback(result)
         # print(result)
@@ -29,9 +30,9 @@ class Handler(object):
         #     print(k.center(60, '='))
         #     print(v)
         #     Handler.RESULT_DICT = {}
-        self.s.to_close()
+        ssh.to_close()
 
-    def _put(self, host, _cmd, callback):
+    def _put(self, shh, host, _cmd, callback):
         '''上传文件'''
         result = self.s.change(_cmd)
         print(host.center(60, '='))
@@ -91,24 +92,30 @@ class Handler(object):
                 *       ex: get /tmp/hello.txt helloworld.txt      *
                 ****************************************************""")
             while True:
+                self.semaphore = threading.BoundedSemaphore(10)
                 cmd = input("\n>>> 请操作: ").strip()
                 cmd_list = cmd.split()
-                self.semaphore = threading.BoundedSemaphore(10)
                 if cmd_list[0] == 'exit':
                     break
+                res_list = []
                 for h in self.hosts:
                     username = settings.user_dict[h[0]]['username']
                     password = settings.user_dict[h[0]]['password']
-                    self.s = SSHClients(username, password, h[0], h[1])
+                    s = SSHClients(username, password, h[0], h[1])
                     if cmd_list[0] == 'put' or cmd_list[0] == 'get':
-                        self.s.sftp_conn()
+                        s.sftp_conn()
                     else:
-                        self.s.conn()
+                        s.conn()
                     if hasattr(self, '_%s' % cmd_list[0]):
                         func = getattr(self, '_%s' % cmd_list[0])
-                        t = threading.Thread(target=func, args=(h[0], cmd, self.callback_func))
+                        t = threading.Thread(target=func, args=(h[0], s, cmd, self.callback_func))
                         t.start()
+                        res_list.append(t)
                     else:
-                        t = threading.Thread(target=self._cmd, args=(h[0], cmd, self.callback_func))
+                        t = threading.Thread(target=self._cmd, args=(h[0], s, cmd, self.callback_func))
                         t.start()
+                        res_list.append(t)
+                for j in res_list:
+                    j.join()
+
 
