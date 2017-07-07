@@ -52,7 +52,7 @@ class SelectFtpServer(object):
         '''上传到服务器'''
         data = args[1]
         print('data', data)
-        print(args)
+        # print(args)
         user = data['username']
         print('user:', user)
         # data_hander = {
@@ -70,7 +70,7 @@ class SelectFtpServer(object):
                     recv_data = args[2].recv(4096)
                     file_obj.write(recv_data)
                     received_size += len(recv_data)
-                    print(data['size'], received_size)
+                    # print(data['size'], received_size)
                 except:
                     continue
             else:

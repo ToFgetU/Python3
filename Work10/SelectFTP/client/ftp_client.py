@@ -9,12 +9,12 @@ import os
 
 class FTPClient(object):
     def __init__(self):
-        self.parse = optparse.OptionParser()
-        self.parse.add_option("-s", "--server", dest="server", help="ftp server ip addr")
-        self.parse.add_option("-P", "--Port", type='int', dest="port", help="ftp server port")
-        self.parse.add_option("-u", "--username", dest="username", help="ftp server user")
-        self.parse.add_option("-p", "--password", dest="password", help="ftp server password")
-        (self.opstions, self.args) = self.parse.parse_args()
+        parse = optparse.OptionParser()
+        parse.add_option("-s", "--server", dest="server", help="ftp server ip addr")
+        parse.add_option("-P", "--Port", type='int', dest="port", help="ftp server port")
+        parse.add_option("-u", "--username", dest="username", help="ftp server user")
+        parse.add_option("-p", "--password", dest="password", help="ftp server password")
+        (self.opstions, self.args) = parse.parse_args()
 
         self.conn = self.make_connection()
 
@@ -127,6 +127,7 @@ class FTPClient(object):
         self.client.send(json.dumps(data_hander).encode())
         # response = self.get_response()
         # print(response)
+        print('11111等待')
         t = self.client.recv(1)  # 等待服务端确认
         print('t1', t)
         # self.client.send(file_obj.read())

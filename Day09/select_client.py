@@ -9,14 +9,17 @@ __author__ = 'Alex Li'
 import socket
 import sys
 
-messages = [ b'This is the message. ',
-             b'It will be sent ',
-             b'in parts.',
+messages = [ b'The First. ',
+             b'The Second ',
+             b'The third.',
              ]
-server_address = ('localhost', 9999)
+server_address = ('localhost', 10021)
 
 # Create a TCP/IP socket
 socks = [ socket.socket(socket.AF_INET, socket.SOCK_STREAM),
+          socket.socket(socket.AF_INET, socket.SOCK_STREAM),
+          socket.socket(socket.AF_INET, socket.SOCK_STREAM),
+          socket.socket(socket.AF_INET, socket.SOCK_STREAM),
           socket.socket(socket.AF_INET, socket.SOCK_STREAM),
           ]
 

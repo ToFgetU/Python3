@@ -32,16 +32,16 @@ class Handler(object):
         #     Handler.RESULT_DICT = {}
         ssh.to_close()
 
-    def _put(self, shh, host, _cmd, callback):
+    def _put(self, ssh, host, _cmd, callback):
         '''上传文件'''
-        result = self.s.change(_cmd)
+        result = ssh.change(_cmd)
         print(host.center(60, '='))
         callback(result)
         self.s.sftp_close()
 
-    def _get(self, host, _cmd, callback):
+    def _get(self, ssh, host, _cmd, callback):
         '''下载文件'''
-        result = self.s.change(_cmd)
+        result = ssh.change(_cmd)
         print(host.center(60, '='))
         callback(result)
         self.s.sftp_close()

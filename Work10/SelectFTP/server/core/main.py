@@ -8,6 +8,7 @@ import json
 import os
 from conf import settings
 from core.ftpserver import SelectFtpServer
+import threading, time
 
 sel = selectors.DefaultSelector()
 
@@ -15,11 +16,13 @@ def accept(sock, mask):
     '''服务器连接'''
     conn, addr = sock.accept()
     # print('--------------->', self.conn, self.addr)
+    print('accepted', conn, 'from', addr, '--mask', mask)
     conn.setblocking(False)
     sel.register(conn, selectors.EVENT_READ, read)
 
 def read(conn, mask):
     '''程序执行'''
+    print('开始')
     try:
         data = conn.recv(1024)
         data = json.loads(data.decode())
@@ -28,6 +31,9 @@ def read(conn, mask):
             if hasattr(SelectFtpServer, '_%s' % data.get('action')):
                 func = getattr(SelectFtpServer, '_%s' % data.get('action'))
                 func(SelectFtpServer, data, conn)
+                # t = threading.Thread(target=func, args=(SelectFtpServer, data, conn))
+                # t.start()
+                print('-----------> 结束')
             else:
                 exit('Invalid cmd')
         else:
@@ -51,10 +57,18 @@ def start():
 
     while True:
         events = sel.select()
+        print('事件触发')
+        res_list = []
+        # time.sleep(10)
         for key, mask in events:
-            print(key, mask)
+            # print(key, mask)
             callback = key.data
             callback(key.fileobj, mask)
+        #     t = threading.Thread(target=callback, args=(key.fileobj, mask))
+        #     t.start()
+        #     res_list.append(t)
+        # for j in res_list:
+        #     j.join()
 
 
 
