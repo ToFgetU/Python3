@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df843004-c319-4b93-8684-84f800dd4323" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/home/alex/test.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/client/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/client/ftp_client.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/bin/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/bin/f_start.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/conf/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/conf/settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/core/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/core/ftp_server.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/SelectorFTP/server/home/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Work10/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Python3.iml" afterPath="$PROJECT_DIR$/.idea/Python3.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Day09/select_client.py" afterPath="$PROJECT_DIR$/Day09/select_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Day09/selectors_ftp.py" afterPath="$PROJECT_DIR$/Day09/selectors_ftp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work10/FabricManage/core/main.py" afterPath="$PROJECT_DIR$/Work10/FabricManage/core/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py" afterPath="$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work10/SelectFTP/server/core/ftpserver.py" afterPath="$PROJECT_DIR$/Work10/SelectFTP/server/core/ftpserver.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py" afterPath="$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py" />
     </list>
     <ignored path="Python3.iws" />
@@ -21,69 +32,67 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Python3$lv3menu.coverage" NAME="lv3menu Coverage Results" MODIFIED="1493963204765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
-    <SUITE FILE_PATH="coverage/Python3$haproxy_do.coverage" NAME="haproxy_do Coverage Results" MODIFIED="1494296655498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
-    <SUITE FILE_PATH="coverage/Python3$sock_client.coverage" NAME="sock_client Coverage Results" MODIFIED="1499132202079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day08" />
-    <SUITE FILE_PATH="coverage/Python3$func_1.coverage" NAME="func_1 Coverage Results" MODIFIED="1494382254854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
     <SUITE FILE_PATH="coverage/Python3$threading_ex1.coverage" NAME="threading_ex1 Coverage Results" MODIFIED="1498459131409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$sys_mode.coverage" NAME="sys_mode Coverage Results" MODIFIED="1493712495834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
     <SUITE FILE_PATH="coverage/Python3$threading_ex4.coverage" NAME="threading_ex4 Coverage Results" MODIFIED="1498529577120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$teacher_calputer.coverage" NAME="teacher_calputer Coverage Results" MODIFIED="1495785572014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
     <SUITE FILE_PATH="coverage/Python3$main_demo_bak.coverage" NAME="main_demo_bak Coverage Results" MODIFIED="1494832851150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
-    <SUITE FILE_PATH="coverage/Python3$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1498387502597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
-    <SUITE FILE_PATH="coverage/Python3$configparser.coverage" NAME="configparser Coverage Results" MODIFIED="1494642249074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$main.coverage" NAME="main Coverage Results" MODIFIED="1499409551298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/server/core" />
-    <SUITE FILE_PATH="coverage/Python3$teacher_service.coverage" NAME="teacher_service Coverage Results" MODIFIED="1496978194621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services" />
-    <SUITE FILE_PATH="coverage/Python3$login.coverage" NAME="login Coverage Results" MODIFIED="1495519237781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
-    <SUITE FILE_PATH="coverage/Python3$select_client.coverage" NAME="select_client Coverage Results" MODIFIED="1499409567174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$ftp_socket_server.coverage" NAME="ftp_socket_server Coverage Results" MODIFIED="1497255561546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day07/FTP/server" />
-    <SUITE FILE_PATH="coverage/Python3$staff_do__1_.coverage" NAME="staff_do (1) Coverage Results" MODIFIED="1494689854522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
-    <SUITE FILE_PATH="coverage/Python3$ftp_clinet.coverage" NAME="ftp_clinet Coverage Results" MODIFIED="1497250584119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/FTP/client" />
-    <SUITE FILE_PATH="coverage/Python3$selectors_ftp.coverage" NAME="selectors_ftp Coverage Results" MODIFIED="1499407113108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$xm_lmodule.coverage" NAME="xm_lmodule Coverage Results" MODIFIED="1496215563843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$demo__1_.coverage" NAME="demo (1) Coverage Results" MODIFIED="1494927094122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/bin" />
     <SUITE FILE_PATH="coverage/Python3$process_gx.coverage" NAME="process_gx Coverage Results" MODIFIED="1498552653672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$hash_do.coverage" NAME="hash_do Coverage Results" MODIFIED="1494645055799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$threading_ex2.coverage" NAME="threading_ex2 Coverage Results" MODIFIED="1498468732712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$config_create.coverage" NAME="config_create Coverage Results" MODIFIED="1494642411005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$test.coverage" NAME="test Coverage Results" MODIFIED="1497923410725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$ftpserver.coverage" NAME="ftpserver Coverage Results" MODIFIED="1499139516428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/server/core" />
+    <SUITE FILE_PATH="coverage/Python3$ftp_socket_clinet.coverage" NAME="ftp_socket_clinet Coverage Results" MODIFIED="1497255586848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day07/FTP/client" />
+    <SUITE FILE_PATH="coverage/Python3$ftp_clinet.coverage" NAME="ftp_clinet Coverage Results" MODIFIED="1497250584119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/FTP/client" />
     <SUITE FILE_PATH="coverage/Python3$module.coverage" NAME="module Coverage Results" MODIFIED="1494667036255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$shoppingCart.coverage" NAME="shoppingCart Coverage Results" MODIFIED="1493972991695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$staff_do.coverage" NAME="staff_do Coverage Results" MODIFIED="1494675202905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work" />
+    <SUITE FILE_PATH="coverage/Python3$decorator1.coverage" NAME="decorator1 Coverage Results" MODIFIED="1494404711009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
+    <SUITE FILE_PATH="coverage/Python3$sys.coverage" NAME="sys Coverage Results" MODIFIED="1493700955644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
+    <SUITE FILE_PATH="coverage/Python3$hash_do.coverage" NAME="hash_do Coverage Results" MODIFIED="1494645055799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$settings__1_.coverage" NAME="settings (1) Coverage Results" MODIFIED="1499588322508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/server/conf" />
+    <SUITE FILE_PATH="coverage/Python3$shopping.coverage" NAME="shopping Coverage Results" MODIFIED="1495506591388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
+    <SUITE FILE_PATH="coverage/Python3$f_start__1_.coverage" NAME="f_start (1) Coverage Results" MODIFIED="1499096269501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/server/bin" />
+    <SUITE FILE_PATH="coverage/Python3$teacher_calputer.coverage" NAME="teacher_calputer Coverage Results" MODIFIED="1495785572014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$settings.coverage" NAME="settings Coverage Results" MODIFIED="1499588380072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectorFTP/server/conf" />
+    <SUITE FILE_PATH="coverage/Python3$teacher_service.coverage" NAME="teacher_service Coverage Results" MODIFIED="1496978194621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core/services" />
+    <SUITE FILE_PATH="coverage/Python3$paramiko_test.coverage" NAME="paramiko_test Coverage Results" MODIFIED="1498804846438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$lv3menu.coverage" NAME="lv3menu Coverage Results" MODIFIED="1493963204765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
+    <SUITE FILE_PATH="coverage/Python3$main.coverage" NAME="main Coverage Results" MODIFIED="1498726982920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/FabricManage/core" />
+    <SUITE FILE_PATH="coverage/Python3$f_start.coverage" NAME="f_start Coverage Results" MODIFIED="1498808742116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/FabricManage/bin" />
+    <SUITE FILE_PATH="coverage/Python3$staff_do__1_.coverage" NAME="staff_do (1) Coverage Results" MODIFIED="1494689854522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work/core" />
+    <SUITE FILE_PATH="coverage/Python3$identifier.coverage" NAME="identifier Coverage Results" MODIFIED="1496815078498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core" />
+    <SUITE FILE_PATH="coverage/Python3$log_analysis.coverage" NAME="log_analysis Coverage Results" MODIFIED="1498014454783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work" />
+    <SUITE FILE_PATH="coverage/Python3$ftp_clinet__1_.coverage" NAME="ftp_clinet (1) Coverage Results" MODIFIED="1497255105371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day07/FTP/client" />
+    <SUITE FILE_PATH="coverage/Python3$simple_shell_sed.coverage" NAME="simple_shell_sed Coverage Results" MODIFIED="1494209897163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$func_1.coverage" NAME="func_1 Coverage Results" MODIFIED="1494382254854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
+    <SUITE FILE_PATH="coverage/Python3$ftp_client.coverage" NAME="ftp_client Coverage Results" MODIFIED="1499096277366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/client" />
+    <SUITE FILE_PATH="coverage/Python3$ftp_server.coverage" NAME="ftp_server Coverage Results" MODIFIED="1497250581679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/FTP/server" />
+    <SUITE FILE_PATH="coverage/Python3$.coverage" NAME="爬虫 Coverage Results" MODIFIED="1498616873082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$login.coverage" NAME="login Coverage Results" MODIFIED="1495519237781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
+    <SUITE FILE_PATH="coverage/Python3$threading_ex3.coverage" NAME="threading_ex3 Coverage Results" MODIFIED="1498469085764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$process_ex1.coverage" NAME="process_ex1 Coverage Results" MODIFIED="1498545557307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1493967581996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
+    <SUITE FILE_PATH="coverage/Python3$process_pool.coverage" NAME="process_pool Coverage Results" MODIFIED="1498793062517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$sys_mode.coverage" NAME="sys_mode Coverage Results" MODIFIED="1493712495834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
+    <SUITE FILE_PATH="coverage/Python3$config_read.coverage" NAME="config_read Coverage Results" MODIFIED="1498267520445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1498387502597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
+    <SUITE FILE_PATH="coverage/Python3$threading_ex2.coverage" NAME="threading_ex2 Coverage Results" MODIFIED="1498468732712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$test.coverage" NAME="test Coverage Results" MODIFIED="1497923410725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
+    <SUITE FILE_PATH="coverage/Python3$config_create.coverage" NAME="config_create Coverage Results" MODIFIED="1494642411005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$helloworld.coverage" NAME="helloworld Coverage Results" MODIFIED="1494293570412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
+    <SUITE FILE_PATH="coverage/Python3$demo__1_.coverage" NAME="demo (1) Coverage Results" MODIFIED="1494927094122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/bin" />
     <SUITE FILE_PATH="coverage/Python3$greenlet_ex.coverage" NAME="greenlet_ex Coverage Results" MODIFIED="1498614707984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
     <SUITE FILE_PATH="coverage/Python3$logger_conf.coverage" NAME="logger_conf Coverage Results" MODIFIED="1495418471040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/conf" />
-    <SUITE FILE_PATH="coverage/Python3$threading_ex3.coverage" NAME="threading_ex3 Coverage Results" MODIFIED="1498469085764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$helloworld.coverage" NAME="helloworld Coverage Results" MODIFIED="1494293570412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
-    <SUITE FILE_PATH="coverage/Python3$identifier.coverage" NAME="identifier Coverage Results" MODIFIED="1496815078498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core" />
-    <SUITE FILE_PATH="coverage/Python3$_pydev_execfile.coverage" NAME="_pydev_execfile Coverage Results" MODIFIED="1493967581996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps" />
-    <SUITE FILE_PATH="coverage/Python3$config_read.coverage" NAME="config_read Coverage Results" MODIFIED="1498267520445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
-    <SUITE FILE_PATH="coverage/Python3$ftp_client.coverage" NAME="ftp_client Coverage Results" MODIFIED="1499226641791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/client" />
-    <SUITE FILE_PATH="coverage/Python3$process_pool.coverage" NAME="process_pool Coverage Results" MODIFIED="1498793062517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$demo__2_.coverage" NAME="demo (2) Coverage Results" MODIFIED="1495785374910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/bin" />
-    <SUITE FILE_PATH="coverage/Python3$sys.coverage" NAME="sys Coverage Results" MODIFIED="1493700955644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day01" />
-    <SUITE FILE_PATH="coverage/Python3$process_ex1.coverage" NAME="process_ex1 Coverage Results" MODIFIED="1498545557307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$decorator.coverage" NAME="decorator Coverage Results" MODIFIED="1494404174295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
-    <SUITE FILE_PATH="coverage/Python3$ftp_socket_clinet.coverage" NAME="ftp_socket_clinet Coverage Results" MODIFIED="1497255586848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day07/FTP/client" />
-    <SUITE FILE_PATH="coverage/Python3$settings.coverage" NAME="settings Coverage Results" MODIFIED="1496814966950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/conf" />
-    <SUITE FILE_PATH="coverage/Python3$school.coverage" NAME="school Coverage Results" MODIFIED="1496720617258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core" />
-    <SUITE FILE_PATH="coverage/Python3$shopping.coverage" NAME="shopping Coverage Results" MODIFIED="1495506591388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
-    <SUITE FILE_PATH="coverage/Python3$paramiko_test.coverage" NAME="paramiko_test Coverage Results" MODIFIED="1498804846438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$ftp_server.coverage" NAME="ftp_server Coverage Results" MODIFIED="1497250581679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/FTP/server" />
-    <SUITE FILE_PATH="coverage/Python3$f_start.coverage" NAME="f_start Coverage Results" MODIFIED="1499331372744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/FabricManage/bin" />
-    <SUITE FILE_PATH="coverage/Python3$log_analysis.coverage" NAME="log_analysis Coverage Results" MODIFIED="1498014454783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work" />
-    <SUITE FILE_PATH="coverage/Python3$commons.coverage" NAME="commons Coverage Results" MODIFIED="1496806998678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/lib" />
-    <SUITE FILE_PATH="coverage/Python3$.coverage" NAME="爬虫 Coverage Results" MODIFIED="1498616873082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day09" />
-    <SUITE FILE_PATH="coverage/Python3$simple_shell_sed.coverage" NAME="simple_shell_sed Coverage Results" MODIFIED="1494209897163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
-    <SUITE FILE_PATH="coverage/Python3$staff_do.coverage" NAME="staff_do Coverage Results" MODIFIED="1494675202905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05/work" />
-    <SUITE FILE_PATH="coverage/Python3$process.coverage" NAME="process Coverage Results" MODIFIED="1495785488942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/core" />
-    <SUITE FILE_PATH="coverage/Python3$demo.coverage" NAME="demo Coverage Results" MODIFIED="1496992247488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin" />
-    <SUITE FILE_PATH="coverage/Python3$main_demo__1_.coverage" NAME="main_demo (1) Coverage Results" MODIFIED="1495414982156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/core" />
-    <SUITE FILE_PATH="coverage/Python3$mv_pdf.coverage" NAME="mv_pdf Coverage Results" MODIFIED="1498102465761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work" />
-    <SUITE FILE_PATH="coverage/Python3$ftp_clinet__1_.coverage" NAME="ftp_clinet (1) Coverage Results" MODIFIED="1497255105371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day07/FTP/client" />
     <SUITE FILE_PATH="coverage/Python3$main_demo.coverage" NAME="main_demo Coverage Results" MODIFIED="1495159768207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/core" />
-    <SUITE FILE_PATH="coverage/Python3$decorator1.coverage" NAME="decorator1 Coverage Results" MODIFIED="1494404711009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
     <SUITE FILE_PATH="coverage/Python3$ChoseLessonSystem.coverage" NAME="ChoseLessonSystem Coverage Results" MODIFIED="1496733738701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Shortcut/Desktop/homework_day6/bin" />
-    <SUITE FILE_PATH="coverage/Python3$f_start__1_.coverage" NAME="f_start (1) Coverage Results" MODIFIED="1499409560805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectFTP/server/bin" />
+    <SUITE FILE_PATH="coverage/Python3$shoppingCart.coverage" NAME="shoppingCart Coverage Results" MODIFIED="1493972991695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$school.coverage" NAME="school Coverage Results" MODIFIED="1496720617258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/core" />
+    <SUITE FILE_PATH="coverage/Python3$main_demo__1_.coverage" NAME="main_demo (1) Coverage Results" MODIFIED="1495414982156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/core" />
+    <SUITE FILE_PATH="coverage/Python3$f_start__2_.coverage" NAME="f_start (2) Coverage Results" MODIFIED="1499610854795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work10/SelectorFTP/server/bin" />
+    <SUITE FILE_PATH="coverage/Python3$mv_pdf.coverage" NAME="mv_pdf Coverage Results" MODIFIED="1498102465761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work" />
+    <SUITE FILE_PATH="coverage/Python3$haproxy_do.coverage" NAME="haproxy_do Coverage Results" MODIFIED="1494296655498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day02" />
+    <SUITE FILE_PATH="coverage/Python3$commons.coverage" NAME="commons Coverage Results" MODIFIED="1496806998678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/lib" />
+    <SUITE FILE_PATH="coverage/Python3$configparser.coverage" NAME="configparser Coverage Results" MODIFIED="1494642249074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$process.coverage" NAME="process Coverage Results" MODIFIED="1495785488942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/Calputer/core" />
+    <SUITE FILE_PATH="coverage/Python3$xm_lmodule.coverage" NAME="xm_lmodule Coverage Results" MODIFIED="1496215563843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day05" />
+    <SUITE FILE_PATH="coverage/Python3$demo__2_.coverage" NAME="demo (2) Coverage Results" MODIFIED="1495785374910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work05/ATM/bin" />
+    <SUITE FILE_PATH="coverage/Python3$demo.coverage" NAME="demo Coverage Results" MODIFIED="1496992247488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Work07/CourseSelectionSystem/bin" />
+    <SUITE FILE_PATH="coverage/Python3$ftp_socket_server.coverage" NAME="ftp_socket_server Coverage Results" MODIFIED="1497255561546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day07/FTP/server" />
+    <SUITE FILE_PATH="coverage/Python3$decorator.coverage" NAME="decorator Coverage Results" MODIFIED="1494404174295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Day04" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -93,7 +102,112 @@
     <favorites_list name="Python3" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ftp_server.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/server/core/ftp_server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1300">
+              <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+              <folding>
+                <element signature="e#151#181#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ftp_server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/FTP/server/core/ftp_server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-440">
+              <caret line="81" column="61" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ftp_client.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/FTP/client/ftp_client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1936">
+              <caret line="268" column="23" selection-start-line="268" selection-start-column="15" selection-end-line="268" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/server/conf/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/conf/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Day09/SelectSelector测试/client/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="34" column="76" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/FTP/server/conf/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ftp_client.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/client/ftp_client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="49" />
+              <folding>
+                <element signature="e#145#169#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ftpserver.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/core/ftpserver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="44" column="74" selection-start-line="41" selection-start-column="16" selection-end-line="44" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Day09/SelectSelector测试/server/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="68" column="35" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -113,8 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Day07/FTP/server/ftp_socket_server.py" />
-        <option value="$PROJECT_DIR$/Day07/FTP/client/ftp_socket_clinet.py" />
         <option value="$PROJECT_DIR$/Day08/FTP/server/core/main.py" />
         <option value="$PROJECT_DIR$/Day07/FTPServer/server/conf/settings.py" />
         <option value="$PROJECT_DIR$/Day08/FTP/server/conf/account.cfg" />
@@ -134,6 +246,7 @@
         <option value="$PROJECT_DIR$/Day01/test.py" />
         <option value="$PROJECT_DIR$/Work10/FTP/server/conf/account.cfg" />
         <option value="$PROJECT_DIR$/Work10/FTP/server/core/ftp_server.py" />
+        <option value="$PROJECT_DIR$/Work10/FTP/server/core/main.py" />
         <option value="$PROJECT_DIR$/Day09/test.txt" />
         <option value="$PROJECT_DIR$/Day09/threading_ex1.py" />
         <option value="$PROJECT_DIR$/Day09/threading_ex2.py" />
@@ -145,6 +258,8 @@
         <option value="$PROJECT_DIR$/Day09/test.py" />
         <option value="$PROJECT_DIR$/Day09/greenlet_ex.py" />
         <option value="$PROJECT_DIR$/Day09/爬虫.py" />
+        <option value="$PROJECT_DIR$/Day09/select_server.py" />
+        <option value="$PROJECT_DIR$/Day09/select_client.py" />
         <option value="$PROJECT_DIR$/Work10/FabricManage/bin/题目" />
         <option value="$PROJECT_DIR$/Work10/FTP/server/conf/hosts.cfg" />
         <option value="$PROJECT_DIR$/Work10/FabricManage/conf/user_passwd.cfg" />
@@ -153,17 +268,16 @@
         <option value="$PROJECT_DIR$/Work10/FabricManage/bin/f_start.py" />
         <option value="$PROJECT_DIR$/Day09/paramiko_test.py" />
         <option value="$PROJECT_DIR$/Work10/FabricManage/core/ftpserver.py" />
-        <option value="$PROJECT_DIR$/Day08/sock_client.py" />
-        <option value="$PROJECT_DIR$/Day09/select_server.py" />
-        <option value="$PROJECT_DIR$/Work10/SelectFTP/server/bin/f_start.py" />
-        <option value="$PROJECT_DIR$/Work10/FabricManage/README.md" />
-        <option value="$PROJECT_DIR$/Work10/FTP/server/core/main.py" />
         <option value="$PROJECT_DIR$/Work10/FabricManage/core/main.py" />
         <option value="$PROJECT_DIR$/Work10/SelectFTP/server/core/ftpserver.py" />
-        <option value="$PROJECT_DIR$/Day09/selectors_ftp.py" />
-        <option value="$PROJECT_DIR$/Day09/select_client.py" />
-        <option value="$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py" />
         <option value="$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py" />
+        <option value="$PROJECT_DIR$/Day09/SelectSelector测试/server/main.py" />
+        <option value="$PROJECT_DIR$/Work10/SelectorFTP/server/bin/f_start.py" />
+        <option value="$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py" />
+        <option value="$PROJECT_DIR$/Work10/SelectFTP/server/conf/settings.py" />
+        <option value="$PROJECT_DIR$/Work10/SelectorFTP/server/conf/settings.py" />
+        <option value="$PROJECT_DIR$/Work10/SelectorFTP/client/ftp_client.py" />
+        <option value="$PROJECT_DIR$/Work10/SelectorFTP/server/core/ftp_server.py" />
       </list>
     </option>
   </component>
@@ -174,8 +288,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="width" value="1932" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
     <option name="height" value="1066" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -222,6 +337,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,8 +360,22 @@
               <option name="myItemId" value="Work10" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,7 +393,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -284,7 +415,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -310,7 +441,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="SelectorFTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -336,7 +497,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -362,7 +523,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -388,7 +549,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemId" value="SelectorFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -410,7 +571,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FabricManage" />
+              <option name="myItemId" value="SelectFTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -428,7 +589,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FabricManage" />
+              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SelectFTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -450,11 +637,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FabricManage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
+              <option name="myItemId" value="FTP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,6 +652,88 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Work10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FTP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -511,6 +776,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SelectSelector测试" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Day09" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SelectSelector测试" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -538,8 +825,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -550,20 +835,21 @@
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\WorkSpace\Python\Python3\Work10\SelectorFTP\server\home\alex" />
+      <recent name="F:\WorkSpace\Python\Python3\Work10\SelectorFTP\server" />
+      <recent name="F:\WorkSpace\Python\Python3\Work10\SelectorFTP\client" />
+      <recent name="F:\WorkSpace\Python\Python3\Work10\SelectFTP\client" />
+      <recent name="E:\WorkSpace\python\Python3\Day09" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\WorkSpace\Python\Python3\Work10\SelectorFTP\server\core" />
       <recent name="E:\WorkSpace\python\Python3\Day07" />
       <recent name="E:\WorkSpace\python\Python3\Work05\ATM" />
       <recent name="F:\WorkSpace\Python\Python3\Day05\work\core" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\WorkSpace\python\Python3\Work10\SelectFTP\client" />
-      <recent name="E:\WorkSpace\python\Python3\Work10\FabricManage" />
-      <recent name="E:\WorkSpace\python\Python3\Work10\SelectFTP" />
-      <recent name="F:\WorkSpace\Python\Python3\Work10\SelectFTP\client" />
-      <recent name="E:\WorkSpace\python\Python3\Day09" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.select_client">
+  <component name="RunManager" selected="Python.settings">
     <configuration default="false" name="f_start (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -582,74 +868,74 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="f_start" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="ftp_client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work10/FabricManage/bin" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work10/SelectFTP/client" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work10/FabricManage/bin/f_start.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="selectors_ftp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="f_start (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Day09" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work10/SelectorFTP/server/bin" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Day09/selectors_ftp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work10/SelectorFTP/server/bin/f_start.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="select_client" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Day09" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work10/SelectorFTP/server/conf" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Day09/select_client.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work10/SelectorFTP/server/conf/settings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="settings (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work10/SelectFTP/server/core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Work10/SelectFTP/server/conf" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Python3" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Work10/SelectFTP/server/conf/settings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -864,18 +1150,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.f_start (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.f_start" />
-      <item index="2" class="java.lang.String" itemvalue="Python.selectors_ftp" />
-      <item index="3" class="java.lang.String" itemvalue="Python.select_client" />
-      <item index="4" class="java.lang.String" itemvalue="Python.main" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ftp_client" />
+      <item index="2" class="java.lang.String" itemvalue="Python.f_start (2)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.settings" />
+      <item index="4" class="java.lang.String" itemvalue="Python.settings (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.select_client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.f_start (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Python.main" />
-        <item index="3" class="java.lang.String" itemvalue="Python.selectors_ftp" />
-        <item index="4" class="java.lang.String" itemvalue="Python.f_start" />
+        <item index="0" class="java.lang.String" itemvalue="Python.f_start (2)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.settings" />
+        <item index="2" class="java.lang.String" itemvalue="Python.settings (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ftp_client" />
+        <item index="4" class="java.lang.String" itemvalue="Python.f_start (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -905,16 +1191,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1932" height="1066" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20886752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20842217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5038674" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4198895" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3038674" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43867403" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4198895" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -924,7 +1211,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -951,20 +1237,36 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="84" />
+      <option name="time" value="75" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/HZ$D.051.4448/HZ$D.051.4449/myftp/settings.py" />
-    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/conf/user_passwd.cfg" />
-    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/conf/settings.py">
+    <entry file="file://$PROJECT_DIR$/Day09/爬虫.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Work07/FTP/client/ftp_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/conf/hosts.cfg" />
+    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/conf/user_passwd.cfg" />
+    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/conf/account.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/HZ$D.051.4448/HZ$D.051.4449/myftp/settings.py" />
+    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/conf/user_passwd.cfg" />
     <entry file="file://$PROJECT_DIR$/Work10/FTP/server/bin/ftp_start.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -976,6 +1278,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day09/threading_ex1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day09/threading_ex4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1000,6 +1316,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/core/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="20" selection-start-line="18" selection-start-column="4" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Day09/process_pool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -1007,10 +1330,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Day09/threading_ex3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Day09/paramiko_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/bin/题目">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1022,81 +1359,203 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Develop/Python/Python36/Lib/genericpath.py" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/codecs.py" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/selectors.py" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/enum.py" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/socket.py" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/json/decoder.py" />
-    <entry file="file://F:/Develop/Python/Python36/Lib/json/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Day08/sock_client.py">
+    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/bin/f_start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="375">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/client/test.png" />
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/home/alex/test.png" />
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/conf/settings.py">
+    <entry file="file://$PROJECT_DIR$/Day09/threading_ex2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="242">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/core/ftpserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/core/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day09/select_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Day09/select_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="83" column="56" selection-start-line="83" selection-start-column="56" selection-end-line="83" selection-end-column="56" />
+        <state relative-caret-position="380">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7750">
-          <caret line="310" column="0" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/json/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8850">
-          <caret line="356" column="0" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/bin/题目">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/README.md">
+    <entry file="file://$PROJECT_DIR$/Day09/selectors_ftp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/README.md">
+    <entry file="file://F:/Develop/Python/Python36/Lib/genericpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="400">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/core/main.py">
+    <entry file="file://F:/Develop/Python/Python36/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+        <state relative-caret-position="211">
+          <caret line="310" column="0" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/selectors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/enum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="552" column="0" selection-start-line="552" selection-start-column="0" selection-end-line="552" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Develop/Python/Python36/Lib/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/client/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/server/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/bin/f_start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/server/bin/f_start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2664">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day09/SelectSelector测试/server/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/FTP/server/conf/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/conf/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/core/ftpserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="44" column="74" selection-start-line="41" selection-start-column="16" selection-end-line="44" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="70" column="24" selection-start-line="68" selection-start-column="12" selection-end-line="70" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Day09/SelectSelector测试/client/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="34" column="76" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/server/conf/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Work10/FTP/client/ftp_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2701">
+        <state relative-caret-position="1936">
           <caret line="268" column="23" selection-start-line="268" selection-start-column="15" selection-end-line="268" selection-end-column="23" />
           <folding />
         </state>
@@ -1104,163 +1563,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Work10/FTP/server/core/ftp_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="124" column="29" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="29" />
+        <state relative-caret-position="-440">
+          <caret line="81" column="61" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/threading.py">
+    <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/client/ftp_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2209">
-          <caret line="863" column="0" selection-start-line="863" selection-start-column="0" selection-end-line="863" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/bin/f_start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day09/threading_ex3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day09/threading_ex4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day09/threading_ex2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day09/threading_ex1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day09/selectors_ftp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+        <state relative-caret-position="376">
+          <caret line="78" column="12" selection-start-line="78" selection-start-column="12" selection-end-line="78" selection-end-column="49" />
           <folding>
-            <element signature="e#69#85#0" expanded="true" />
+            <element signature="e#145#169#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/selectors.py">
+    <entry file="file://$PROJECT_DIR$/Work10/SelectorFTP/server/core/ftp_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="353" column="0" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/enum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="290" column="0" selection-start-line="290" selection-start-column="0" selection-end-line="290" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/Develop/Python/Python36/Lib/socket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/bin/f_start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/core/ftpserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/server/core/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+        <state relative-caret-position="1300">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
           <folding>
-            <element signature="e#69#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Day09/select_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/SelectFTP/client/ftp_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="160" column="7" selection-start-line="160" selection-start-column="7" selection-end-line="160" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/core/ftpserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work10/FabricManage/core/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="117" column="34" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
-          <folding>
-            <element signature="e#69#85#0" expanded="true" />
+            <element signature="e#151#181#0" expanded="true" />
           </folding>
         </state>
       </provider>

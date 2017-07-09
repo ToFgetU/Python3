@@ -131,8 +131,13 @@ class FTPClient(object):
         t = self.client.recv(1)  # 等待服务端确认
         print('t1', t)
         # self.client.send(file_obj.read())
-        for line in file_obj:
-            self.client.send(line)
+        buffer_size = 4096
+        sent_size = 0
+        while file_obj.tell() < os.path.getsize(cmd_list[1]):
+            buffer = file_obj.read(buffer_size)
+            self.client.send(buffer)
+            sent_size += buffer
+            print("已发送%d%%，%d字节" % (int(sent_size / filesize * 100), sent_size))
         file_obj.close()
         t = self.client.recv(1)  # 确认接收完毕
         print('t2', t)

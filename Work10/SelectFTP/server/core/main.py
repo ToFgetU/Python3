@@ -20,20 +20,49 @@ def accept(sock, mask):
     conn.setblocking(False)
     sel.register(conn, selectors.EVENT_READ, read)
 
+upload_dict = dict()
+download_dict = dict()
 def read(conn, mask):
     '''程序执行'''
     print('开始')
     try:
-        data = conn.recv(1024)
+        data = conn.recv(4096)
         data = json.loads(data.decode())
         print(data)
         if data:
             if hasattr(SelectFtpServer, '_%s' % data.get('action')):
                 func = getattr(SelectFtpServer, '_%s' % data.get('action'))
-                func(SelectFtpServer, data, conn)
                 # t = threading.Thread(target=func, args=(SelectFtpServer, data, conn))
                 # t.start()
-                print('-----------> 结束')
+                if data.get('action') == 'auth':
+                    func(SelectFtpServer, data, conn)
+                elif data.get('action') == 'put':
+                    filename = data['filename']  # 接受到的命令格式应该为put|filename|filesize
+                    filesize = data['size']
+                    upload_jobs[conn] = dict(action=func, filename=filename, filesize=filesize, received_size=0,
+                                             fp=open(filename, mode='ab'))
+                    conn.send(b'1')
+                elif data.get('action') == 'get':
+                    filename = data['filename']  # 接受到的命令格式应该为get|filename
+                    filesize = data['size']
+            elif conn in upload_dict:
+                fp = upload_jobs[conn]['fp']
+                remain_size = upload_jobs[conn]['filesize'] - upload_jobs[conn]['received_size']  # 获得余下文件数据的长度
+                if remain_size <= 4096:  # 如果少于或等于4096个字节，代表这是最后一次读取
+                    data = data[:remain_size]
+                    fp.write(data)
+                    fp.flush()
+                    fp.close()
+                    del upload_jobs[conn]  # 写入完毕后，从上传任务中移出该链接
+                else:
+                    # 余下超过4096个字节，则把读取到的data全部写入
+                    fp.write(data)
+                    fp.flush()
+                    upload_jobs[conn]['received_size'] += len(data)  # 更新已接受的总大小
+                msg = "收到来自%s，数据长度为%d字节" % (str(conn), len(data))
+                print(msg)
+            elif conn in download_dict:
+                pass
             else:
                 exit('Invalid cmd')
         else:
