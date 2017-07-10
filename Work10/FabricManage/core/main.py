@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
 
-import threading
+import threading, os
 from conf import settings
 from core.ftpserver import SSHClients
 
@@ -32,19 +32,19 @@ class Handler(object):
         #     Handler.RESULT_DICT = {}
         ssh.to_close()
 
-    def _put(self, ssh, host, _cmd, callback):
+    def _put(self, host, ssh, _cmd, callback):
         '''上传文件'''
         result = ssh.change(_cmd)
         print(host.center(60, '='))
         callback(result)
-        self.s.sftp_close()
+        ssh.sftp_close()
 
-    def _get(self, ssh, host, _cmd, callback):
+    def _get(self, host, ssh, _cmd, callback):
         '''下载文件'''
         result = ssh.change(_cmd)
         print(host.center(60, '='))
         callback(result)
-        self.s.sftp_close()
+        ssh.sftp_close()
 
     def show(self):
         '''主机列表显示'''
@@ -94,7 +94,9 @@ class Handler(object):
             while True:
                 self.semaphore = threading.BoundedSemaphore(10)
                 cmd = input("\n>>> 请操作: ").strip()
+                # print(cmd)
                 cmd_list = cmd.split()
+                # print(cmd_list)
                 if cmd_list[0] == 'exit':
                     break
                 res_list = []
@@ -108,11 +110,11 @@ class Handler(object):
                         s.conn()
                     if hasattr(self, '_%s' % cmd_list[0]):
                         func = getattr(self, '_%s' % cmd_list[0])
-                        t = threading.Thread(target=func, args=(h[0], s, cmd, self.callback_func))
+                        t = threading.Thread(target=func, args=(h[0], s, cmd_list, self.callback_func))
                         t.start()
                         res_list.append(t)
                     else:
-                        t = threading.Thread(target=self._cmd, args=(h[0], s, cmd, self.callback_func))
+                        t = threading.Thread(target=self._cmd, args=(h[0], s, cmd_list, self.callback_func))
                         t.start()
                         res_list.append(t)
                 for j in res_list:

@@ -50,9 +50,14 @@ def read(conn, mask):
                 filesize = int(data.split(b'|')[3].decode())
                 username = data.split(b'|')[2].decode()
                 p_filename = "%s/%s/%s" % (settings.USER_HOME, username, filename)
-
-                upload_jobs[conn] = dict(filename=filename, filesize=filesize, received_size=0, fp=open(p_filename, 'ab'))
-                conn.send(b'1')
+                # print(filename, filesize)
+                # print(os.path.exists(p_filename))
+                # print(os.path.getsize(p_filename))
+                if os.path.exists(p_filename) and os.path.getsize(p_filename) == filesize:
+                    conn.send(b'0')
+                else:
+                    upload_jobs[conn] = dict(filename=filename, filesize=filesize, received_size=0, fp=open(p_filename, 'ab'))
+                    conn.send(b'1')
             elif data.startswith(b"get") and data.split(b'|')[0] == b'get':
                 print('获取get请求')
                 filename = data.split(b'|')[1].decode() # 接受到的命令格式应该为get|filename

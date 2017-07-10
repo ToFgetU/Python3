@@ -32,15 +32,16 @@ class SSHClients(object):
 
     def sftp_conn(self):
         # 创建SFTP对象
-        transport = paramiko.Transport((self.hostname, self.port))
-        transport.connect(username=self.username, password=self.password)
-        self.sftp = paramiko.SFTPClient.from_transport(transport)
+        self.transport = paramiko.Transport((self.hostname, self.port))
+        self.transport.connect(username=self.username, password=self.password)
+        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
 
     def change(self, cmd):
         if len(cmd) < 3:
             return 'Invalid cmd'
         if cmd[0] == 'put':
             try:
+
                 self.sftp.put(cmd[1], cmd[2])
                 return '上传成功'
             except FileNotFoundError as e:
