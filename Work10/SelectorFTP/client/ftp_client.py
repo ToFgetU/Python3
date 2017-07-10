@@ -5,6 +5,7 @@
 简单的客户端
 使用方法：put filename
 测试并发：准备好一个几M文件，一个几十M文件，先put大的，再put小的，就能看到效果
+单次上传或下载之后就会退出程序，待优化，加入循环即可
 """
 import os, sys, datetime
 import socket

@@ -3,9 +3,6 @@
 # @Author  : Coosh
 """
 SELECT版超级简单版服务器端
-目前只实现了上传，参考read()函数
-使用方法：直接执行即可
-待优化：未对断线的客户端进行处理，比如断线后fp未关闭
 """
 import os, sys, datetime, time
 import selectors
@@ -46,7 +43,7 @@ def read(conn, mask):
                 else:
                     print('用户密码错误')
                     conn.send(b'0')
-            if data.startswith(b"put"):
+            if data.startswith(b"put") and data.split(b'|')[0] == b'put': #二进制文件可能刚好发送了put开头的二进制字符串，所以再用条件限制下
                 print('获取put请求')
                 filename = (data.split(b'|')[1].decode())
                 filename = filename.split('/')[-1]
@@ -56,7 +53,7 @@ def read(conn, mask):
 
                 upload_jobs[conn] = dict(filename=filename, filesize=filesize, received_size=0, fp=open(p_filename, 'ab'))
                 conn.send(b'1')
-            elif data.startswith(b"get"):
+            elif data.startswith(b"get") and data.split(b'|')[0] == b'get':
                 print('获取get请求')
                 filename = data.split(b'|')[1].decode() # 接受到的命令格式应该为get|filename
                 username = data.split(b'|')[2].decode()
