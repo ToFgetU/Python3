@@ -12,7 +12,7 @@ import socket
 import optparse
 
 
-def auth(client, opstions, args):
+def auth(client, opstions, parse, args):
     '''用户验证'''
     if opstions.username is None or opstions.password is None:
         parse.print_help()
@@ -25,7 +25,7 @@ def auth(client, opstions, args):
         return response
 
 
-def make_conn(opstions, args):
+def make_conn(opstions, parse, args):
     '''连接服务器'''
     if opstions.server is None or opstions.port is None:
         parse.print_help()
@@ -44,8 +44,8 @@ def start():
     parse.add_option("-u", "--username", dest="username", help="ftp server user")
     parse.add_option("-p", "--password", dest="password", help="ftp server password")
     opstions, args = parse.parse_args()
-    client = make_conn(opstions, args)
-    conn = int(auth(client, opstions, args))
+    client = make_conn(opstions, parse, args)
+    conn = int(auth(client, opstions, parse, args))
 
     if conn:
         print('登入成功')
