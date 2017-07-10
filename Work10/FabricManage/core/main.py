@@ -114,7 +114,7 @@ class Handler(object):
                         t.start()
                         res_list.append(t)
                     else:
-                        t = threading.Thread(target=self._cmd, args=(h[0], s, cmd_list, self.callback_func))
+                        t = threading.Thread(target=self._cmd, args=(h[0], s, cmd, self.callback_func))
                         t.start()
                         res_list.append(t)
                 for j in res_list:
