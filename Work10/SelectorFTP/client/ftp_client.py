@@ -7,7 +7,7 @@
 测试并发：准备好一个几M文件，一个几十M文件，先put大的，再put小的，就能看到效果
 单次上传或下载之后就会退出程序，待优化，加入循环即可
 """
-import os, sys, datetime
+import os, sys, time
 import socket
 import optparse
 
@@ -58,12 +58,13 @@ def start():
                     exit('退出程序')
 
             action = c_input.split(maxsplit=1)[0]
-            filename = c_input.split(maxsplit=1)[1]
+            filepath = c_input.split(maxsplit=1)[1]
+            filename = filepath.split('/')[-1]
             if action == 'put':
-                if os.path.exists(filename) and os.path.isfile(filename):
-                    filename = os.path.abspath(filename)
+                if os.path.exists(filepath) and os.path.isfile(filepath):
+                    # filename = os.path.abspath(filename)
                     # print(filename)
-                    filesize = os.stat(filename).st_size
+                    filesize = os.stat(filepath).st_size
                     cmd = '%s|%s|%s|%s' % (action, filename, opstions.username, filesize)
                 else:
                     exit('输入的文件不存在')
@@ -72,14 +73,15 @@ def start():
             if cmd.startswith('put'):
                 client.send(cmd.encode('utf8'))
                 # 服务端确认可以接收数据
-                t = client.recv(1).decode()
-                # print(t)
+                t = client.recv(1)
+                print(t)
+                t.decode()
                 if t == '0':
                     print('服务器已存在该文件')
                     continue
                 buffer_size = 4096
                 sent_size = 0
-                with open(filename, 'rb') as fp:
+                with open(filepath, 'rb') as fp:
                     while fp.tell() < filesize:
                         buffer = fp.read(buffer_size)
                         client.send(buffer)
@@ -90,11 +92,16 @@ def start():
             elif cmd.startswith('get'):
                 print(cmd)
                 client.send(cmd.encode('utf8'))
-                response = client.recv(1024).decode()
-                if response == '0':
+                # time.sleep(0.5)
+                response = client.recv(1024)
+                # client.send(b'1')
+                print(response)
+                if response == b'0':
                     exit('下载的文件不存在')
                 else:
                     received_size = 0
+                    response = response.decode()
+                    print(response)
                     while True:
                         filename = response.split('|')[0]
                         filesize = int(response.split('|')[1])
@@ -104,7 +111,9 @@ def start():
                                 print('文件已接收')
                                 break
                         s_cmd = '%s|%s' % (filename, received_size)
+                        print(s_cmd)
                         client.send(s_cmd.encode('utf8'))
+                        time.sleep(0.1)
                         with open(filename, 'ab') as fp:
                             # print(fp)
                             if filesize - received_size > 4096:
@@ -120,6 +129,9 @@ def start():
                                 received_size += len(data)
                                 print("已接收%d%%，%d字节" % (int(received_size / filesize * 100), received_size))
                                 print('文件接收成功')
+                                s_cmd = '%s|%s' % (filename, received_size)
+                                print(s_cmd)
+                                client.send(s_cmd.encode('utf8'))
                                 break
 
             else:
