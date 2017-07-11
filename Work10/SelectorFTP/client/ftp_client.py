@@ -95,7 +95,7 @@ def start():
                 # time.sleep(0.5)
                 response = client.recv(1024)
                 # client.send(b'1')
-                print(response)
+                # print(response)
                 if response == b'0':
                     exit('下载的文件不存在')
                 else:

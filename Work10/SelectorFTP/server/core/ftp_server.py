@@ -107,7 +107,7 @@ def read(conn, mask):
                     buffer_size = 4096
                     if fp.tell() < download_jobs[conn]['filesize']:
                         buffer = fp.read(buffer_size)
-                        print(buffer)
+                        # print(buffer)
                         conn.send(buffer)
                         # fp.close()
                     else:
