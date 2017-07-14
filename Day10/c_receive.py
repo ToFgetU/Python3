@@ -22,6 +22,7 @@ def callback(ch, method, properties, body):
     print("[X] received: %s" % body)
     ch.basic_ack(delivery_tag=method.delivery_tag) # 队列处理结束，返回应答
 
+channel.basic_qos(prefetch_count=1) # 设置接收端最大处理数
 channel.basic_consume(callback,
                       queue='hello',
                       #no_ack=True  # 默认不需要， 为 接收端是否需要应答，这里为不需要应答
