@@ -1,20 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
+sum = 0
+n = 1
+while n < 1000:
+    sum += n * (1000 - (n-1))/2
+    n += 2
 
-# str1 = '123245612'
-# list1 = list(str1)
-# print(str1[1])
-# print(list1)
-#
-# list2 = list(set(list1))
-# print(list2)
-import time, os
-import cx_Oracle
-while True:
-    t = os.system('sqlplus')
-    print(t)
-    time.sleep(1)
-
-
-import cx_Oracle
+print(sum)

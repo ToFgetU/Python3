@@ -18,5 +18,7 @@ class client(object):
     def on_response(self, ch, method ,properites, body):
         print(ch, method, properites, body)
 
+    def call(self):
+
     def start(self):
         print()
