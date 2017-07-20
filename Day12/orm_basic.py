@@ -8,12 +8,12 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# 建立数据库连接
-engine = create_engine("mysql+pymysql://root:mysql@192.168.128.133:3306/learndb", encoding='utf-8', echo=True)
+# 建立数据库连接   param: ?charset=utf8  中文支持
+engine = create_engine("mysql+pymysql://root:mysql@192.168.128.133:3306/learndb?charset=utf8", encoding='utf-8', echo=True)
 # engine = create_engine("oracle+cx_oracle://dev:dev@192.168.128.131:1521/orcl", encoding='utf-8', echo=True)
 # 建立orm基类
 Base = declarative_base()
-#建表
+# 建表
 class User(Base):
     __tablename__ = 'user' # 表名
     id = Column(Integer, primary_key=True)
