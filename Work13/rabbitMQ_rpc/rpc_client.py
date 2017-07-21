@@ -19,6 +19,7 @@ class client(object):
         print(ch, method, properites, body)
 
     def call(self):
+        pass
 
     def start(self):
         print()

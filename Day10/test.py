@@ -3,6 +3,8 @@
 # Author: PanFei Liu
 
 import paramiko
+import cx_Oracle
+
 class SSHClients(object):
     def __init__(self, username, password, hostname, port=22):
         self.username = username
@@ -56,12 +58,51 @@ class SSHClients(object):
     def sftp_close(self):
         self.transport.close()
 
+def oracle_conn(policy):
+    dns_tns = '(DESCRIPTION=(ADDRESS_LIST=(FAILOVER=on)(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=*.*.*.*)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=*.*.*.*)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=LISDBPRD)))'
+    # 连接数据库
+    conn = cx_Oracle.connect('user', 'passwd', dns_tns)
+    print('oracle version:', conn.version)
+    # 获取游标
+    cursor = conn.cursor()
+    cursor.execute("select prtno from lccont where contno=%s" % policy)
+    # 获取执行结果
+    result = cursor.fetchone()
+    print('result:', result)
+    cursor.close()
+    conn.close()
+    return result[0]
+
+def get_pdf(policy, dest):
+    p = SSHClients('weblogic', '7bdc2df9', '10.28.31.183')
+    p.sftp_conn()
+    if len(policy) == 12:
+        cmd = 'get /home/data_mount/ilis/ehome_print/%s.pdf %s' % (policy, dest)
+        cmd = cmd.split()
+        tmp = p.change(cmd)
+    elif len(policy) == 15:
+        cmd = 'get /home/data_mount/ilis/ehome/%ssinatay.pdf %s' % (policy, dest)
+        cmd = cmd.split()
+        tmp = p.change(cmd)
+    else:
+        p.sftp_close()
+        exit('获取的pdf有误')
+    print(tmp)
+    p.sftp_close()
 
 
 if __name__ == '__main__':
-    p = SSHClients('weblogic', 'weblogic', '10.28.31.183')
-    p.conn()
-    policy = input('请输入要下载的保单号: ').strip()
-    cmd = 'get /home/data_mount/ilis/ehome_print/%s.pdf' % policy
-    p.change(cmd)
-    p.sftp_close()
+    policy = input('请输入要下载的单号: ').strip()
+    change = input('是否需要签章(Y/N): ').strip().upper()
+    dest = 'D:/%s.pdf' % policy
+    if len(policy) == 12:
+        if change == 'Y':
+            policy = oracle_conn(policy)
+            dest = 'D:/%s.pdf' % policy
+            get_pdf(policy, dest)
+        else:
+            get_pdf(policy, dest)
+    elif len(policy) == 15:
+            get_pdf(policy, dest)
+    else:
+        exit('输入的单号有误')
