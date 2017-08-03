@@ -60,7 +60,22 @@
 #
 # username =b'112'
 # f.write(username)
-# f.close()
+# # f.close()
+#
+# a = input(':').strip().upper()
+# print(a)
 
-a = input(':').strip().upper()
-print(a)
+# import os
+#
+# g = os.walk("E:/WorkSpace/python/Python3/Work")
+# for path, dir, filelist in g:
+#     for dirname in dir:
+#         print(os.path.join(path, dirname))
+#     for filename in filelist:
+#         print(os.path.join(path, filename))
+#
+home_path = '/home/weblogic/lis_auto_dist/app'
+list1 = home_path.split('/')
+list2 = home_path.split('/')[4:]
+print(list1)
+print(list2)

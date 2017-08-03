@@ -61,7 +61,7 @@ class Handler(object):
 
     def start(self):
         '''主程序，启动方法'''
-        # host_list = settings.hosts_dict
+        # host_list = conf.hosts_dict
         while True:
             self.show()
             # print(Handler.HP_LIST)

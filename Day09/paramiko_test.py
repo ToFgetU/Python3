@@ -13,7 +13,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 # 连接服务器
 # ssh.connect(hostname='192.168.128.133', port=22, username='root', password='123456')
 private_key = paramiko.RSAKey.from_private_key_file('id_rsa.txt')
-ssh.connect(hostname='192.168.128.133', port=22, username='root', pkey=private_key)
+ssh.connect(hostname='192.168.128.131', port=22, username='root', pkey=private_key)
 
 # 执行命令
 stdin, stdout, stderr = ssh.exec_command('df')
@@ -27,8 +27,8 @@ print(result)
 ssh.close()
 
 # 创建SFTP对象
-transport = paramiko.Transport(('192.168.128.133', 22))
-transport.connect(username='root', password='123456')
+transport = paramiko.Transport(('192.168.128.131', 22))
+transport.connect(username='root', pkey=private_key)
 sftp = paramiko.SFTPClient.from_transport(transport)
 
 sftp.put('test.txt', '/tmp/test.txt')
