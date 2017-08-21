@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # Author: PanFei Liu
 
+import uuid
 import pika
 import random
 import paramiko
@@ -23,11 +24,24 @@ class client(object):
     def on_response(self, ch, method ,properites, body):
         print(ch, method, properites, body)
 
-    def call(self):
-        pass
+    def get_response(self, callback_queue, callback_id):
+        self.callback_id = callback_id
+        self.channel.basic_consume(self.on_response,
+                                   queue=callback_queue)
+        self.response = None
+        while self.response is None:
+            self.connection.process_data_events()
+        return self.response
 
-    def start(self):
-        print()
+    def call(self, cmd):
+        self.corr_id = str(uuid.uuid4())
+        self.channel.basic_pulish(exchange='',
+                                  routing_key='rpc_queue',
+                                  properties=pika.BasicProperties(reply_to=self.callback_queue,
+                                                                  correlation_id=self.corr_id),
+                                  body=str(cmd))
+        return self.callback_queue, self.corr_id
+
 
 class Hander(object):
     """
@@ -41,8 +55,8 @@ class Hander(object):
         _cmd = cmd_list[1]
         _host = cmd_list[2].split()
         print(_host)
-
-
+        client = client()
+        response = client.call(cmd)
 
     def check_task(self, cmd):
         print("I am check_task")
