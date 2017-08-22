@@ -7,11 +7,11 @@ import pika
 import random
 import paramiko
 
-class client(object):
+class Client(object):
     '''客户端类'''
-    def __init__(self, ip):
+    def __init__(self):
         # 创建socket实例
-        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host=ip))
+        self.connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
         # 创建管道
         self.channel = self.connection.channel()
         # 定义随机queue
@@ -35,7 +35,7 @@ class client(object):
 
     def call(self, cmd):
         self.corr_id = str(uuid.uuid4())
-        self.channel.basic_pulish(exchange='',
+        self.channel.basic_publish(exchange='',
                                   routing_key='rpc_queue',
                                   properties=pika.BasicProperties(reply_to=self.callback_queue,
                                                                   correlation_id=self.corr_id),
@@ -52,10 +52,7 @@ class Hander(object):
         print("cmd:", cmd)
         cmd_list = cmd.split('"')
         print(cmd_list)
-        _cmd = cmd_list[1]
-        _host = cmd_list[2].split()
-        print(_host)
-        client = client()
+        client = Client()
         response = client.call(cmd)
 
     def check_task(self, cmd):
