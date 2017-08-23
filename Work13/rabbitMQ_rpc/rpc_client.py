@@ -3,9 +3,11 @@
 # Author: PanFei Liu
 
 import uuid
+import time
 import pika
 import random
 import paramiko
+import threading
 
 class Client(object):
     '''客户端类'''
@@ -21,8 +23,11 @@ class Client(object):
                                    no_ack=True,
                                    queue=self.callback_queue)
 
-    def on_response(self, ch, method ,properites, body):
-        print(ch, method, properites, body)
+    def on_response(self, ch, method ,props, body):
+        # print(ch, method, props, body)
+        if self.callback_id == props.correlation_id:
+            self.response = body
+        ch.basic_ack(delivery_tag=method.delivery_tag)
 
     def get_response(self, callback_queue, callback_id):
         self.callback_id = callback_id
@@ -49,28 +54,44 @@ class Hander(object):
     """
     info = {}
     def run(self, cmd):
+        task_id = random.randint(10000, 100000)
+        while task_id in Hander.info:
+            task_id = random.randint(10000, 100000)
         print("cmd:", cmd)
         cmd_list = cmd.split('"')
         print(cmd_list)
-        client = Client()
-        response = client.call(cmd)
+        self.client = Client()
+        response = self.client.call(cmd)
+        Hander.info[task_id] = response
+        print('task_id: ', task_id)
+
 
     def check_task(self, cmd):
-        print("I am check_task")
+        print('cmd', cmd)
+        cmd_list = cmd.split()
+        print(cmd_list)
+        print(Hander.info)
+        if int(cmd_list[1].strip()) in Hander.info:
+            response = Hander.info[int(cmd_list[1].strip())]
+            result = self.client.get_response(response[0], response[1])
+            Hander.info[task_id] = result
+            for key, vaule in eval(result).items():
+                print(key.center(40, '='))
+                print(vaule)
+
 
     def start(self):
         print("程序开始运行".center(50, "="))
         while True:
-            task_id = random.randint(10000, 100000)
-            while task_id in Hander.info:
-                task_id = random.randint(10000, 100000)
-
             cmd = input(">>> ").strip()
-            Hander.info[task_id] = cmd
+            if not cmd:
+                continue
             cmd_list = cmd.split(' ', 1)
             if hasattr(self, '%s' % cmd_list[0]):
                 func = getattr(self, '%s' % cmd_list[0])
-                func(cmd)
+                t1 = threading.Thread(target=func, args=(cmd,))
+                t1.start()
+                time.sleep(0.5)
             else:
                 print("""\033[32;1m输入的命令行有误, 命令格式如下：
         run \"df -Th\" --host 10.10.10.10
