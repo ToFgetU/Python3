@@ -18,11 +18,19 @@ class server(object):
         hosts = cmd_list[2].split()
         print(hosts)
         response = {}
+        if len(hosts) == 0:
+            response["0.0.0.0"] = "主机为空或不存在"
         for host in hosts:
-            ssh = SSHClients('root', '123456', host)
-            ssh.conn()
-            response[host] = ssh.exec(_cmd)
-            return str(response)
+            try:
+                ssh = SSHClients('root', '123456', host)
+                ssh.conn()
+                response[host] = ssh.exec(_cmd)
+            except Exception as e:
+                print(e)
+                response[host] = e
+            finally:
+                ssh.to_close()
+        return str(response)
 
     def on_request(self, ch, method, props, body):
         cmd = body.decode()

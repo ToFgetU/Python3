@@ -29,14 +29,16 @@ class Client(object):
             self.response = body
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
-    def get_response(self, callback_queue, callback_id):
+    def get_response(self, callback_queue, callback_id, task_id):
         self.callback_id = callback_id
         self.channel.basic_consume(self.on_response,
                                    queue=callback_queue)
         self.response = None
         while self.response is None:
             self.connection.process_data_events()
-        return self.response
+            # print(11)
+        Hander.info[task_id] = self.response
+        # return self.response
 
     def call(self, cmd):
         self.corr_id = str(uuid.uuid4())
@@ -57,31 +59,38 @@ class Hander(object):
         task_id = random.randint(10000, 100000)
         while task_id in Hander.info:
             task_id = random.randint(10000, 100000)
-        print("cmd:", cmd)
+        # print("cmd:", cmd)
         cmd_list = cmd.split('"')
-        print(cmd_list)
+        # print(cmd_list)
         self.client = Client()
         response = self.client.call(cmd)
-        Hander.info[task_id] = response
+        Hander.info[task_id] = None
         print('task_id: ', task_id)
+        self.client.get_response(response[0], response[1], task_id)
 
 
     def check_task(self, cmd):
-        print('cmd', cmd)
+        # print('cmd', cmd)
         cmd_list = cmd.split()
-        print(cmd_list)
-        print(Hander.info)
-        if int(cmd_list[1].strip()) in Hander.info:
-            response = Hander.info[int(cmd_list[1].strip())]
-            result = self.client.get_response(response[0], response[1])
-            Hander.info[task_id] = result
-            for key, vaule in eval(result).items():
-                print(key.center(40, '='))
-                print(vaule)
+        # print(cmd_list)
+        # print(Hander.info)
+        task_id = int(cmd_list[1].strip())
+        if task_id in Hander.info:
+            result = Hander.info[task_id]
+            if result is None:
+                print("程序还在执行中 . . .")
+            else:
+                for key, vaule in eval(result).items():
+                    print(key.center(40, '='))
+                    print(vaule)
+                del Hander.info[task_id]
+        else:
+            print("查找的 TASK_ID 不存在,或者已经查询过该ID，系统自动进行了清理")
 
 
     def start(self):
         print("程序开始运行".center(50, "="))
+        p_list = []
         while True:
             cmd = input(">>> ").strip()
             if not cmd:
@@ -91,11 +100,14 @@ class Hander(object):
                 func = getattr(self, '%s' % cmd_list[0])
                 t1 = threading.Thread(target=func, args=(cmd,))
                 t1.start()
+                p_list.append(t1)
                 time.sleep(0.5)
             else:
                 print("""\033[32;1m输入的命令行有误, 命令格式如下：
         run \"df -Th\" --host 10.10.10.10
         check_task [check_id] （如：check_task 11111）\033[0m """)
+        for r in p_list:
+            r.join()
 
 if __name__ == '__main__':
     s = Hander()
