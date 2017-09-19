@@ -20,6 +20,9 @@ class Users(Base):
     name = Column(String(32))
     password = Column(String(64))
 
+    def __repr__(self):
+        return "<Users(name='%s', password='%s')>" % (self.name, self.password)
+
 # 创建表结构
 Base.metadata.create_all(t_engine)
 
@@ -44,4 +47,4 @@ session.commit()
 #  数据查询
 my_user = session.query(Users).filter_by(name='test').first()
 print(my_user)
-print(my_user.id, my_user.name, my_user.password)
+# print(my_user.id, my_user.name, my_user.password)
