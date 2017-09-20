@@ -1,0 +1,62 @@
+需求
+
+1. 使用SELECT或SELECTORS模块实现并发简单版FTP
+
+2. 允许多用户并发上传下载文件
+目录结构
+
+ 
+ftp_server
+    ├ bin   # 执行文件目录
+    |   └ ftp_server.py     # 执行程序
+    ├ conf  # 配置文件目录
+    |   ├ setting           # 配置文件。目前主要保存服务端sock和数据存储空间地址
+    |   └ init_setting.py   # 配置文件格式化程序
+    ├ core  # 程序核心代码位置
+    |   └ main.py           # 主逻辑交互程序
+    └ storage   # 服务端的数据存储空间      
+ 
+ftp_client
+    ├ bin   # 执行文件目录
+    |   └ ftp_client.py     # 执行程序
+    ├ conf  # 配置文件目录
+    |   ├ setting           # 配置文件。目前主要保存服务端sock和客户端文件下载目录地址
+    |   └ init_setting.py   # 配置文件格式化程序
+    ├ core  # 程序核心代码位置
+    |   └ main.py           # 主逻辑交互程序
+    └ download   # 客户端文件下载目录  
+ 代码
+
+ftp_server
+bin/ftp_server.py
+conf/init_setting.py
+core/main.py
+ftp_client
+bin/ftp_client.py
+conf/init_setting.py
+
+
+  1 #! /usr/bin/env python3
+  2 # -*- coding:utf-8 -*-
+  3 # Author:Jailly
+  4
+  5 import socket,os,configparser,json,sys
+  6
+  7 basepath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  8 setting_path = os.path.join(os.path.join(basepath, 'conf'), 'setting')
+  9
+ 10
+ 11 def get_setting(setting_path):
+ 12     cf = configparser.ConfigParser()
+ 13     cf.read(setting_path)
+ 14     setting_dict = {}
+ 15     for section in cf.sections():
+ 16         setting_dict[section] = {}
+ 17         for key,value in cf.items(section):
+ 18             setting_dict[section][key] = value
+ 19
+ 20     return setting_dict
+ 21
+ 22
+ 23 setting_dict = get_setting(setting_path)
+ 24 server_a
