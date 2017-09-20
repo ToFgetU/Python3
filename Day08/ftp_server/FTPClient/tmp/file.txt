@@ -1,0 +1,398 @@
+需求
+
+1. 使用SELECT或SELECTORS模块实现并发简单版FTP
+
+2. 允许多用户并发上传下载文件
+目录结构
+
+ 
+ftp_server
+    ├ bin   # 执行文件目录
+    |   └ ftp_server.py     # 执行程序
+    ├ conf  # 配置文件目录
+    |   ├ setting           # 配置文件。目前主要保存服务端sock和数据存储空间地址
+    |   └ init_setting.py   # 配置文件格式化程序
+    ├ core  # 程序核心代码位置
+    |   └ main.py           # 主逻辑交互程序
+    └ storage   # 服务端的数据存储空间      
+ 
+ftp_client
+    ├ bin   # 执行文件目录
+    |   └ ftp_client.py     # 执行程序
+    ├ conf  # 配置文件目录
+    |   ├ setting           # 配置文件。目前主要保存服务端sock和客户端文件下载目录地址
+    |   └ init_setting.py   # 配置文件格式化程序
+    ├ core  # 程序核心代码位置
+    |   └ main.py           # 主逻辑交互程序
+    └ download   # 客户端文件下载目录  
+ 代码
+
+ftp_server
+bin/ftp_server.py
+conf/init_setting.py
+core/main.py
+ftp_client
+bin/ftp_client.py
+conf/init_setting.py
+
+
+  1 #! /usr/bin/env python3
+  2 # -*- coding:utf-8 -*-
+  3 # Author:Jailly
+  4
+  5 import socket,os,configparser,json,sys
+  6
+  7 basepath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  8 setting_path = os.path.join(os.path.join(basepath, 'conf'), 'setting')
+  9
+ 10
+ 11 def get_setting(setting_path):
+ 12     cf = configparser.ConfigParser()
+ 13     cf.read(setting_path)
+ 14     setting_dict = {}
+ 15     for section in cf.sections():
+ 16         setting_dict[section] = {}
+ 17         for key,value in cf.items(section):
+ 18             setting_dict[section][key] = value
+ 19
+ 20     return setting_dict
+ 21
+ 22
+ 23 setting_dict = get_setting(setting_path)
+ 24 server_address = eval(setting_dict['client_info']['server_address'])
+ 25 download_dir = os.path.join(basepath, setting_dict['client_info']['download_dir'])
+ 26
+ 27
+ 28 class FTPClient(object):
+ 29
+ 30     def __init__(self,server_adress):
+ 31         self.socket = socket.socket()
+ 32         self.socket.connect(server_adress)
+ 33
+ 34
+ 35     def rename(self,file_path,times=1):
+ 36         f_name,f_extension = os.path.splitext(file_path)
+ 37         f_name += '(%s)'%str(times)
+ 38         new_file_path = f_name + f_extension
+ 39
+ 40         if os.path.isfile(new_file_path):
+ 41             times += 1
+ 42             return self.rename(file_path,times)
+ 43         else:
+ 44             return new_file_path
+ 45
+ 46
+ 47     def get(self,file_path):
+ 48         self.socket.send(b'0')  # 配合服务端完成阻塞，以防止服务端粘包(s:1)
+ 49         # print('preare to get file_size')
+ 50         file_size = int(self.socket.recv(1024).decode('utf-8'))
+ 51         # print('get file_size ',file_size)
+ 52         self.socket.send(b'0')  # 配合服务端完成阻塞，以防止服务端粘包(s:2)
+ 53
+ 54         file_path = os.path.join(download_dir,file_path)
+ 55         # print('prepare to handle file_path')
+ 56         real_file_path = self.rename(file_path) if os.path.isfile(file_path) else file_path
+ 57         # print('finished handling file_path')
+ 58         accepted_size = 0
+ 59         last_accepted_size = 0
+ 60         print('Downloading %s: '%os.path.basename(file_path),end='')
+ 61         with open(real_file_path,'wb') as f:
+ 62             while accepted_size < file_size:
+ 63                 if accepted_size >= file_size - 1024:
+ 64                     buffersize = file_size - accepted_size
+ 65                 else:
+ 66                     buffersize = 1024
+ 67
+ 68                 accepting_data = self.socket.recv(buffersize)
+ 69                 f.write(accepting_data)
+ 70                 accepted_size += len(accepting_data)
+ 71
+ 72                 # 打印进度条
+ 73                 bar_num = (accepted_size - last_accepted_size) * 100 // file_size
+ 74
+ 75                 if bar_num:
+ 76                     sys.stdout.write('#'*bar_num)
+ 77                     sys.stdout.flush()
+ 78                     last_accepted_size = accepted_size  # 只有当前后2次的差达到文件大小的1%时，才为代表上一次传输大小的变量（last_accepted_size）赋值
+ 79
+ 80             print(' done')
+ 81
+ 82     def put(self,file_path):
+ 83         self.socket.recv(1024)  # 阻塞，以防止客户端粘包（c:1）
+ 84
+ 85         file_size = os.stat(file_path).st_size
+ 86         self.socket.send(str(file_size).encode())
+ 87
+ 88         self.socket.recv(1024)    # 阻塞，以防止客户端粘包（c:2）
+ 89
+ 90         send_size = 0
+ 91         last_send_size = 0
+ 92         print('Uploading %s: '%os.path.basename(file_path),end = '')
+ 93         with open(file_path,'br') as f:
+ 94             for line in f:
+ 95                 self.socket.send(line)
+ 96                 send_size += len(line)
+ 97
+ 98                 bar_num = (send_size - last_send_size)*100 // file_size
+ 99                 if bar_num:
+100                     sys.stdout.write('#'*bar_num)
+101                     sys.stdout.flush()
+102                     last_send_size = send_size
+103
+104         print(' done')
+105
+106
+107     def interactive(self):
+108         while 1:
+109             # print('prepare to get file_list')
+110             file_list = json.loads(self.socket.recv(1024).decode())
+111             print('\n服务器存储空间的文件列表：\n%s\n'%('\n'.join([file for file in file_list]) if file_list
+112                                            else '\033[1;32m目前尚未有文件\033[0m'))
+113             # print('has got file_list')
+114             cmd = input('请输入指令：').strip()
+115
+116             if cmd == '':
+117                 print('输入不能为空')
+118                 continue
+119
+120             if len(cmd.split()) == 2:
+121                 action = cmd.split()[0]
+122                 file_path = cmd.split()[1]
+123
+124                 if action == 'put':
+125                     if os.path.isfile(file_path):
+126                         self.socket.send(cmd.encode())
+127                         self.put(file_path)
+128                     else:
+129                         self.socket.send(b'skip')
+130                         print('\033[1;31m您要上传的文件不存在\033[0m')
+131
+132                 elif action == 'get':
+133                     self.socket.send(cmd.encode())
+134                     exist_flag = self.socket.recv(1024).decode('utf-8')
+135                     # print('exist_flag: ',exist_flag)
+136                     if exist_flag == '0':
+137                         self.get(file_path)
+138                     else:
+139                         self.socket.send(b'skip')
+140                         print('\033[1;31m您要下载的文件不存在\033[0m')
+141                 else:
+142                     self.socket.send(b'skip')
+143                     print('\033[1;31m错误指令，请重试！\033[0m')
+144
+145             else:
+146                 if cmd == 'exit':
+147                     self.socket.send(cmd.encode())
+148                     self.socket.close()
+149                     return
+150                 else:
+151                     self.socket.send(b'skip')
+152                     print('\033[1;31m错误指令，请重试！\033[0m')
+153
+154
+155 def main():
+156     fc = FTPClient(server_address)
+157     fc.interactive()
+158
+159 if __name__ == '__main__':
+160
+161     main()
+需求
+
+1. 使用SELECT或SELECTORS模块实现并发简单版FTP
+
+2. 允许多用户并发上传下载文件
+目录结构
+
+ 
+ftp_server
+    ├ bin   # 执行文件目录
+    |   └ ftp_server.py     # 执行程序
+    ├ conf  # 配置文件目录
+    |   ├ setting           # 配置文件。目前主要保存服务端sock和数据存储空间地址
+    |   └ init_setting.py   # 配置文件格式化程序
+    ├ core  # 程序核心代码位置
+    |   └ main.py           # 主逻辑交互程序
+    └ storage   # 服务端的数据存储空间      
+ 
+ftp_client
+    ├ bin   # 执行文件目录
+    |   └ ftp_client.py     # 执行程序
+    ├ conf  # 配置文件目录
+    |   ├ setting           # 配置文件。目前主要保存服务端sock和客户端文件下载目录地址
+    |   └ init_setting.py   # 配置文件格式化程序
+    ├ core  # 程序核心代码位置
+    |   └ main.py           # 主逻辑交互程序
+    └ download   # 客户端文件下载目录  
+ 代码
+
+ftp_server
+bin/ftp_server.py
+conf/init_setting.py
+core/main.py
+ftp_client
+bin/ftp_client.py
+conf/init_setting.py
+
+
+  1 #! /usr/bin/env python3
+  2 # -*- coding:utf-8 -*-
+  3 # Author:Jailly
+  4
+  5 import socket,os,configparser,json,sys
+  6
+  7 basepath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  8 setting_path = os.path.join(os.path.join(basepath, 'conf'), 'setting')
+  9
+ 10
+ 11 def get_setting(setting_path):
+ 12     cf = configparser.ConfigParser()
+ 13     cf.read(setting_path)
+ 14     setting_dict = {}
+ 15     for section in cf.sections():
+ 16         setting_dict[section] = {}
+ 17         for key,value in cf.items(section):
+ 18             setting_dict[section][key] = value
+ 19
+ 20     return setting_dict
+ 21
+ 22
+ 23 setting_dict = get_setting(setting_path)
+ 24 server_address = eval(setting_dict['client_info']['server_address'])
+ 25 download_dir = os.path.join(basepath, setting_dict['client_info']['download_dir'])
+ 26
+ 27
+ 28 class FTPClient(object):
+ 29
+ 30     def __init__(self,server_adress):
+ 31         self.socket = socket.socket()
+ 32         self.socket.connect(server_adress)
+ 33
+ 34
+ 35     def rename(self,file_path,times=1):
+ 36         f_name,f_extension = os.path.splitext(file_path)
+ 37         f_name += '(%s)'%str(times)
+ 38         new_file_path = f_name + f_extension
+ 39
+ 40         if os.path.isfile(new_file_path):
+ 41             times += 1
+ 42             return self.rename(file_path,times)
+ 43         else:
+ 44             return new_file_path
+ 45
+ 46
+ 47     def get(self,file_path):
+ 48         self.socket.send(b'0')  # 配合服务端完成阻塞，以防止服务端粘包(s:1)
+ 49         # print('preare to get file_size')
+ 50         file_size = int(self.socket.recv(1024).decode('utf-8'))
+ 51         # print('get file_size ',file_size)
+ 52         self.socket.send(b'0')  # 配合服务端完成阻塞，以防止服务端粘包(s:2)
+ 53
+ 54         file_path = os.path.join(download_dir,file_path)
+ 55         # print('prepare to handle file_path')
+ 56         real_file_path = self.rename(file_path) if os.path.isfile(file_path) else file_path
+ 57         # print('finished handling file_path')
+ 58         accepted_size = 0
+ 59         last_accepted_size = 0
+ 60         print('Downloading %s: '%os.path.basename(file_path),end='')
+ 61         with open(real_file_path,'wb') as f:
+ 62             while accepted_size < file_size:
+ 63                 if accepted_size >= file_size - 1024:
+ 64                     buffersize = file_size - accepted_size
+ 65                 else:
+ 66                     buffersize = 1024
+ 67
+ 68                 accepting_data = self.socket.recv(buffersize)
+ 69                 f.write(accepting_data)
+ 70                 accepted_size += len(accepting_data)
+ 71
+ 72                 # 打印进度条
+ 73                 bar_num = (accepted_size - last_accepted_size) * 100 // file_size
+ 74
+ 75                 if bar_num:
+ 76                     sys.stdout.write('#'*bar_num)
+ 77                     sys.stdout.flush()
+ 78                     last_accepted_size = accepted_size  # 只有当前后2次的差达到文件大小的1%时，才为代表上一次传输大小的变量（last_accepted_size）赋值
+ 79
+ 80             print(' done')
+ 81
+ 82     def put(self,file_path):
+ 83         self.socket.recv(1024)  # 阻塞，以防止客户端粘包（c:1）
+ 84
+ 85         file_size = os.stat(file_path).st_size
+ 86         self.socket.send(str(file_size).encode())
+ 87
+ 88         self.socket.recv(1024)    # 阻塞，以防止客户端粘包（c:2）
+ 89
+ 90         send_size = 0
+ 91         last_send_size = 0
+ 92         print('Uploading %s: '%os.path.basename(file_path),end = '')
+ 93         with open(file_path,'br') as f:
+ 94             for line in f:
+ 95                 self.socket.send(line)
+ 96                 send_size += len(line)
+ 97
+ 98                 bar_num = (send_size - last_send_size)*100 // file_size
+ 99                 if bar_num:
+100                     sys.stdout.write('#'*bar_num)
+101                     sys.stdout.flush()
+102                     last_send_size = send_size
+103
+104         print(' done')
+105
+106
+107     def interactive(self):
+108         while 1:
+109             # print('prepare to get file_list')
+110             file_list = json.loads(self.socket.recv(1024).decode())
+111             print('\n服务器存储空间的文件列表：\n%s\n'%('\n'.join([file for file in file_list]) if file_list
+112                                            else '\033[1;32m目前尚未有文件\033[0m'))
+113             # print('has got file_list')
+114             cmd = input('请输入指令：').strip()
+115
+116             if cmd == '':
+117                 print('输入不能为空')
+118                 continue
+119
+120             if len(cmd.split()) == 2:
+121                 action = cmd.split()[0]
+122                 file_path = cmd.split()[1]
+123
+124                 if action == 'put':
+125                     if os.path.isfile(file_path):
+126                         self.socket.send(cmd.encode())
+127                         self.put(file_path)
+128                     else:
+129                         self.socket.send(b'skip')
+130                         print('\033[1;31m您要上传的文件不存在\033[0m')
+131
+132                 elif action == 'get':
+133                     self.socket.send(cmd.encode())
+134                     exist_flag = self.socket.recv(1024).decode('utf-8')
+135                     # print('exist_flag: ',exist_flag)
+136                     if exist_flag == '0':
+137                         self.get(file_path)
+138                     else:
+139                         self.socket.send(b'skip')
+140                         print('\033[1;31m您要下载的文件不存在\033[0m')
+141                 else:
+142                     self.socket.send(b'skip')
+143                     print('\033[1;31m错误指令，请重试！\033[0m')
+144
+145             else:
+146                 if cmd == 'exit':
+147                     self.socket.send(cmd.encode())
+148                     self.socket.close()
+149                     return
+150                 else:
+151                     self.socket.send(b'skip')
+152                     print('\033[1;31m错误指令，请重试！\033[0m')
+153
+154
+155 def main():
+156     fc = FTPClient(server_address)
+157     fc.interactive()
+158
+159 if __name__ == '__main__':
+160
+161     main()

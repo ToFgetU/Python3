@@ -1,0 +1,2754 @@
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+
+
+self.z = 0
+self.z = 0
+self.z = 0
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+　　Python的pickle模块实现了基本的数据序列和反序列化。通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储；通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。
+
+　　基本接口：
+
+　　pickle.dump(obj, file, [,protocol])
+　　注解：将对象obj保存到文件file中去。
+　　　　　protocol为序列化使用的协议版本，0：ASCII协议，所序列化的对象使用可打印的ASCII码表示；1：老式的二进制协议；2：2.3版本引入的新二进制协议，较以前的更高效。其中协议0和1兼容老版本的python。protocol默认值为0。
+　　　　　file：对象保存到的类文件对象。file必须有write()接口， file可以是一个以'w'方式打开的文件或者一个StringIO对象或者其他任何实现write()接口的对象。如果protocol>=1，文件对象需要是二进制模式打开的。
+
+　　pickle.load(file)
+　　注解：从file中读取一个字符串，并将它重构为原来的python对象。
+　　file:类文件对象，有read()和readline()接口。
+
+　　A Simple Code
+
+=============================
+
+#使用pickle模块将数据对象保存到文件
+import pickle
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+#在此处我们在向文件中写入两次的dump
+
+#是否这两次的写入会被覆盖
+
+#答案是否定的，数据不会被覆盖
+
+#但是在读出数据时需要两次load
+
+#分别调出两次不同的dump
+
+==========================================
+
+#使用pickle模块从文件中重构python对象
+import pprint, pickle
+pkl_file = open('data.pkl', 'rb')
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+=============================
+
+ pickle模块中常用的方法有：
+
+1. pickle.dump(obj, file, protocol=None,)
+
+必填参数obj表示将要封装的对象
+
+必填参数file表示obj要写入的文件对象，file必须以二进制可写模式打开，即“wb”
+
+可选参数protocol表示告知pickler使用的协议，支持的协议有0,1,2,3，默认的协议是添加在Python 3中的协议3， 其他的协议详情见参考文档
+
+2. pickle.load(file,*,fix_imports=True, encoding="ASCII", errors="strict")
+
+必填参数file必须以二进制可读模式打开，即“rb”，其他都为可选参数
+
+3. pickle.dumps(obj)：以字节对象形式返回封装的对象，不需要写入文件中
+
+4. pickle.loads(bytes_object): 从字节对象中读取被封装的对象，并返回
+
+pickle模块可能出现三种异常：
+
+1. PickleError：封装和拆封时出现的异常类，继承自Exception
+
+2. PicklingError: 遇到不可封装的对象时出现的异常，继承自PickleError
+
+3. UnPicklingError: 拆封对象过程中出现的异常，继承自PickleError
+
+
+pickle 是十分有用的一种序列化工具，使我们可以将数据进行存储到硬盘空间之中
+
+在需要使用时可以将数据再调入到内存当中。
+
+在此需要注意的是多次的dump 需要对应的load
+
+并且在使用多个元素的存储时，建议使用数组，或者list，元祖等的形式
+
+方便操作。
+
+=======================================
+
+
+self.z = 0
+self.z = 0
+self.z = 0
+
+
+
+
+
+
